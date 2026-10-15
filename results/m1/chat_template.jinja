@@ -1,0 +1,6 @@
+{{ bos_token }}{% for m in messages %}{% if m['role'] == 'system' %}{{ m['content'] + '
+
+' }}{% elif m['role'] == 'user' %}{{ 'Q: ' + m['content'] + '
+' }}{% else %}{{ 'A: ' + m['content'] + '
+
+' }}{% endif %}{% endfor %}{% if add_generation_prompt %}{{ 'A:' }}{% endif %}
