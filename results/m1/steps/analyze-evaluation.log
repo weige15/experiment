@@ -1,0 +1,13 @@
+Analyzed evaluation full all: n=96
+Analyzed evaluation full gsm8k: n=32
+Analyzed evaluation full arc: n=32
+Analyzed evaluation full boolq: n=32
+Analyzed evaluation content all: n=96
+Analyzed evaluation content gsm8k: n=32
+Analyzed evaluation content arc: n=32
+Analyzed evaluation content boolq: n=32
+Analyzed evaluation first_token all: n=96
+Analyzed evaluation first_token gsm8k: n=32
+Analyzed evaluation first_token arc: n=32
+Analyzed evaluation first_token boolq: n=32
+COMPLETE analysis role=evaluation source_n=96 W4_rows=1536

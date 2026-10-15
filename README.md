@@ -1,39 +1,53 @@
 # M1: request-dependent layer quantization sensitivity
 
-Real **meta-llama/Llama-3.1-8B (base)**, BF16 reference, one W4-quantized four-layer group at a time. GSM8K, ARC-Challenge, BoolQ. This is a sensitivity experiment, **not** a router or a packed-integer performance benchmark.
+Real **meta-llama/Llama-3.1-8B (base)**; BF16 reference versus exactly one W4 four-layer group at a time. GSM8K, ARC-Challenge, BoolQ. **M1 only: no router, clustering, batching, or packed-integer performance claims.**
 
-## Install
+## Results
 
-Linux, Python 3.12, `uv`, NVIDIA CUDA-compatible driver, and a BF16-capable GPU with approximately 24 GiB VRAM. Model access requires accepting Meta's license on Hugging Face and an authorized local login/cache. Credentials are never stored in this repository.
+[Full report](results/m1/report.md): 96 independent evaluation sources, two wordings, 1,536 W4 measurements and 1,728 actual answers. The evidence supports bounded request×group sensitivity, **not** deployable configuration selection. Label-oracle accuracy gain over accuracy-best fixed: **6.77 pp [95% CI 2.60–9.38]**; cross-wording KL-choice transfer is not clearly beneficial. Null cases and failures are retained.
+
+## Quickstart
+
+Linux with `bash`/`flock`, Python 3.12, `uv`, CUDA-compatible NVIDIA driver, and a BF16-capable GPU with roughly 24 GiB VRAM. Accept the model's Meta/Hugging Face license and use your authorized login/cache. Do not put credentials in this repository.
 
 ```bash
 bash scripts/install.sh
 .venv/bin/python -m pytest -q tests
+M1_GPU=1 bash scripts/run_m1.sh   # choose a GPU allocated to you
 ```
 
-`requirements.lock` pins the tested 60-package environment (Torch 2.8.0+cu128, Transformers 4.56.1). Model and dataset revisions are pinned in source and in [the protocol](doc/protocol.md).
+The one-command runner installs the 60 pinned dependencies, verifies official weights, executes missing incremental gates, runs/resumes smoke → calibration → evaluation, validates raw records, and renders statistics/figures/report. It serializes work on one GPU and preserves prior derived results. Existing completed inference is **reused and audited**, not silently rerun.
 
-## Incremental execution
-
-Choose an available GPU; do not disturb other users' jobs. Run from the repository root:
+For a separate full inference reproduction:
 
 ```bash
-export CUDA_VISIBLE_DEVICES=5  # replace with your available GPU
-.venv/bin/python -m scripts.provenance
-.venv/bin/python -m scripts.baseline
-.venv/bin/python -m scripts.one_group
-.venv/bin/python -m scripts.sensitivity --groups 0 --repeat-check
-.venv/bin/python -m scripts.sensitivity --groups 0 1 2 3 4 5 6 7 --out results/m1/steps/eight_groups
-.venv/bin/python -m scripts.prepare_data
-.venv/bin/python -m m1_run --role smoke --wording a --out results/m1/runs/smoke_a
-.venv/bin/python -m m1_run --role smoke --wording b --out results/m1/runs/smoke_b
-.venv/bin/python -m scripts.validate_runs --role smoke --runs results/m1/runs/smoke_a results/m1/runs/smoke_b --out results/m1/smoke_validation.json
+M1_OUT=results/m1_reproduction M1_GPU=1 bash scripts/run_m1.sh
 ```
 
-The runner checkpoints each request/configuration atomically. Repeat the **same command** to resume; it refuses to mix changed measurement code or samples into an existing run. Raw BF16 logits (`reference_logits/*.pt`) are retained locally but Git-ignored. JSON and CSV contain actual answers, token IDs, token-level KL and scores. No synthetic values are used as experiment results.
+All constituent GPU stages were actually executed. The one-command **resume/re-analysis** path was also executed successfully; a second full fresh-directory GPU campaign was not redundantly repeated.
 
-The base tokenizer has no official chat template. The explicit three-shot Q/A template is saved as `results/m1/chat_template.jinja` and held constant across precision configurations. W4 uses packed signed RTN codes with FP32 block scales, decoded to BF16 for computation; activations and KV cache stay BF16. See the protocol for scope and limitations.
+## Common commands
 
-## Status
+```bash
+# Recompute statistics from verified real measurements (CPU)
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m scripts.analyze_m1
+.venv/bin/python -m scripts.plot_m1
+.venv/bin/python -m scripts.report_m1
+.venv/bin/python -m scripts.audit_m1
+```
 
-M1 is **not complete**. Baseline → single-group → single-request KL → eight-group → full smoke gates have passed. Calibration is running; formal evaluation, statistical analysis, heatmap, final report and full one-command orchestrator are still pending. Current evidence and failures: [WORK_LOG.md](WORK_LOG.md).
+Use a new analysis output directory or preserve the previous one when changing methodology. `run_m1.sh` archives existing derived results automatically. The full smoke/validation and recovery commands are in the [runbook](doc/runbook.md).
+
+## Project structure / documentation
+
+- `m1_{data,model,quant,metrics,run,analysis}.py`: fixed data/protocol, real inference, W4 intervention and analysis.
+- `scripts/`: incremental gates, one-command execution, validation, plots/report.
+- `tests/`: quantization/isolation, scoring, causal KL, audit corruption checks and statistics tests.
+- `results/m1/runs/`: actual prompts, token IDs, answers, KL vectors and precision/restoration audits.
+- [Protocol](doc/protocol.md) · [Onboarding](doc/onboarding.md) · [Runbook](doc/runbook.md)
+- [Execution journal](WORK_LOG.md) · [Requirement audit](doc/completion-audit.md)
+- [Statistical review](doc/statistics-review.md) · [Resolution](doc/statistics-review-resolution.md) · [Final review](doc/final-review.md)
+
+## Troubleshooting
+
+Use `.venv/bin/python`, not an unrelated environment. On OOM, inspect `nvidia-smi`, stop **only your own** process if necessary, and resume on an allocated device. Changed measurement code/samples require a new output directory. Raw reference logits are retained locally but Git-ignored; CSV/JSON contain the full public measurement evidence. See the runbook for detailed recovery and interpretation limits.

@@ -1,0 +1,13 @@
+Analyzed smoke full all: n=24
+Analyzed smoke full gsm8k: n=8
+Analyzed smoke full arc: n=8
+Analyzed smoke full boolq: n=8
+Analyzed smoke content all: n=24
+Analyzed smoke content gsm8k: n=8
+Analyzed smoke content arc: n=8
+Analyzed smoke content boolq: n=8
+Analyzed smoke first_token all: n=24
+Analyzed smoke first_token gsm8k: n=8
+Analyzed smoke first_token arc: n=8
+Analyzed smoke first_token boolq: n=8
+COMPLETE analysis role=smoke source_n=24 W4_rows=384

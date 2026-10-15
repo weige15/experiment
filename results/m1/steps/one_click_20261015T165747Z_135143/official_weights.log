@@ -1,0 +1,10 @@
+VERIFIED config.json
+VERIFIED generation_config.json
+VERIFIED model-00001-of-00004.safetensors
+VERIFIED model-00002-of-00004.safetensors
+VERIFIED model-00003-of-00004.safetensors
+VERIFIED model-00004-of-00004.safetensors
+VERIFIED model.safetensors.index.json
+VERIFIED special_tokens_map.json
+VERIFIED tokenizer.json
+VERIFIED tokenizer_config.json

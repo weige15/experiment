@@ -1,0 +1,43 @@
+{
+  "request_id": "arc:test:333",
+  "dataset": "arc",
+  "role": "evaluation",
+  "wording": "b",
+  "group": 1,
+  "gold": "B",
+  "input_tokens": 275,
+  "request_tokens": 71,
+  "bf16_answer": " B\n\nQ:",
+  "bf16_correct": true,
+  "bf16_generated_ids": [
+    426,
+    271,
+    48,
+    25
+  ],
+  "reference_logits_sha256": "9b829563eccc864d27bf6ac3b9cee722733ddcda192af4ab18038b8793b0a278",
+  "kl_mean": 0.0029905786271245786,
+  "kl_tokens": 4,
+  "token_kl": [
+    0.009190720397557407,
+    0.0009158612418314525,
+    0.001581366110103118,
+    0.0002743667590063367
+  ],
+  "kl_first_half": 0.00505329081969443,
+  "kl_second_half": 0.0009278664345547273,
+  "kl_first_token": 0.009190720397557407,
+  "answer": " B\n\nQ:",
+  "generated_ids": [
+    426,
+    271,
+    48,
+    25
+  ],
+  "generated_tokens": 4,
+  "generation_seconds": 1.2910828348249197,
+  "truncated": false,
+  "parsed_answer": "B",
+  "correct": true,
+  "parse_failure": false
+}

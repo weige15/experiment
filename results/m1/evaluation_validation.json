@@ -1,0 +1,31 @@
+{
+  "status": "verified",
+  "runs": [
+    {
+      "path": "results/m1/runs/evaluation_a",
+      "role": "evaluation",
+      "wording": "a",
+      "requests": 96,
+      "measured_rows": 768,
+      "counts": {
+        "gsm8k": 32,
+        "arc": 32,
+        "boolq": 32
+      },
+      "verified": true
+    },
+    {
+      "path": "results/m1/runs/evaluation_b",
+      "role": "evaluation",
+      "wording": "b",
+      "requests": 96,
+      "measured_rows": 768,
+      "counts": {
+        "gsm8k": 32,
+        "arc": 32,
+        "boolq": 32
+      },
+      "verified": true
+    }
+  ]
+}

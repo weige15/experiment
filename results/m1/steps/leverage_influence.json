@@ -1,0 +1,241 @@
+{
+  "purpose": "POST_REVIEW_EXPLORATORY_INFLUENCE_DIAGNOSTIC_NOT_A_NEW_PRIMARY_ANALYSIS",
+  "rule": "one pass: omit from diagnostic only if either wording's design leverage >= threshold; refit nuisances",
+  "threshold": 0.95,
+  "primary_observations_removed": 0,
+  "caveat": "No new inferential p-values/CIs; high-leverage finite-sample calibration remains uncertain",
+  "input_sha256": "586c3e783a41368e898f4e10dfcfce02163ffbf8d3c0028ac35ca9ef4192dde0",
+  "code_sha256": "c69b7d4888bf75edd02ae3ff2dcd04b8d019cfa733170ce6a16dfa81fbe0e895",
+  "results": [
+    {
+      "metric": "full",
+      "scope": "all",
+      "output_adjusted": false,
+      "primary_sources": 96,
+      "diagnostic_sources": 95,
+      "high_leverage_source_ids": [
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 0.9837008918605945,
+      "max_leverage_b": 0.9838153724245813,
+      "full_sample_correlation": 0.6516481581850877,
+      "diagnostic_correlation": 0.6497825583290213,
+      "change": -0.00186559985606638
+    },
+    {
+      "metric": "full",
+      "scope": "all",
+      "output_adjusted": true,
+      "primary_sources": 96,
+      "diagnostic_sources": 94,
+      "high_leverage_source_ids": [
+        "arc:test:963",
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 1.0000000000000009,
+      "max_leverage_b": 1.0000000000000009,
+      "full_sample_correlation": 0.653905644541437,
+      "diagnostic_correlation": 0.6520234597749253,
+      "change": -0.0018821847665116964
+    },
+    {
+      "metric": "full",
+      "scope": "arc",
+      "output_adjusted": false,
+      "primary_sources": 32,
+      "diagnostic_sources": 32,
+      "high_leverage_source_ids": [],
+      "max_leverage_a": 0.8686241401147667,
+      "max_leverage_b": 0.8686241401147667,
+      "full_sample_correlation": 0.6178368856787435,
+      "diagnostic_correlation": 0.6178368856787435,
+      "change": 0.0
+    },
+    {
+      "metric": "full",
+      "scope": "arc",
+      "output_adjusted": true,
+      "primary_sources": 32,
+      "diagnostic_sources": 31,
+      "high_leverage_source_ids": [
+        "arc:test:963"
+      ],
+      "max_leverage_a": 1.0000000000000004,
+      "max_leverage_b": 1.0000000000000004,
+      "full_sample_correlation": 0.6177369829500069,
+      "diagnostic_correlation": 0.617736982950007,
+      "change": 1.1102230246251565e-16
+    },
+    {
+      "metric": "full",
+      "scope": "boolq",
+      "output_adjusted": false,
+      "primary_sources": 32,
+      "diagnostic_sources": 31,
+      "high_leverage_source_ids": [
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 0.9837008918605938,
+      "max_leverage_b": 0.9838153724245797,
+      "full_sample_correlation": 0.7139855212195495,
+      "diagnostic_correlation": 0.7109034446877646,
+      "change": -0.0030820765317849386
+    },
+    {
+      "metric": "full",
+      "scope": "boolq",
+      "output_adjusted": true,
+      "primary_sources": 32,
+      "diagnostic_sources": 31,
+      "high_leverage_source_ids": [
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 0.9837008918605938,
+      "max_leverage_b": 0.9838153724245797,
+      "full_sample_correlation": 0.7139855212195495,
+      "diagnostic_correlation": 0.7109034446877647,
+      "change": -0.0030820765317848275
+    },
+    {
+      "metric": "full",
+      "scope": "gsm8k",
+      "output_adjusted": false,
+      "primary_sources": 32,
+      "diagnostic_sources": 32,
+      "high_leverage_source_ids": [],
+      "max_leverage_a": 0.8983284357533392,
+      "max_leverage_b": 0.8985484086978444,
+      "full_sample_correlation": 0.6220303714008785,
+      "diagnostic_correlation": 0.6220303714008785,
+      "change": 0.0
+    },
+    {
+      "metric": "full",
+      "scope": "gsm8k",
+      "output_adjusted": true,
+      "primary_sources": 32,
+      "diagnostic_sources": 32,
+      "high_leverage_source_ids": [],
+      "max_leverage_a": 0.9109249985408789,
+      "max_leverage_b": 0.9165202921261064,
+      "full_sample_correlation": 0.6275235921146651,
+      "diagnostic_correlation": 0.6275235921146651,
+      "change": 0.0
+    },
+    {
+      "metric": "content",
+      "scope": "all",
+      "output_adjusted": false,
+      "primary_sources": 96,
+      "diagnostic_sources": 95,
+      "high_leverage_source_ids": [
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 0.9837008918605945,
+      "max_leverage_b": 0.9838153724245813,
+      "full_sample_correlation": 0.7016905668710347,
+      "diagnostic_correlation": 0.7010741123923552,
+      "change": -0.000616454478679529
+    },
+    {
+      "metric": "content",
+      "scope": "all",
+      "output_adjusted": true,
+      "primary_sources": 96,
+      "diagnostic_sources": 94,
+      "high_leverage_source_ids": [
+        "arc:test:963",
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 1.0000000000000009,
+      "max_leverage_b": 1.0000000000000009,
+      "full_sample_correlation": 0.7057568826811812,
+      "diagnostic_correlation": 0.7051777556474437,
+      "change": -0.0005791270337375254
+    },
+    {
+      "metric": "content",
+      "scope": "arc",
+      "output_adjusted": false,
+      "primary_sources": 32,
+      "diagnostic_sources": 32,
+      "high_leverage_source_ids": [],
+      "max_leverage_a": 0.8686241401147667,
+      "max_leverage_b": 0.8686241401147667,
+      "full_sample_correlation": 0.7408085747890379,
+      "diagnostic_correlation": 0.7408085747890379,
+      "change": 0.0
+    },
+    {
+      "metric": "content",
+      "scope": "arc",
+      "output_adjusted": true,
+      "primary_sources": 32,
+      "diagnostic_sources": 31,
+      "high_leverage_source_ids": [
+        "arc:test:963"
+      ],
+      "max_leverage_a": 1.0000000000000004,
+      "max_leverage_b": 1.0000000000000004,
+      "full_sample_correlation": 0.7468653294869078,
+      "diagnostic_correlation": 0.7468653294869079,
+      "change": 1.1102230246251565e-16
+    },
+    {
+      "metric": "content",
+      "scope": "boolq",
+      "output_adjusted": false,
+      "primary_sources": 32,
+      "diagnostic_sources": 31,
+      "high_leverage_source_ids": [
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 0.9837008918605938,
+      "max_leverage_b": 0.9838153724245797,
+      "full_sample_correlation": 0.6932353832263605,
+      "diagnostic_correlation": 0.6913967297424222,
+      "change": -0.0018386534839383017
+    },
+    {
+      "metric": "content",
+      "scope": "boolq",
+      "output_adjusted": true,
+      "primary_sources": 32,
+      "diagnostic_sources": 31,
+      "high_leverage_source_ids": [
+        "boolq:validation:1941"
+      ],
+      "max_leverage_a": 0.9837008918605938,
+      "max_leverage_b": 0.9838153724245797,
+      "full_sample_correlation": 0.6932353832263605,
+      "diagnostic_correlation": 0.6913967297424221,
+      "change": -0.0018386534839384128
+    },
+    {
+      "metric": "content",
+      "scope": "gsm8k",
+      "output_adjusted": false,
+      "primary_sources": 32,
+      "diagnostic_sources": 32,
+      "high_leverage_source_ids": [],
+      "max_leverage_a": 0.8983284357533392,
+      "max_leverage_b": 0.8985484086978444,
+      "full_sample_correlation": 0.614979506471733,
+      "diagnostic_correlation": 0.614979506471733,
+      "change": 0.0
+    },
+    {
+      "metric": "content",
+      "scope": "gsm8k",
+      "output_adjusted": true,
+      "primary_sources": 32,
+      "diagnostic_sources": 32,
+      "high_leverage_source_ids": [],
+      "max_leverage_a": 0.9109249985408789,
+      "max_leverage_b": 0.9165202921261064,
+      "full_sample_correlation": 0.6250099203536731,
+      "diagnostic_correlation": 0.6250099203536731,
+      "change": 0.0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+.venv/bin/python -m scripts.validate_runs --role evaluation --requests results/m1/requests.jsonl --runs results/m1/runs/evaluation_a results/m1/runs/evaluation_b --out results/m1/evaluation_validation.json 

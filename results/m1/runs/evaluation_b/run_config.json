@@ -1,0 +1,26 @@
+{
+  "role": "evaluation",
+  "wording": "b",
+  "requests_sha256": "e4c0c17977094e599914d9b6f73d7c88463cd106c5a6c75b1703292c82cb09d4",
+  "code_sha256": {
+    "m1_run.py": "2a6f945d244c63f91167b5cd3332b2801140458bf17205e8db530091fc8f81eb",
+    "m1_data.py": "3997af150a6f009a4929e825311bd3dc689aea50daabcc1d52b0f3a3c4e667ad",
+    "m1_model.py": "50b16f73eb217c43e5c88f76c4dc1a1bc13ae39d5f66b7e5762c8fc2fb3632f4",
+    "m1_metrics.py": "5558abe656b547833a8446422059e1be598dcaa9ccda616f6917e8e7528dc05b",
+    "m1_quant.py": "23eb5b9f4070163c9a6cb19650b94c22f82ced06253d81763eb58d49b544f5aa"
+  },
+  "quantization": {
+    "method": "symmetric_groupwise_RTN_QDQ",
+    "bits": 4,
+    "block_size": 128,
+    "scale": "FP32 absmax / 7; zero block uses scale 1",
+    "codes": "signed [-7,7]; round ties to even",
+    "clipping": "none",
+    "zero_point": 0,
+    "compute_dtype": "bfloat16",
+    "packed_runtime": false,
+    "targets": "all 7 attention/MLP linear weights per layer",
+    "excluded": "embeddings, lm_head, norms",
+    "layers_per_group": 4
+  }
+}

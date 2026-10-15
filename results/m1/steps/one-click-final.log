@@ -1,0 +1,26 @@
+RUN install — results/m1/steps/one_click_20261015T173520Z_209164/install.log
+RUN unit_tests — results/m1/steps/one_click_20261015T173520Z_209164/unit_tests.log
+RUN official_weights — results/m1/steps/one_click_20261015T173520Z_209164/official_weights.log
+RUN provenance_compare — results/m1/steps/one_click_20261015T173520Z_209164/provenance_compare.log
+REUSE completed gate baseline: results/m1/steps/baseline/baseline.json
+REUSE completed gate one_group: results/m1/steps/one_group/result.json
+REUSE completed gate single_sensitivity: results/m1/steps/single_sensitivity/measurements.csv
+REUSE completed gate eight_groups: results/m1/steps/eight_groups/measurements.csv
+RUN frozen_data — results/m1/steps/one_click_20261015T173520Z_209164/frozen_data.log
+REUSE raw smoke a; strict validation follows
+REUSE raw smoke b; strict validation follows
+RUN validate_smoke — results/m1/steps/one_click_20261015T173520Z_209164/validate_smoke.log
+REUSE raw calibration a; strict validation follows
+REUSE raw calibration b; strict validation follows
+RUN validate_calibration — results/m1/steps/one_click_20261015T173520Z_209164/validate_calibration.log
+RUN freeze_choices — results/m1/steps/one_click_20261015T173520Z_209164/freeze_choices.log
+REUSE raw evaluation a; strict validation follows
+REUSE raw evaluation b; strict validation follows
+RUN validate_evaluation — results/m1/steps/one_click_20261015T173520Z_209164/validate_evaluation.log
+RUN synthetic_method_validation — results/m1/steps/one_click_20261015T173520Z_209164/synthetic_method_validation.log
+RUN analysis — results/m1/steps/one_click_20261015T173520Z_209164/analysis.log
+RUN leverage_influence — results/m1/steps/one_click_20261015T173520Z_209164/leverage_influence.log
+RUN figures — results/m1/steps/one_click_20261015T173520Z_209164/figures.log
+RUN report — results/m1/steps/one_click_20261015T173520Z_209164/report.log
+RUN completion_evidence — results/m1/steps/one_click_20261015T173520Z_209164/completion_evidence.log
+M1 artifacts verified: results/m1/report.md — inspect bounded conclusion/limitations before claiming research success.

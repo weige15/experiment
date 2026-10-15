@@ -1,0 +1,33 @@
+{
+  "status": "verified_artifacts_not_automatic_goal_completion",
+  "source_requests": 96,
+  "worded_requests": 192,
+  "W4_rows": 1536,
+  "actual_answers": 1728,
+  "independent_raw_table_checks": {
+    "BF16_accuracy": 0.7760416666666666,
+    "evaluation_KL_best_fixed_ORACLE_KL": 0.0009757084931218831,
+    "per_request_KL_ORACLE_KL": 0.000815234871262911,
+    "evaluation_accuracy_best_fixed_ORACLE_accuracy": 0.7708333333333334,
+    "per_request_label_ORACLE_accuracy": 0.8385416666666666,
+    "per_request_KL_ORACLE_accuracy": 0.7708333333333334,
+    "KL_oracle_gain_vs_KL_best_fixed": 0.00016047362185897215,
+    "label_oracle_accuracy_gain_vs_accuracy_best_fixed": 0.06770833333333326
+  },
+  "exact_reanalysis_csvs": [
+    "answer_failures.csv",
+    "answers.csv",
+    "controlled_interaction.csv",
+    "controlled_shape_wild.csv",
+    "correctness_crossovers.csv",
+    "no_benefit_or_loss_cases.csv",
+    "oracle_comparisons.csv",
+    "per_request_measurements.csv",
+    "ranking_reversals.csv",
+    "request_summary.csv",
+    "segment_stability.csv",
+    "statistics.csv"
+  ],
+  "bounded_evidence_supported": true,
+  "scientific_interpretation_requires_review": true
+}

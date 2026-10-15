@@ -1,0 +1,17 @@
+ metric scope  output_adjusted  primary_sources  diagnostic_sources              high_leverage_source_ids  max_leverage_a  max_leverage_b  full_sample_correlation  diagnostic_correlation        change
+   full   all            False               96                  95               [boolq:validation:1941]        0.983701        0.983815                 0.651648                0.649783 -1.865600e-03
+   full   all             True               96                  94 [arc:test:963, boolq:validation:1941]        1.000000        1.000000                 0.653906                0.652023 -1.882185e-03
+   full   arc            False               32                  32                                    []        0.868624        0.868624                 0.617837                0.617837  0.000000e+00
+   full   arc             True               32                  31                        [arc:test:963]        1.000000        1.000000                 0.617737                0.617737  1.110223e-16
+   full boolq            False               32                  31               [boolq:validation:1941]        0.983701        0.983815                 0.713986                0.710903 -3.082077e-03
+   full boolq             True               32                  31               [boolq:validation:1941]        0.983701        0.983815                 0.713986                0.710903 -3.082077e-03
+   full gsm8k            False               32                  32                                    []        0.898328        0.898548                 0.622030                0.622030  0.000000e+00
+   full gsm8k             True               32                  32                                    []        0.910925        0.916520                 0.627524                0.627524  0.000000e+00
+content   all            False               96                  95               [boolq:validation:1941]        0.983701        0.983815                 0.701691                0.701074 -6.164545e-04
+content   all             True               96                  94 [arc:test:963, boolq:validation:1941]        1.000000        1.000000                 0.705757                0.705178 -5.791270e-04
+content   arc            False               32                  32                                    []        0.868624        0.868624                 0.740809                0.740809  0.000000e+00
+content   arc             True               32                  31                        [arc:test:963]        1.000000        1.000000                 0.746865                0.746865  1.110223e-16
+content boolq            False               32                  31               [boolq:validation:1941]        0.983701        0.983815                 0.693235                0.691397 -1.838653e-03
+content boolq             True               32                  31               [boolq:validation:1941]        0.983701        0.983815                 0.693235                0.691397 -1.838653e-03
+content gsm8k            False               32                  32                                    []        0.898328        0.898548                 0.614980                0.614980  0.000000e+00
+content gsm8k             True               32                  32                                    []        0.910925        0.916520                 0.625010                0.625010  0.000000e+00

@@ -1,4 +1,5 @@
 """Verify local model shards/tokenizer against the pinned official Hub file digests."""
+import argparse
 import hashlib
 from pathlib import Path
 from huggingface_hub import HfApi, hf_hub_download
@@ -7,6 +8,9 @@ from m1_model import MODEL_ID, REVISION
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--out", default="results/m1/model_provenance.json")
+    args = parser.parse_args()
     info = HfApi().model_info(MODEL_ID, revision=REVISION, files_metadata=True)
     verified = []
     for item in info.siblings:
@@ -29,7 +33,7 @@ def main():
                              official_digest=expected, verified=True))
         print(f"VERIFIED {name}", flush=True)
     assert sum(v["file"].endswith(".safetensors") for v in verified) == 4
-    save_json("results/m1/model_provenance.json", dict(model_id=MODEL_ID,
+    save_json(args.out, dict(model_id=MODEL_ID,
               revision=REVISION, files=verified))
 
 

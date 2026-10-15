@@ -1,0 +1,11 @@
+{
+  "role": "evaluation",
+  "source_requests": 96,
+  "raw_color_floor": 1e-08,
+  "row_order": "dataset then original source index; never sorted by outcome",
+  "inputs": {
+    "results/m1/analysis/statistics.csv": "4493e1f8e29358353ae87eee15b41cd3dd0e5cfc1c553b436798546715261068",
+    "results/m1/analysis/per_request_measurements.csv": "586c3e783a41368e898f4e10dfcfce02163ffbf8d3c0028ac35ca9ef4192dde0"
+  },
+  "code_sha256": "f5d466faa027f997964a7a1a3f8c7ebfcf049728e641745d395fc2216c974004"
+}

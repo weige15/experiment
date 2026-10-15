@@ -1,0 +1,15 @@
+{
+  "bounded_evidence_supported": true,
+  "evidence_is_not_router": true,
+  "actual_source_requests": 96,
+  "correctness_replicated_crossover_pairs": 19,
+  "label_oracle_gain_untruncated_worded_cases": 12,
+  "inputs": {
+    "results/m1/analysis/statistics.csv": "4493e1f8e29358353ae87eee15b41cd3dd0e5cfc1c553b436798546715261068",
+    "results/m1/analysis/controlled_shape_wild.csv": "fda5dbbc18301de239da78dc67b9d784cd81f7e9c3bb07acef88196dabd06493",
+    "results/m1/analysis/answers.csv": "6915aaa974beccf3aca217ba89e3a6dd9dcca6b9ba3e52fbca8dfd616bd1039f",
+    "results/m1/steps/leverage_influence.json": "50b3b4fe8a0838048078027051c171962915e1eb749d6b62253832303e890a31"
+  },
+  "report_sha256": "26332984aa3f1df6f644c34bad0a74ca49e2e58c1ef76ce45715b2255d607fc5",
+  "renderer_sha256": "161626a0fd2ea921baf130223109ad7e8f596067fb886499a264ef710177b3f8"
+}
