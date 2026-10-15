@@ -31,6 +31,15 @@ Do requests differ materially in their sensitivity to weight quantization of dif
 - Include all failures, no-difference / near-tie cases, losses under oracle-KL selection, and limitations. No cherry-picked successful cases. No deployed-router claims.
 - If W4 evidence is insufficient, first diagnose alignment, extraction, numerical precision and confounds; then pre-record any finer-group / W3 / longer-context exploratory protocol. Preserve all W4 results. Do not declare success by rewriting the conclusion.
 
+## Pre-evaluation review addendum (after one BF16 baseline, before any W4 result)
+Independent read-only review: `doc/protocol-review.md`.
+- Enforce normalized-question hashes as well as saving content hashes. Check finite logits at every generated position, not only the dtype probe.
+- Pin causal alignment: continuation token t (zero-based) is predicted at full-sequence logit index P+t-1. Include the first generated token, EOS if generated, and all returned stop-delimiter tokens in the primary metric. Explicitly report segment denominators; short label responses are not long reasoning traces.
+- Compare independent BF16 replays, restored BF16, repeated W4, and cached decode versus full teacher forcing. Measure, do not assume, the numerical floor. Near-tie threshold also includes 5× the largest absolute repeat-pass group-mean discrepancy. Cached-vs-full is a separate numeric-path diagnostic; the primary comparison always uses the same full-sequence path.
+- Raw request-wide sensitivity is not a request×group preference interaction. Primary controlled interaction diagnostic uses **row-normalized KL profiles** (divide each request by its across-group mean), regresses out dataset and log input/output lengths, then row-centers residuals. Also report raw centered profiles. A pure multiplicative request×global-layer profile must give no normalized interaction; add a synthetic statistical unit test, never mix its values with real results.
+- Require noise-resolved, cross-wording replicated rank reversals and a material absolute/relative same-budget KL effect, or evidence of real task-quality differences, before a positive research conclusion. KL-oracle improvement is algebraically expected and is not sufficient alone. Report cross-wording transfer and label-oracle results separately.
+- All 28 pairwise reversal tables are descriptive; any inferential pairwise tests require multiplicity correction. Bootstrap CIs condition on the fixed sampled demos/calibration; disclose this and the limited per-dataset sample size.
+
 ## Incremental gates and deliverables
 Status starts **not achieved**. Execute and record exit codes in order:
 BF16 → one-group W4 → single-request KL → eight-group scan → 8/dataset smoke → 32/dataset formal evaluation → analysis and audit.
