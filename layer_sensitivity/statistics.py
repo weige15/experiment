@@ -81,6 +81,9 @@ def pair_matrices(values):
     delta = values[:, i] - values[:, j]
     positive, negative = (delta > 1e-6).astype(float), (delta < -1e-6).astype(float)
     matrices["ranking_reversal_rate"] = (positive @ negative.T + negative @ positive.T) / len(i)
+    valid = np.isfinite(values).all(axis=1)
+    for matrix in matrices.values():
+        matrix[~(valid[:, None] & valid[None, :])] = np.nan
     return matrices
 
 
@@ -138,10 +141,12 @@ def regression_statistics(x, values, names):
 
 
 def bootstrap_summary(values, correct, baseline, datasets, segment_rho, allocation_correct,
-                      allocation_kl, joint_additive_ratio, x, names, iterations=2000, seed=20261015):
+                      allocation_kl, joint_additive_ratio, x, names, iterations=2000, seed=20261015,
+                      secondary_values=None):
     """All rows of a source stay paired across layers, strategies and segments."""
     n = len(values)
     matrices = pair_matrices(values)
+    secondary_pairs = {name: pair_matrices(matrix) for name, matrix in (secondary_values or {}).items()}
     scopes = {"all": np.ones(n, dtype=bool), **{d: np.asarray(datasets) == d for d in sorted(set(datasets))}}
 
     def calculate(indices):
@@ -159,6 +164,9 @@ def bootstrap_summary(values, correct, baseline, datasets, segment_rho, allocati
             for metric, matrix in matrices.items():
                 result[f"different_request_{metric}"] = pair_average(matrix, weights)
             result["rank_heterogeneity"] = 1 - result["different_request_spearman"]
+            for variant, pairs in secondary_pairs.items():
+                for metric, matrix in pairs.items():
+                    result[f"secondary_{variant}_different_request_{metric}"] = pair_average(matrix, weights)
             for segment, rho in segment_rho.items():
                 result[f"{segment}_mean_spearman"] = mean_finite(rho[selected])
             for layer in range(32):

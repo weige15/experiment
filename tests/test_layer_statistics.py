@@ -37,6 +37,15 @@ def test_exact_reverse_ranking_overlap_and_material_reversal():
     assert row_spearman(values[:1], values[1:])[0] == pytest.approx(-1)
 
 
+def test_empty_secondary_content_is_not_an_artificial_topk_match():
+    values = np.stack([np.arange(32), np.arange(32)[::-1], np.full(32, np.nan)]).astype(float)
+    pairs = pair_matrices(values)
+    for matrix in pairs.values():
+        assert np.isnan(matrix[2]).all() and np.isnan(matrix[:, 2]).all()
+    assert pair_average(pairs["spearman"], [1, 1, 1]) == pytest.approx(-1)
+    assert pair_average(pairs["top4_overlap_fraction"], [1, 1, 1]) == 0
+
+
 def test_bootstrap_duplicates_are_not_self_pairs():
     matrix = np.array([[1., .25], [.25, 1.]])
     assert pair_average(matrix, [3, 1]) == .25
@@ -65,10 +74,13 @@ def test_dataset_strata_and_paired_allocation_uncertainty(tmp_path):
     indices = stratified_indices(datasets, rng)
     assert all(sum(datasets[indices] == dataset) == 4 for dataset in set(datasets))
     rows, _ = bootstrap_summary(values, correct, baseline, datasets, segments,
-        allocation, np.ones((12, 5)), np.ones((12, 5)), x, names, iterations=12)
+        allocation, np.ones((12, 5)), np.ones((12, 5)), x, names, iterations=12,
+        secondary_values={"content": values})
     table = pd.DataFrame(rows).set_index(["scope", "metric"])
     delta = table.loc[("all", "allocation_request_oracle_delta_vs_fixed")]
     assert delta.estimate == delta.ci_low == delta.ci_high == 1
+    assert table.loc[("all", "secondary_content_different_request_spearman"), "estimate"] == pytest.approx(
+        table.loc[("all", "different_request_spearman"), "estimate"])
     assert table.loc[("gsm8k", "content_halves_mean_spearman"), "estimate"] == 1
     assert np.isnan(table.loc[("arc", "content_halves_mean_spearman"), "estimate"])
     assert table.loc[("arc", "content_halves_mean_spearman"), "valid_bootstraps"] == 0

@@ -134,5 +134,6 @@ No publishing, destructive cleanup, lint framework or production server is requi
 
 - Date: 2026-10-15 UTC (2026-10-16 local).
 - Verified: pinned real weights and data; fresh BF16 baseline; single-layer exact 7-matrix isolation/restoration/replay; single-request all-32-layer scan; strict gate validator; **61-test full suite**; Bash syntax; **24 × 32 smoke and raw validation**, including separate smoke command exit 0.
-- Running: full command, currently train-only 24-request × 32-layer selection scan, after validated smoke reuse.
+- Verified next stage: train-only 24 × 32 selection scan and validation; fixed/random choices frozen before formal attempt.
+- Running: full command, currently formal 96-request × 32-layer scan.
 - Not yet verified: formal 96 × 32 scan, real joint allocations, real-data report reconstruction, and final objective completion. Update this section only from actual new exits.

@@ -186,6 +186,10 @@ def write_report(root, statistics, baseline, frame, allocation, reversals, segme
         f"1. **Request-dependent sensitivity and stability.** Different-request mean layer-rank Spearman: {ci('different_request_spearman')}; "
         f"rank heterogeneity (1 − correlation): {ci('rank_heterogeneity')}. Content-half mean within-request Spearman: {ci('content_halves_mean_spearman')}. "
         f"{material}/496 layer pairs reverse by >1e-6 nats/token with at least two requests on each side; {replicated}/496 have both directions replicated across content halves. "
+        f"Secondary different-request Spearman using content-only means: {ci('secondary_content_different_request_spearman')}; "
+        f"using only the first continuation token: {ci('secondary_first_token_different_request_spearman')}. "
+        f"Content-profile eligibility: {int(((segment_table.segment == 'content') & (segment_table.tokens > 0)).sum())}/{len(baseline)} requests; "
+        "empty content is omitted only from that secondary diagnostic, never primary outcomes. "
         "Reversals are descriptive, not 496 independent hypothesis tests. Stability claims apply only to eligible token traces, not every dataset.\n\n"
         f"2. **Higher-precision layer choice and actual utility.** Different-request Top-4 overlap fraction: {ci('different_request_top4_overlap_fraction')}; "
         f"Top-8: {ci('different_request_top8_overlap_fraction')}. At the directly measured 8-layer BF16 budget, request-KL oracle minus train-selected fixed "
@@ -313,7 +317,8 @@ def main():
     datasets = baseline.dataset.to_numpy()
     x, names = control_design(datasets, baseline.input_tokens, baseline.generated_tokens, baseline.correct)
     results, pairwise = bootstrap_summary(values, correct, baseline.correct.to_numpy(dtype=float), datasets,
-        segment_metrics, allocation_correct, joint_kl, ratio, x, names, iterations=args.bootstrap)
+        segment_metrics, allocation_correct, joint_kl, ratio, x, names, iterations=args.bootstrap,
+        secondary_values={"content": parts["content"], "first_token": parts["first_token"]})
     statistics = pd.DataFrame(results)
     statistics.to_csv(out / "statistics.csv", index=False)
     exact_rows, paired_rows = [], []
@@ -387,6 +392,7 @@ def main():
             "runs/evaluation/measurements.csv", "runs/evaluation/baselines.csv", "precision_allocation_check/measurements.csv",
             "precision_allocation_selection.json", "requests.jsonl"]},
         requests=len(baseline), single_layer_measurements=len(frame), joint_measurements=len(allocation),
+        secondary_content_eligible_request_ids=baseline.request_id[np.isfinite(parts["content"]).all(axis=1)].tolist(),
         design_rank=int(np.linalg.matrix_rank(x)), max_leverage=float(leverage.max()),
         nonlinear_design_rank=int(np.linalg.matrix_rank(nonlinear_x)),
         nonlinear_max_leverage=float(summary.nonlinear_control_leverage.max()),

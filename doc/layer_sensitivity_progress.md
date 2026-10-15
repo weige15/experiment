@@ -1,6 +1,6 @@
 # Individual-layer study execution journal
 
-## Current status — 2026-10-15 19:38 UTC
+## Current status — 2026-10-15 20:24 UTC
 
 **Goal remains active / incomplete.** A real 32-layer campaign is running on GPU **7, NVIDIA RTX 3090, 24 GiB**. Do not confuse this with the completed historical four-layer-group experiment.
 
@@ -9,8 +9,8 @@ At this inspection:
 - One request × **all 32 individual layers**: **passed**.
 - Full CPU suite: **61 passed, exit 0**, including added dataset-stratified conservative-accuracy interval checks.
 - Smoke: **24/24 BF16 baselines**, **768/768 W4 rows across all 32 layers**, raw validator and separate smoke command both **exit 0**. BF16 correct: GSM8K 3/8, ARC 6/8, BoolQ 8/8; mean W4 KL **0.0011206422293607516 nats/token**, range **0.00004100322436434933–0.010308878053163**. Pilot statistics only, not formal conclusions.
-- Full command started automatically after smoke success. Train-only selection scan is now running (PID **471797** at 19:38 UTC).
-- Formal evaluation: **0/3,072** W4 rows; joint allocations: not started; real-data final report: not yet produced.
+- Train-only selection scan completed **24 × 32 = 768** W4 rows, strict validation **exit 0**. Frozen BF16 layers: **[0, 1, 8, 9, 10, 11, 13, 31]**; three random sets also frozen. Selection timestamp **20:17:12.884769 UTC**, before formal attempt **20:17:30.229534 UTC**.
+- Formal evaluation is now running (Python PID **551037**); full **96 × 32 = 3,072** coverage not yet certified. Joint allocations: not started; real-data final report: not yet produced.
 
 ## Active process / exact continuation
 
@@ -25,7 +25,7 @@ bash scripts/record_command.sh results/layer_sensitivity/steps full_command \
   bash scripts/run_layer_sensitivity.sh full
 ```
 
-Smoke Python PID **373592** exited successfully at 19:35 UTC. The launcher is now recording the full command; its shell PID is **466717**, calibration Python PID **471797** at 19:38 UTC. Launch log: `results/layer_sensitivity/steps/smoke_then_full_launch.log`. Outer command log: `results/layer_sensitivity/steps/20261015T184927Z_smoke_command_369619.log`.
+Smoke Python PID **373592** exited successfully at 19:35 UTC; train-only scan PID **471797** exited successfully at 20:17 UTC. The launcher is now recording the full command; its shell PID is **466717**, formal evaluation Python PID **551037**. Launch log: `results/layer_sensitivity/steps/smoke_then_full_launch.log`. Outer command log: `results/layer_sensitivity/steps/20261015T184927Z_smoke_command_369619.log`.
 
 Completed smoke ledger:
 `results/layer_sensitivity/steps/smoke_20261015T184927Z_369634/`
@@ -41,7 +41,7 @@ Outer full command log:
 
 The full script, once started, validates/reuses source-identical gates/smoke, scans 24 train-only selection requests × 32 layers, freezes fixed/random choices, scans 96 formal requests × 32 layers, then directly evaluates 5 joint configurations × 96 requests and builds the report. It stops on the first error. Each stage gets `.command`, `.environment`, `.log`, `.exit`; each shell workflow gets `overall.exit`. A missing exit file means unfinished, not success.
 
-**Next concrete action:** inspect that active full/calibration process and ledger, then continue from the first failed or unfinished gate. Do not launch a second writer or repeat completed GPU work. While it is running, review/test analysis and validation code, which is separate from frozen measurement sources. After completion, execute the separate `report` command again and compare derived numerical CSVs, inspect figures/report, apply the full requirement audit, and evaluate the predeclared escalation conditions.
+**Next concrete action:** inspect the active formal evaluation process and ledger, then continue from the first failed or unfinished gate. Do not launch a second writer or repeat completed GPU work. While it is running, review/test analysis and validation code, which is separate from frozen measurement sources. After completion, execute the separate `report` command again and compare derived numerical CSVs, inspect figures/report, apply the full requirement audit, and evaluate the predeclared escalation conditions.
 
 ## New study versus prior work
 
@@ -57,6 +57,7 @@ Current code uses `layer_sensitivity/`; raw output is exclusively `results/layer
 - Review resolutions committed before W4 scan: `46fa39c`. Explicit shape/control specification, short-content limitations, random-set conditional uncertainty and outcome-triggered exploratory escalation rules were frozen.
 - Additional uncertainty safeguard, committed before formal results while smoke was running: `e1361c0`. Retain bootstrap intervals, add exact marginal and conservative paired difference intervals so zero observed discordance cannot imply zero population risk. Follow-up clarification respects fixed dataset strata by Bonferroni allocation and weighted bounds rather than assuming a common binomial probability across datasets.
 - Scope: one fixed wording per source; all 96 formal sources included. Same frozen sample IDs were used historically; report discloses this is not an unseen-to-investigator dataset replication.
+- At 20:24 UTC, before inspecting formal layer outcomes, completed the planned secondary content/first-token diagnostic implementation: paired-bootstrap request correlations/Top-k overlap for both, with explicit empty-content eligibility. Primary full-trace KL, frozen selections and escalation rules are unchanged. All secondary results will be retained, not selected by favorability. Seven statistics tests passed (`20261015T202354Z_secondary_content_tests_564995.*`).
 
 ## Actual completed commands / evidence
 
@@ -92,11 +93,11 @@ Measurement hashes are recorded in every role's `run_config.json`; they still ma
 - `layer_sensitivity/{__init__,quantization,runner}.py`
 - `layer_sensitivity/gates.py` (gate source is also bound)
 
-Selection/allocation code must likewise remain unchanged once their source-bound stages start. Validators/statistics/report/tests/docs are separate and may be reviewed, with prior derived results preserved. Never repair a mismatch by changing recorded hashes. Git working tree already contained unrelated naming-refactor changes before this turn; they were not reset or discarded. Only new protocol/review amendments were committed so far.
+Selection/allocation code must likewise remain unchanged once their source-bound stages start. Validators/statistics/report/tests/docs are separate and may be reviewed, with prior derived results preserved. Never repair a mismatch by changing recorded hashes. Git working tree already contained naming-refactor changes before this turn; they were preserved in coherent code checkpoint **b440e75**, alongside the new individual-layer pipeline, after smoke passed. Earlier measurement metadata uses its actual earlier HEAD plus exact source hashes; do not equate HEAD alone with measured source state. The protocol's stratified-interval clarification is commit **ea0c788**.
 
 ## Remaining required work
 
-1. Complete and inspect smoke, train selection/freeze, all 96 × 32 formal measurements and 480 directly measured allocations.
+1. Complete and inspect all 96 × 32 formal measurements and 480 directly measured allocations. Smoke and train selection/freeze are now complete; do not rerun their GPU measurements.
 2. Fix any real execution failure with preserved logs and minimal changes; do not substitute grouped data or synthetic fixtures.
 3. Run strict validators, actual 2,000-replicate analysis and figures/report; check every numerical conclusion against raw tables and all failure cases.
 4. Run standalone report reconstruction and compare numerical CSVs; check installation/locked versions and final current-source tests.
