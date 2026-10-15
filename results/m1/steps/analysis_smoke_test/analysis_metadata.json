@@ -1,0 +1,47 @@
+{
+  "role": "smoke",
+  "source_requests": 24,
+  "worded_requests": 48,
+  "W4_rows": 384,
+  "actual_answer_rows": 432,
+  "token_KL_values": 17064,
+  "coverage": [
+    {
+      "metric": "full",
+      "source_requests": 24,
+      "missing_request_ids": []
+    },
+    {
+      "metric": "content",
+      "source_requests": 24,
+      "missing_request_ids": []
+    },
+    {
+      "metric": "first_token",
+      "source_requests": 24,
+      "missing_request_ids": []
+    }
+  ],
+  "bootstrap_replicates": 200,
+  "bootstrap_unit": "source request, dataset-stratified; wordings/groups paired",
+  "seed": 20261015,
+  "calibration_conditioned": true,
+  "fixed_groups": {
+    "KL": 6,
+    "accuracy": 1
+  },
+  "permutation_test_family_size": 16,
+  "multiple_testing": "Holm across all control diagnostics",
+  "input_sha256": {
+    "runs/smoke_a/baselines.csv": "ac43bf91ba316cc56a46f66aba6924b09a180175df1db3b581fd41429cb26aae",
+    "runs/smoke_a/measurements.csv": "1c6353d7d43159139f57a8b6ec6c1d670e00f1aad23802081151a3b808d3be75",
+    "runs/smoke_b/baselines.csv": "8ba34f3c43d375b129282100b7f340f15fc748e014bdebe3bf5ad5825a2327d8",
+    "runs/smoke_b/measurements.csv": "95b422e02f20af60040a54ca759bf4495507ffe979db7ca76a45b5c6c96169e5"
+  },
+  "calibration_selection_sha256": "f526ee2c4e67403fffde3b4d192f7d5f9a35e35b29564bda64bee506f29da7b6",
+  "code_sha256": {
+    "m1_analysis.py": "2dd326b0da156e81592e762e90909227c0d605a7cb45cd0268273531ba4c9534",
+    "scripts/analyze_m1.py": "3239499601d7384ecdb8ff1162190c0dbf2e317df3235130317716055f95d546"
+  },
+  "analyzed_utc": "2026-10-15T15:46:58.156374+00:00"
+}

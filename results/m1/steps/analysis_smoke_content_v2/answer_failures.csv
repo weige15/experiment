@@ -1,0 +1,791 @@
+request_id,dataset,wording,group,gold,answer,parsed_answer,correct,parse_failure,truncated,generated_tokens,generated_ids,configuration
+gsm8k:test:371,gsm8k,a,-1,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,116,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 1051, 6216, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 1051, 6216, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",BF16
+gsm8k:test:567,gsm8k,a,-1,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",BF16
+gsm8k:test:957,gsm8k,a,-1,45," First, set up an equation to find Shawna's age. Let s be Shawna's age and a be Aliya's age. We know that s = 3a, so we can substitute 3a for s in the first equation: 5(3a) = s
+Now distribute the 5 to get 15a = s
+Now substitute 3a for s to get 15a = 3a
+Divide both sides of the equation to get 5 = 1
+Since this is not true, we know that we made a mistake somewhere. Let's go back and check our work. We know that s = 3a, so we can substitute 3a for s in the first equation: 5(3a) = s
+Now distribute the 5 to get 15a = s
+Now substitute 3a for s to get 15a = 3a
+Divide both sides of the equation to get 5 = 1
+Since this is not true, we know that we made a mistake somewhere. Let's go back and check our work. We know that s = 3a, so we can substitute 3a for s in the first equation: 5(",,False,True,True,256,"[5629, 11, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 4325, 13, 6914, 274, 387, 36285, 3458, 596, 4325, 323, 264, 387, 14925, 7911, 596, 4325, 13, 1226, 1440, 430, 274, 284, 220, 18, 64, 11, 779, 584, 649, 28779, 220, 18, 64, 369, 274, 304, 279, 1176, 24524, 25, 220, 20, 7, 18, 64, 8, 284, 274, 198, 7184, 16822, 279, 220, 20, 311, 636, 220, 868, 64, 284, 274, 198, 7184, 28779, 220, 18, 64, 369, 274, 311, 636, 220, 868, 64, 284, 220, 18, 64, 198, 12792, 579, 2225, 11314, 315, 279, 24524, 311, 636, 220, 20, 284, 220, 16, 198, 12834, 420, 374, 539, 837, 11, 584, 1440, 430, 584, 1903, 264, 16930, 15038, 13, 6914, 596, 733, 1203, 323, 1817, 1057, 990, 13, 1226, 1440, 430, 274, 284, 220, 18, 64, 11, 779, 584, 649, 28779, 220, 18, 64, 369, 274, 304, 279, 1176, 24524, 25, 220, 20, 7, 18, 64, 8, 284, 274, 198, 7184, 16822, 279, 220, 20, 311, 636, 220, 868, 64, 284, 274, 198, 7184, 28779, 220, 18, 64, 369, 274, 311, 636, 220, 868, 64, 284, 220, 18, 64, 198, 12792, 579, 2225, 11314, 315, 279, 24524, 311, 636, 220, 20, 284, 220, 16, 198, 12834, 420, 374, 539, 837, 11, 584, 1440, 430, 584, 1903, 264, 16930, 15038, 13, 6914, 596, 733, 1203, 323, 1817, 1057, 990, 13, 1226, 1440, 430, 274, 284, 220, 18, 64, 11, 779, 584, 649, 28779, 220, 18, 64, 369, 274, 304, 279, 1176, 24524, 25, 220, 20, 7]",BF16
+gsm8k:test:574,gsm8k,a,-1,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the revenue minus the cost, so the net profit is $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,False,False,False,173,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 198, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 353, 220, 605, 284, 400, 3101, 13, 410, 198, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 3101, 13, 410, 284, 400, 10568, 13, 410, 198, 791, 3430, 315, 1855, 28974, 374, 400, 22, 13, 410, 11, 779, 279, 2860, 13254, 505, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 198, 791, 4272, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 279, 4272, 11626, 374, 400, 2031, 13, 410, 482, 400, 10568, 13, 410, 284, 83458, 11387, 13, 410, 198, 827, 482, 11387, 271, 48, 25]",BF16
+gsm8k:test:252,gsm8k,a,-1,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 717, 284, 220, 18, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 18, 489, 220, 24, 284, 220, 717, 198, 827, 220, 717, 271, 48, 25]",BF16
+arc:test:414,arc,a,-1,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",BF16
+arc:test:146,arc,a,-1,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",BF16
+gsm8k:test:371,gsm8k,b,-1,50," The first day they sold 14 pairs of shoes.
+The second day they sold 14 * 2 = 28 pairs of shoes.
+The third day they sold 28 * 1/2 = 14 pairs of shoes.
+The third day they sold 14 - 6 = 8 pairs of shoes.
+#### 8
+
+Q:",8,False,False,False,70,"[578, 1176, 1938, 814, 6216, 220, 975, 13840, 315, 15653, 627, 791, 2132, 1938, 814, 6216, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 15653, 627, 827, 220, 23, 271, 48, 25]",BF16
+gsm8k:test:567,gsm8k,b,-1,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",BF16
+gsm8k:test:574,gsm8k,b,-1,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of the sandwiches is $7.00 each, so the price of 10 sandwiches is $7.00 * 10 = $70.00.
+The profit is the price of the sandwiches minus the cost of the ingredients, so the profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,False,False,False,166,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 3430, 315, 279, 57758, 374, 400, 22, 13, 410, 1855, 11, 779, 279, 3430, 315, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 627, 791, 11626, 374, 279, 3430, 315, 279, 57758, 28382, 279, 2853, 315, 279, 14293, 11, 779, 279, 11626, 374, 400, 2031, 13, 410, 482, 400, 1399, 13, 410, 284, 400, 605, 13, 410, 824, 220, 605, 57758, 627, 827, 220, 605, 271, 48, 25]",BF16
+gsm8k:test:252,gsm8k,b,-1,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 717, 284, 220, 18, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 18, 489, 220, 24, 284, 220, 717, 198, 827, 220, 717, 271, 48, 25]",BF16
+gsm8k:test:519,gsm8k,b,-1,280," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 4/3
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 4/3 = 160
+#### 160
+
+Q:",1.6E+2,False,False,False,160,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 85292, 220, 17, 555, 220, 1399, 25, 220, 17, 353, 220, 1399, 284, 220, 4364, 198, 7184, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 555, 7999, 220, 1272, 311, 2033, 4997, 25, 220, 1272, 489, 220, 17, 353, 220, 1399, 284, 220, 1272, 489, 220, 4364, 284, 220, 6330, 198, 7184, 22497, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 555, 279, 1396, 315, 4520, 304, 220, 17, 4207, 311, 1505, 279, 11595, 315, 279, 1403, 3115, 25, 220, 6330, 611, 220, 4364, 284, 220, 19, 14, 18, 198, 7184, 31370, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 279, 11595, 315, 279, 1403, 3115, 311, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 25, 220, 4364, 353, 220, 19, 14, 18, 284, 220, 6330, 198, 827, 220, 6330, 271, 48, 25]",BF16
+arc:test:414,arc,b,-1,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",BF16
+arc:test:146,arc,b,-1,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",BF16
+gsm8k:test:371,gsm8k,a,0,50," The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they sold 14 - 6 = 8 pairs of tennis shoes.
+#### 8
+
+Q:",8,False,False,False,74,"[578, 1176, 1938, 814, 6216, 220, 975, 13840, 315, 32515, 15653, 627, 791, 2132, 1938, 814, 6216, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 627, 827, 220, 23, 271, 48, 25]",g0_W4
+gsm8k:test:371,gsm8k,a,1,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,116,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 1051, 6216, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 1051, 6216, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g1_W4
+gsm8k:test:371,gsm8k,a,2,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,112,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g2_W4
+gsm8k:test:371,gsm8k,a,3,50," The first day they sold 14 pairs of shoes.
+The second day they sold 14 * 2 = 28 pairs of shoes.
+The third day they sold 28 * 1/2 = 14 pairs of shoes.
+The third day they sold 14 - 6 = 8 pairs of shoes.
+#### 8
+
+Q:",8,False,False,False,70,"[578, 1176, 1938, 814, 6216, 220, 975, 13840, 315, 15653, 627, 791, 2132, 1938, 814, 6216, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 15653, 627, 827, 220, 23, 271, 48, 25]",g3_W4
+gsm8k:test:371,gsm8k,a,5,50," The first day they sold 14 pairs of shoes.
+The second day they sold 14 * 2 = 28 pairs of shoes.
+The third day they sold 28 * 1/2 = 14 pairs of shoes.
+The third day they sold 14 - 6 = 8 pairs of shoes.
+#### 8
+
+Q:",8,False,False,False,70,"[578, 1176, 1938, 814, 6216, 220, 975, 13840, 315, 15653, 627, 791, 2132, 1938, 814, 6216, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 15653, 627, 827, 220, 23, 271, 48, 25]",g5_W4
+gsm8k:test:371,gsm8k,a,6,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,116,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 1051, 6216, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 1051, 6216, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g6_W4
+gsm8k:test:567,gsm8k,a,0,9," The first tooth was worth $5.00, so the second tooth was worth $5.00 + $1.00 = $6.00
+The third tooth was worth $6.00 + $1.00 = $7.00
+The fourth tooth was worth $7.00 + $1.00 = $8.00
+The fifth tooth was worth $8.00 + $1.00 = $9.00
+The sixth tooth was worth $9.00 + $1.00 = $10.00
+The seventh tooth was worth $10.00 + $1.00 = $11.00
+The eighth tooth was worth $11.00 + $1.00 = $12.00
+The ninth tooth was worth $12.00 + $1.00 = $13.00
+The tenth tooth was worth $13.00 + $1.00 = $14.00
+The eleventh tooth was worth $14.00 + $1.00 = $15.00
+The twelfth tooth was worth $15.00 + $1.00 = $16.00
+The thirteenth tooth was worth $16.00 + $1.00 = $17.00
+The",,False,True,True,256,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 11, 779, 279, 2132, 26588, 574, 5922, 400, 20, 13, 410, 489, 400, 16, 13, 410, 284, 400, 21, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 21, 13, 410, 489, 400, 16, 13, 410, 284, 400, 22, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 22, 13, 410, 489, 400, 16, 13, 410, 284, 400, 23, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 23, 13, 410, 489, 400, 16, 13, 410, 284, 400, 24, 13, 410, 198, 791, 26084, 26588, 574, 5922, 400, 24, 13, 410, 489, 400, 16, 13, 410, 284, 400, 605, 13, 410, 198, 791, 31487, 26588, 574, 5922, 400, 605, 13, 410, 489, 400, 16, 13, 410, 284, 400, 806, 13, 410, 198, 791, 37477, 26588, 574, 5922, 400, 806, 13, 410, 489, 400, 16, 13, 410, 284, 400, 717, 13, 410, 198, 791, 43641, 26588, 574, 5922, 400, 717, 13, 410, 489, 400, 16, 13, 410, 284, 400, 1032, 13, 410, 198, 791, 56766, 26588, 574, 5922, 400, 1032, 13, 410, 489, 400, 16, 13, 410, 284, 400, 975, 13, 410, 198, 791, 10732, 45707, 26588, 574, 5922, 400, 975, 13, 410, 489, 400, 16, 13, 410, 284, 400, 868, 13, 410, 198, 791, 4483, 88798, 26588, 574, 5922, 400, 868, 13, 410, 489, 400, 16, 13, 410, 284, 400, 845, 13, 410, 198, 791, 270, 404, 46487, 26588, 574, 5922, 400, 845, 13, 410, 489, 400, 16, 13, 410, 284, 400, 1114, 13, 410, 198, 791]",g0_W4
+gsm8k:test:567,gsm8k,a,1,9," The first tooth is worth $5.00
+The second tooth is worth $1.00
+The third tooth is worth $1.00
+The fourth tooth is worth $0.50
+The fifth tooth is worth $0.50
+The total amount of money the tooth fairy left Sharon is $5.00 + $1.00 + $1.00 + $0.50 + $0.50 = $7.50
+#### 7.50
+
+Q:",7.5,False,False,False,99,"[578, 1176, 26588, 374, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 374, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 374, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 374, 5922, 400, 15, 13, 1135, 198, 791, 18172, 26588, 374, 5922, 400, 15, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 374, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 15, 13, 1135, 489, 400, 15, 13, 1135, 284, 400, 22, 13, 1135, 198, 827, 220, 22, 13, 1135, 271, 48, 25]",g1_W4
+gsm8k:test:567,gsm8k,a,2,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.50
+#### 13.50
+
+Q:",13.5,False,False,False,114,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 1135, 198, 827, 220, 1032, 13, 1135, 271, 48, 25]",g2_W4
+gsm8k:test:567,gsm8k,a,3,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",g3_W4
+gsm8k:test:567,gsm8k,a,4,9," The first tooth is worth $5.00
+The second tooth is worth $1.00
+The third tooth is worth $1.00
+The fourth tooth is worth $0.50
+The fifth tooth is worth $0.50
+The total amount of money the tooth fairy left Sharon is $5.00 + $1.00 + $1.00 + $0.50 + $0.50 = $7.50
+#### 7.50
+
+Q:",7.5,False,False,False,99,"[578, 1176, 26588, 374, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 374, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 374, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 374, 5922, 400, 15, 13, 1135, 198, 791, 18172, 26588, 374, 5922, 400, 15, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 374, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 15, 13, 1135, 489, 400, 15, 13, 1135, 284, 400, 22, 13, 1135, 198, 827, 220, 22, 13, 1135, 271, 48, 25]",g4_W4
+gsm8k:test:567,gsm8k,a,6,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",g6_W4
+gsm8k:test:567,gsm8k,a,7,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",g7_W4
+gsm8k:test:581,gsm8k,a,2,215," First, add the two times together to get the total time Max will spend watching movies: 1.5 + 2.5 = 4
+#### 4
+
+Q:",4,False,False,False,37,"[5629, 11, 923, 279, 1403, 3115, 3871, 311, 636, 279, 2860, 892, 7639, 690, 8493, 10307, 9698, 25, 220, 16, 13, 20, 489, 220, 17, 13, 20, 284, 220, 19, 198, 827, 220, 19, 271, 48, 25]",g2_W4
+gsm8k:test:957,gsm8k,a,1,45," First, set up an equation to find Shawna's age. Let s be Shawna's age and a be Aliya's age. We know that s = 3a, so we can substitute 3a for s in the equation s + 5 = f, where f is Shawna's father's age. This gives us 3a + 5 = f.
+Now, we know that Aliya is 3 years old, so we can substitute 3 for a in the equation 3a + 5 = f. This gives us 3(3) + 5 = f, which simplifies to 9 + 5 = f, or 14 = f.
+#### 14
+
+Q:",14,False,False,False,149,"[5629, 11, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 4325, 13, 6914, 274, 387, 36285, 3458, 596, 4325, 323, 264, 387, 14925, 7911, 596, 4325, 13, 1226, 1440, 430, 274, 284, 220, 18, 64, 11, 779, 584, 649, 28779, 220, 18, 64, 369, 274, 304, 279, 24524, 274, 489, 220, 20, 284, 282, 11, 1405, 282, 374, 36285, 3458, 596, 7126, 596, 4325, 13, 1115, 6835, 603, 220, 18, 64, 489, 220, 20, 284, 282, 627, 7184, 11, 584, 1440, 430, 14925, 7911, 374, 220, 18, 1667, 2362, 11, 779, 584, 649, 28779, 220, 18, 369, 264, 304, 279, 24524, 220, 18, 64, 489, 220, 20, 284, 282, 13, 1115, 6835, 603, 220, 18, 7, 18, 8, 489, 220, 20, 284, 282, 11, 902, 15858, 9803, 311, 220, 24, 489, 220, 20, 284, 282, 11, 477, 220, 975, 284, 282, 627, 827, 220, 975, 271, 48, 25]",g1_W4
+gsm8k:test:957,gsm8k,a,4,45," First, set up an equation to find Shawna's age.  Aliya is 3 years old, so Shawna is 3x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shaw",,False,True,True,256,"[5629, 11, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 4325, 13, 220, 14925, 7911, 374, 220, 18, 1667, 2362, 11, 779, 36285, 3458, 374, 220, 18, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285, 3458, 596, 7126, 374, 220, 20, 87, 1667, 2362, 627, 7184, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 220, 36285]",g4_W4
+gsm8k:test:574,gsm8k,a,0,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of the sandwiches is $7.00 each, so the price of 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,False,False,False,151,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 3430, 315, 279, 57758, 374, 400, 22, 13, 410, 1855, 11, 779, 279, 3430, 315, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 627, 791, 4272, 11626, 374, 400, 2031, 13, 410, 482, 400, 1399, 13, 410, 284, 400, 605, 13, 410, 824, 220, 605, 57758, 627, 827, 220, 605, 271, 48, 25]",g0_W4
+gsm8k:test:574,gsm8k,a,1,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is the revenue minus the cost, so the net profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,False,False,False,162,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 3430, 315, 1855, 28974, 374, 400, 22, 13, 410, 11, 779, 279, 2860, 13254, 505, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 627, 791, 4272, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 279, 4272, 11626, 374, 400, 2031, 13, 410, 482, 400, 1399, 13, 410, 284, 400, 605, 13, 410, 824, 220, 605, 57758, 627, 827, 220, 605, 271, 48, 25]",g1_W4
+gsm8k:test:574,gsm8k,a,2,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches, so the cost of the ingredients per sandwich is $60.00 / 10 = $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich, so the cost of the ingredients for 10 sandwiches is $6.00 * 10 = $60.00.
+The cost of the ingredients is $60.00, so the cost of the ingredients per sandwich is $60.00 / 10 = $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich, so the cost of the ingredients for 10 sandwiches is $6.00 * 10 = $60.00.
+The cost of the ingredients is $60.00, so the cost of the ingredients per sandwich",,False,True,True,256,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 14293, 824, 28974, 374, 400, 1399, 13, 410, 611, 220, 605, 284, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 11, 779, 279, 2853, 315, 279, 14293, 369, 220, 605, 57758, 374, 400, 21, 13, 410, 353, 220, 605, 284, 400, 1399, 13, 410, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 11, 779, 279, 2853, 315, 279, 14293, 824, 28974, 374, 400, 1399, 13, 410, 611, 220, 605, 284, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 11, 779, 279, 2853, 315, 279, 14293, 369, 220, 605, 57758, 374, 400, 21, 13, 410, 353, 220, 605, 284, 400, 1399, 13, 410, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 11, 779, 279, 2853, 315, 279, 14293, 824, 28974]",g2_W4
+gsm8k:test:574,gsm8k,a,3,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the sandwiches is $30.00 + $300.00 = $330.00
+The revenue from the sandwiches is $7.00 * 10 = $70.00
+The net profit is the revenue minus the cost, so $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,False,False,False,155,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 198, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 353, 220, 605, 284, 400, 3101, 13, 410, 198, 791, 2860, 2853, 315, 279, 57758, 374, 400, 966, 13, 410, 489, 400, 3101, 13, 410, 284, 400, 10568, 13, 410, 198, 791, 13254, 505, 279, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 198, 791, 4272, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 400, 2031, 13, 410, 482, 400, 10568, 13, 410, 284, 83458, 11387, 13, 410, 198, 827, 482, 11387, 271, 48, 25]",g3_W4
+gsm8k:test:574,gsm8k,a,4,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of 10 sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the revenue from the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = $-260.00
+#### -260
+
+Q:",-2.6E+2,False,False,False,176,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 198, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 353, 220, 605, 284, 400, 3101, 13, 410, 198, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 3101, 13, 410, 284, 400, 10568, 13, 410, 198, 791, 2853, 315, 220, 605, 57758, 374, 400, 22, 13, 410, 1855, 11, 779, 279, 2853, 315, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 198, 791, 4272, 11626, 374, 279, 13254, 505, 279, 57758, 28382, 279, 2853, 315, 279, 14293, 25, 400, 2031, 13, 410, 482, 400, 10568, 13, 410, 284, 400, 12, 11387, 13, 410, 198, 827, 482, 11387, 271, 48, 25]",g4_W4
+gsm8k:test:574,gsm8k,a,5,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is the revenue minus the cost, so $70.00 - $60.00 = $10.00.
+#### 10
+
+Q:",1E+1,False,False,False,154,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 3430, 315, 1855, 28974, 374, 400, 22, 13, 410, 11, 779, 279, 2860, 13254, 505, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 627, 791, 4272, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 400, 2031, 13, 410, 482, 400, 1399, 13, 410, 284, 400, 605, 13, 410, 627, 827, 220, 605, 271, 48, 25]",g5_W4
+gsm8k:test:574,gsm8k,a,6,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of the sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the cost of the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,False,False,False,174,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 198, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 353, 220, 605, 284, 400, 3101, 13, 410, 198, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 3101, 13, 410, 284, 400, 10568, 13, 410, 198, 791, 2853, 315, 279, 57758, 374, 400, 22, 13, 410, 1855, 11, 779, 279, 2853, 315, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 198, 791, 4272, 11626, 374, 279, 2853, 315, 279, 57758, 28382, 279, 2853, 315, 279, 14293, 25, 400, 2031, 13, 410, 482, 400, 10568, 13, 410, 284, 83458, 11387, 13, 410, 198, 827, 482, 11387, 271, 48, 25]",g6_W4
+gsm8k:test:574,gsm8k,a,7,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,False,True,True,256,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13]",g7_W4
+gsm8k:test:252,gsm8k,a,0,73," First figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of wolves he killed today by 3: 10 * 3 = 30
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 30 + 12 = 42
+#### 42
+
+Q:",42,False,False,False,113,"[5629, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 56271, 568, 7577, 3432, 555, 220, 18, 25, 220, 605, 353, 220, 18, 284, 220, 966, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 966, 489, 220, 717, 284, 220, 2983, 198, 827, 220, 2983, 271, 48, 25]",g0_W4
+gsm8k:test:252,gsm8k,a,1,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars Rick killed today to the number of cougars he killed the previous night to get the total number of cougars he killed: 3 + 12 = 15
+Now add the number of wolves Rick killed today to the number of wolves he killed the previous night to get the total number of wolves he killed: 9 + 10 = 19
+Now add the number of cougars Rick killed to the number of wolves he killed to get the total number of animals he killed: 15 + 19 = 34
+#### 34
+
+Q:",34,False,False,False,194,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 3432, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 23194, 7577, 3432, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 4020, 64502, 568, 7577, 25, 220, 18, 489, 220, 717, 284, 220, 868, 198, 7184, 923, 279, 1396, 315, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 56271, 568, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 56271, 568, 7577, 25, 220, 24, 489, 220, 605, 284, 220, 777, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 23194, 7577, 311, 279, 1396, 315, 56271, 568, 7577, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 868, 489, 220, 777, 284, 220, 1958, 198, 827, 220, 1958, 271, 48, 25]",g1_W4
+gsm8k:test:252,gsm8k,a,2,73," First figure out how many cougars Rick killed the previous night by dividing the number of cougars he killed the first night by 3: 15/3 = 5
+Now figure out how many cougars Rick killed today by adding the number of cougars he killed the previous night to the number of cougars he killed today: 5 + 3 = 8
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 8 * 3 = 24
+Now add the number of cougars Rick killed today to the number of wolves he killed today to get the total number of animals Rick killed: 8 + 24 = 32
+#### 32
+
+Q:",32,False,False,False,152,"[5629, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 50802, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 1176, 3814, 555, 220, 18, 25, 220, 868, 14, 18, 284, 220, 20, 198, 7184, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 3432, 555, 7999, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 25, 220, 20, 489, 220, 18, 284, 220, 23, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 3432, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 555, 220, 18, 25, 220, 23, 353, 220, 18, 284, 220, 1187, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 23194, 7577, 3432, 311, 279, 1396, 315, 56271, 568, 7577, 3432, 311, 636, 279, 2860, 1396, 315, 10099, 23194, 7577, 25, 220, 23, 489, 220, 1187, 284, 220, 843, 198, 827, 220, 843, 271, 48, 25]",g2_W4
+gsm8k:test:252,gsm8k,a,3,73," First figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number of cougars he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 12 * 3 = 36
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed the previous night: 12 + 36 = 48
+Now add the number of cougars and wolves Rick killed today to get the total number of animals he killed today: 3 + 15 = 18
+Now add the number of animals Rick killed the previous night to the number of animals he killed today to get the total number of animals he killed: 48 + 18 = 66
+#### 66
+
+Q:",66,False,False,False,192,"[5629, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 717, 353, 220, 18, 284, 220, 1927, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 279, 3766, 3814, 25, 220, 717, 489, 220, 1927, 284, 220, 2166, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 3432, 25, 220, 18, 489, 220, 868, 284, 220, 972, 198, 7184, 923, 279, 1396, 315, 10099, 23194, 7577, 279, 3766, 3814, 311, 279, 1396, 315, 10099, 568, 7577, 3432, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 2166, 489, 220, 972, 284, 220, 2287, 198, 827, 220, 2287, 271, 48, 25]",g3_W4
+gsm8k:test:252,gsm8k,a,4,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed yesterday: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of cougars he killed: 12 + 9 = 21
+Now add the number of cougars and wolves Rick killed today to the number of wolves he killed yesterday to get the total number of wolves he killed: 9 + 15 = 24
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of animals Rick killed: 21 + 24 = 45
+#### 45
+
+Q:",45,False,False,False,198,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 13985, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 3432, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 4020, 64502, 568, 7577, 25, 220, 717, 489, 220, 24, 284, 220, 1691, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 56271, 568, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 56271, 568, 7577, 25, 220, 24, 489, 220, 868, 284, 220, 1187, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 10099, 23194, 7577, 25, 220, 1691, 489, 220, 1187, 284, 220, 1774, 198, 827, 220, 1774, 271, 48, 25]",g4_W4
+gsm8k:test:252,gsm8k,a,5,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 717, 284, 220, 18, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 18, 489, 220, 24, 284, 220, 717, 198, 827, 220, 717, 271, 48, 25]",g5_W4
+gsm8k:test:252,gsm8k,a,6,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 717, 284, 220, 18, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 18, 489, 220, 24, 284, 220, 717, 198, 827, 220, 717, 271, 48, 25]",g6_W4
+gsm8k:test:252,gsm8k,a,7,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 12 * 3 = 36
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 12 + 36 = 48
+#### 48
+
+Q:",48,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 717, 353, 220, 18, 284, 220, 1927, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 717, 489, 220, 1927, 284, 220, 2166, 198, 827, 220, 2166, 271, 48, 25]",g7_W4
+gsm8k:test:90,gsm8k,a,1,225," First, find the total amount of potato salad that the adults will eat: 10 * 20 = 200 lbs
+Now find the total amount of potato salad that the children will eat: 5 * 5 = 25 lbs
+Now add the amount the adults will eat to the amount the children will eat to find the total amount of potato salad that will be eaten: 200 + 25 = 225 lbs
+Now multiply the total amount of potato salad that will be eaten by 1.1 to find the amount Ted needs to bring to the picnic: 225 * 1.1 = 247.5 lbs
+#### 247.5
+
+Q:",247.5,False,False,False,138,"[5629, 11, 1505, 279, 2860, 3392, 315, 39834, 33566, 430, 279, 12884, 690, 8343, 25, 220, 605, 353, 220, 508, 284, 220, 1049, 29160, 198, 7184, 1505, 279, 2860, 3392, 315, 39834, 33566, 430, 279, 2911, 690, 8343, 25, 220, 20, 353, 220, 20, 284, 220, 914, 29160, 198, 7184, 923, 279, 3392, 279, 12884, 690, 8343, 311, 279, 3392, 279, 2911, 690, 8343, 311, 1505, 279, 2860, 3392, 315, 39834, 33566, 430, 690, 387, 35661, 25, 220, 1049, 489, 220, 914, 284, 220, 11057, 29160, 198, 7184, 31370, 279, 2860, 3392, 315, 39834, 33566, 430, 690, 387, 35661, 555, 220, 16, 13, 16, 311, 1505, 279, 3392, 23989, 3966, 311, 4546, 311, 279, 55562, 25, 220, 11057, 353, 220, 16, 13, 16, 284, 220, 14125, 13, 20, 29160, 198, 827, 220, 14125, 13, 20, 271, 48, 25]",g1_W4
+gsm8k:test:519,gsm8k,a,0,280," First, find the time it takes Rob to shingle a house. 2 hours = 2 * 60 minutes = 120 minutes
+Now, find the time it takes Royce to shingle a house. 40 minutes more than double Rob = 120 + 40 = 160 minutes
+#### 160
+
+Q:",1.6E+2,False,False,False,68,"[5629, 11, 1505, 279, 892, 433, 5097, 4997, 311, 559, 2222, 264, 3838, 13, 220, 17, 4207, 284, 220, 17, 353, 220, 1399, 4520, 284, 220, 4364, 4520, 198, 7184, 11, 1505, 279, 892, 433, 5097, 11284, 346, 311, 559, 2222, 264, 3838, 13, 220, 1272, 4520, 810, 1109, 2033, 4997, 284, 220, 4364, 489, 220, 1272, 284, 220, 6330, 4520, 198, 827, 220, 6330, 271, 48, 25]",g0_W4
+gsm8k:test:519,gsm8k,a,2,280," First, figure out how long it takes Rob to shingle a house: 2 hours = 120 minutes
+Now figure out how long it takes Royce to shingle a house: 2 * 120 = 240 minutes
+Now subtract the time it takes Rob to shingle a house from the time it takes Royce to shingle a house: 240 - 120 = 120 minutes
+#### 120
+
+Q:",1.2E+2,False,False,False,89,"[5629, 11, 7216, 704, 1268, 1317, 433, 5097, 4997, 311, 559, 2222, 264, 3838, 25, 220, 17, 4207, 284, 220, 4364, 4520, 198, 7184, 7216, 704, 1268, 1317, 433, 5097, 11284, 346, 311, 559, 2222, 264, 3838, 25, 220, 17, 353, 220, 4364, 284, 220, 8273, 4520, 198, 7184, 33356, 279, 892, 433, 5097, 4997, 311, 559, 2222, 264, 3838, 505, 279, 892, 433, 5097, 11284, 346, 311, 559, 2222, 264, 3838, 25, 220, 8273, 482, 220, 4364, 284, 220, 4364, 4520, 198, 827, 220, 4364, 271, 48, 25]",g2_W4
+gsm8k:test:519,gsm8k,a,3,280," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now, find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 160
+Now, subtract the number of minutes in 2 hours from the number of minutes in 40 minutes more than double Rob to find the difference: 160 - 120 = 40
+#### 40
+
+Q:",4E+1,False,False,False,107,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 85292, 220, 17, 555, 220, 1399, 25, 220, 17, 353, 220, 1399, 284, 220, 4364, 198, 7184, 11, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 555, 7999, 220, 1272, 311, 2033, 4997, 25, 220, 1272, 489, 220, 17, 353, 220, 1399, 284, 220, 6330, 198, 7184, 11, 33356, 279, 1396, 315, 4520, 304, 220, 17, 4207, 505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 311, 1505, 279, 6811, 25, 220, 6330, 482, 220, 4364, 284, 220, 1272, 198, 827, 220, 1272, 271, 48, 25]",g3_W4
+gsm8k:test:519,gsm8k,a,4,280," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,False,False,False,120,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 13, 2684, 527, 220, 1399, 4520, 304, 459, 6596, 11, 779, 220, 17, 4207, 374, 220, 17, 353, 220, 1399, 284, 220, 4364, 4520, 627, 7184, 11, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 13, 220, 1272, 4520, 810, 1109, 2033, 4997, 374, 220, 1272, 489, 220, 17, 353, 220, 1399, 284, 220, 6330, 4520, 627, 7184, 11, 1505, 279, 1396, 315, 4520, 304, 11284, 346, 596, 892, 13, 8876, 11284, 346, 5097, 220, 1272, 4520, 810, 1109, 2033, 4997, 11, 813, 892, 374, 220, 17, 353, 220, 1399, 489, 220, 1272, 284, 220, 6330, 4520, 627, 827, 220, 6330, 271, 48, 25]",g4_W4
+gsm8k:test:519,gsm8k,a,5,280," First, find the number of minutes in 2 hours. 2 hours = 2 * 60 = 120 minutes
+Now, find the number of minutes it takes Royce to shingle a house. 120 + 40 = 160 minutes
+#### 160
+
+Q:",1.6E+2,False,False,False,59,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 13, 220, 17, 4207, 284, 220, 17, 353, 220, 1399, 284, 220, 4364, 4520, 198, 7184, 11, 1505, 279, 1396, 315, 4520, 433, 5097, 11284, 346, 311, 559, 2222, 264, 3838, 13, 220, 4364, 489, 220, 1272, 284, 220, 6330, 4520, 198, 827, 220, 6330, 271, 48, 25]",g5_W4
+gsm8k:test:519,gsm8k,a,6,280," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,False,False,False,120,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 13, 2684, 527, 220, 1399, 4520, 304, 459, 6596, 11, 779, 220, 17, 4207, 374, 220, 17, 353, 220, 1399, 284, 220, 4364, 4520, 627, 7184, 11, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 13, 220, 1272, 4520, 810, 1109, 2033, 4997, 374, 220, 1272, 489, 220, 17, 353, 220, 1399, 284, 220, 6330, 4520, 627, 7184, 11, 1505, 279, 1396, 315, 4520, 304, 11284, 346, 596, 892, 13, 8876, 11284, 346, 5097, 220, 1272, 4520, 810, 1109, 2033, 4997, 11, 813, 892, 374, 220, 17, 353, 220, 1399, 489, 220, 1272, 284, 220, 6330, 4520, 627, 827, 220, 6330, 271, 48, 25]",g6_W4
+arc:test:414,arc,a,0,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g0_W4
+arc:test:414,arc,a,1,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g1_W4
+arc:test:414,arc,a,2,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g2_W4
+arc:test:414,arc,a,3,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g3_W4
+arc:test:414,arc,a,4,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g4_W4
+arc:test:414,arc,a,5,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g5_W4
+arc:test:414,arc,a,6,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g6_W4
+arc:test:414,arc,a,7,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g7_W4
+arc:test:146,arc,a,0,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g0_W4
+arc:test:146,arc,a,1,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g1_W4
+arc:test:146,arc,a,2,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g2_W4
+arc:test:146,arc,a,3,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g3_W4
+arc:test:146,arc,a,4,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g4_W4
+arc:test:146,arc,a,5,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g5_W4
+arc:test:146,arc,a,6,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g6_W4
+arc:test:146,arc,a,7,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g7_W4
+boolq:validation:1545,boolq,a,0,yes," no
+
+Q:",no,False,False,False,4,"[912, 271, 48, 25]",g0_W4
+boolq:validation:2086,boolq,a,7,no," yes
+
+Q:",yes,False,False,False,4,"[10035, 271, 48, 25]",g7_W4
+gsm8k:test:371,gsm8k,b,0,50," The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they sold 14 - 6 = 8 pairs of tennis shoes.
+#### 8
+
+Q:",8,False,False,False,74,"[578, 1176, 1938, 814, 6216, 220, 975, 13840, 315, 32515, 15653, 627, 791, 2132, 1938, 814, 6216, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 627, 827, 220, 23, 271, 48, 25]",g0_W4
+gsm8k:test:371,gsm8k,b,1,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,116,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 1051, 6216, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 1051, 6216, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g1_W4
+gsm8k:test:371,gsm8k,b,2,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,112,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g2_W4
+gsm8k:test:371,gsm8k,b,3,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,116,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 1051, 6216, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 32515, 15653, 1051, 6216, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g3_W4
+gsm8k:test:371,gsm8k,b,5,50," The first day they sold 14 pairs of shoes.
+The second day they sold 14 * 2 = 28 pairs of shoes.
+The third day they sold 28 * 1/2 = 14 pairs of shoes.
+The third day they sold 14 - 6 = 8 pairs of shoes.
+#### 8
+
+Q:",8,False,False,False,70,"[578, 1176, 1938, 814, 6216, 220, 975, 13840, 315, 15653, 627, 791, 2132, 1938, 814, 6216, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 1591, 353, 220, 16, 14, 17, 284, 220, 975, 13840, 315, 15653, 627, 791, 4948, 1938, 814, 6216, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 15653, 627, 827, 220, 23, 271, 48, 25]",g5_W4
+gsm8k:test:371,gsm8k,b,6,50," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 / 2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,False,False,False,114,"[578, 3637, 6216, 220, 975, 13840, 315, 32515, 15653, 389, 6740, 627, 791, 3637, 6216, 2033, 430, 1396, 315, 15653, 389, 7884, 11, 779, 220, 975, 353, 220, 17, 284, 220, 1591, 13840, 315, 32515, 15653, 1051, 6216, 389, 7884, 627, 791, 3637, 6216, 832, 34902, 279, 3392, 430, 814, 1550, 279, 1938, 1603, 389, 7418, 11, 779, 220, 1591, 611, 220, 17, 284, 220, 975, 13840, 315, 32515, 15653, 1051, 6216, 389, 7418, 627, 42560, 1274, 6052, 872, 13840, 1606, 814, 3287, 956, 5052, 11, 779, 220, 975, 482, 220, 21, 284, 220, 23, 13840, 315, 32515, 15653, 1051, 6216, 555, 279, 842, 315, 279, 6412, 627, 827, 220, 23, 271, 48, 25]",g6_W4
+gsm8k:test:567,gsm8k,b,0,9," The first tooth was worth $5.00, so the second tooth was worth $5.00 + $1.00 = $6.00
+The third tooth was worth $6.00 + $1.00 = $7.00
+The fourth tooth was worth $7.00 + $1.00 = $8.00
+The fifth tooth was worth $8.00 + $0.50 = $8.50
+The sixth tooth was worth $8.50 + $0.50 = $9.00
+The total amount of money the tooth fairy left Sharon was $5.00 + $6.00 + $7.00 + $8.00 + $8.50 + $9.00 = $43.50
+#### 43.50
+
+Q:",43.5,False,False,False,165,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 11, 779, 279, 2132, 26588, 574, 5922, 400, 20, 13, 410, 489, 400, 16, 13, 410, 284, 400, 21, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 21, 13, 410, 489, 400, 16, 13, 410, 284, 400, 22, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 22, 13, 410, 489, 400, 16, 13, 410, 284, 400, 23, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 23, 13, 410, 489, 400, 15, 13, 1135, 284, 400, 23, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 23, 13, 1135, 489, 400, 15, 13, 1135, 284, 400, 24, 13, 410, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 21, 13, 410, 489, 400, 22, 13, 410, 489, 400, 23, 13, 410, 489, 400, 23, 13, 1135, 489, 400, 24, 13, 410, 284, 400, 3391, 13, 1135, 198, 827, 220, 3391, 13, 1135, 271, 48, 25]",g0_W4
+gsm8k:test:567,gsm8k,b,1,9," The first tooth is worth $5.00
+The second tooth is worth $1.00
+The third tooth is worth $1.00
+The fourth tooth is worth $0.50
+The fifth tooth is worth $0.50
+The sixth tooth is worth $0.25
+The seventh tooth is worth $0.25
+The total amount of money the tooth fairy left Sharon is $5.00 + $1.00 + $1.00 + $0.50 + $0.50 + $0.25 + $0.25 = $8.50
+#### 8.50
+
+Q:",8.5,False,False,False,129,"[578, 1176, 26588, 374, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 374, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 374, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 374, 5922, 400, 15, 13, 1135, 198, 791, 18172, 26588, 374, 5922, 400, 15, 13, 1135, 198, 791, 26084, 26588, 374, 5922, 400, 15, 13, 914, 198, 791, 31487, 26588, 374, 5922, 400, 15, 13, 914, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 374, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 15, 13, 1135, 489, 400, 15, 13, 1135, 489, 400, 15, 13, 914, 489, 400, 15, 13, 914, 284, 400, 23, 13, 1135, 198, 827, 220, 23, 13, 1135, 271, 48, 25]",g1_W4
+gsm8k:test:567,gsm8k,b,2,9," Sharon received $5.00 for the first tooth, $1.00 for each of the next three teeth, and half the amount of money per tooth as Sharon had received for each of the previous three teeth for the last two teeth.
+The first tooth is worth $5.00, so the next three teeth are worth $1.00 each, for a total of $3.00.
+The last two teeth are worth half the amount of money per tooth as Sharon had received for each of the previous three teeth, so they are worth $1.50 each, for a total of $3.00.
+The total amount of money Sharon received is $5.00 + $3.00 + $3.00 = $11.00
+#### 11
+
+Q:",11,False,False,False,158,"[52952, 4036, 400, 20, 13, 410, 369, 279, 1176, 26588, 11, 400, 16, 13, 410, 369, 1855, 315, 279, 1828, 2380, 18311, 11, 323, 4376, 279, 3392, 315, 3300, 824, 26588, 439, 52952, 1047, 4036, 369, 1855, 315, 279, 3766, 2380, 18311, 369, 279, 1566, 1403, 18311, 627, 791, 1176, 26588, 374, 5922, 400, 20, 13, 410, 11, 779, 279, 1828, 2380, 18311, 527, 5922, 400, 16, 13, 410, 1855, 11, 369, 264, 2860, 315, 400, 18, 13, 410, 627, 791, 1566, 1403, 18311, 527, 5922, 4376, 279, 3392, 315, 3300, 824, 26588, 439, 52952, 1047, 4036, 369, 1855, 315, 279, 3766, 2380, 18311, 11, 779, 814, 527, 5922, 400, 16, 13, 1135, 1855, 11, 369, 264, 2860, 315, 400, 18, 13, 410, 627, 791, 2860, 3392, 315, 3300, 52952, 4036, 374, 400, 20, 13, 410, 489, 400, 18, 13, 410, 489, 400, 18, 13, 410, 284, 400, 806, 13, 410, 198, 827, 220, 806, 271, 48, 25]",g2_W4
+gsm8k:test:567,gsm8k,b,3,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",g3_W4
+gsm8k:test:567,gsm8k,b,5,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $0.50
+The sixth tooth was worth $0.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $0.50 + $0.50 = $8.50
+#### 8.50
+
+Q:",8.5,False,False,False,114,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 15, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 15, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 15, 13, 1135, 489, 400, 15, 13, 1135, 284, 400, 23, 13, 1135, 198, 827, 220, 23, 13, 1135, 271, 48, 25]",g5_W4
+gsm8k:test:567,gsm8k,b,6,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",g6_W4
+gsm8k:test:567,gsm8k,b,7,9," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,False,False,False,112,"[578, 1176, 26588, 574, 5922, 400, 20, 13, 410, 198, 791, 2132, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 4948, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 11999, 26588, 574, 5922, 400, 16, 13, 410, 198, 791, 18172, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 26084, 26588, 574, 5922, 400, 17, 13, 1135, 198, 791, 2860, 3392, 315, 3300, 279, 26588, 45586, 2163, 52952, 574, 400, 20, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 16, 13, 410, 489, 400, 17, 13, 1135, 489, 400, 17, 13, 1135, 284, 400, 1032, 13, 410, 198, 827, 220, 1032, 271, 48, 25]",g7_W4
+gsm8k:test:581,gsm8k,b,2,215," First, add the two times together to get the total time: 1.5 + 2.5 = 4
+#### 4
+
+Q:",4,False,False,False,32,"[5629, 11, 923, 279, 1403, 3115, 3871, 311, 636, 279, 2860, 892, 25, 220, 16, 13, 20, 489, 220, 17, 13, 20, 284, 220, 19, 198, 827, 220, 19, 271, 48, 25]",g2_W4
+gsm8k:test:957,gsm8k,b,1,45," First, set up an equation to find Shawna's age. Aliya is 3 years old, so Shawna is 3x years old.
+Next, set up an equation to find Shawna's father's age. Shawna's father is five times as old as Shawna, so he is 5x years old.
+Now, set up an equation to find Shawna's father's age in terms of Aliya's age. Since Shawna is three times as old as Aliya, we can set up the equation 3x = 5x - 3.
+Solve for x to find Shawna's age. 3x = 5x - 3
+Add 3 to both sides to get 3x + 3 = 5x
+Subtract 3x from both sides to get 3 = 2x
+Divide both sides by 2 to get x = 1.5
+Now, plug x = 1.5 into the equation 5x = 5(1.5) = 7.5
+#### 7.5
+
+Q:",7.5,False,False,False,230,"[5629, 11, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 4325, 13, 14925, 7911, 374, 220, 18, 1667, 2362, 11, 779, 36285, 3458, 374, 220, 18, 87, 1667, 2362, 627, 5971, 11, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 13, 36285, 3458, 596, 7126, 374, 4330, 3115, 439, 2362, 439, 36285, 3458, 11, 779, 568, 374, 220, 20, 87, 1667, 2362, 627, 7184, 11, 743, 709, 459, 24524, 311, 1505, 36285, 3458, 596, 7126, 596, 4325, 304, 3878, 315, 14925, 7911, 596, 4325, 13, 8876, 36285, 3458, 374, 2380, 3115, 439, 2362, 439, 14925, 7911, 11, 584, 649, 743, 709, 279, 24524, 220, 18, 87, 284, 220, 20, 87, 482, 220, 18, 627, 50, 4035, 369, 865, 311, 1505, 36285, 3458, 596, 4325, 13, 220, 18, 87, 284, 220, 20, 87, 482, 220, 18, 198, 2261, 220, 18, 311, 2225, 11314, 311, 636, 220, 18, 87, 489, 220, 18, 284, 220, 20, 87, 198, 3214, 2193, 220, 18, 87, 505, 2225, 11314, 311, 636, 220, 18, 284, 220, 17, 87, 198, 12792, 579, 2225, 11314, 555, 220, 17, 311, 636, 865, 284, 220, 16, 13, 20, 198, 7184, 11, 20206, 865, 284, 220, 16, 13, 20, 1139, 279, 24524, 220, 20, 87, 284, 220, 20, 7, 16, 13, 20, 8, 284, 220, 22, 13, 20, 198, 827, 220, 22, 13, 20, 271, 48, 25]",g1_W4
+gsm8k:test:574,gsm8k,b,0,37," The bread costs $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cheese and condiments cost $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The truck sells 10 sandwiches for $7.00 each, so the total revenue is $7.00 * 10 = $70.00
+The net profit is the revenue minus the cost, so $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,False,False,False,161,"[578, 16385, 7194, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 198, 791, 17604, 323, 9955, 12843, 2853, 400, 966, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 353, 220, 605, 284, 400, 3101, 13, 410, 198, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 3101, 13, 410, 284, 400, 10568, 13, 410, 198, 791, 11092, 31878, 220, 605, 57758, 369, 400, 22, 13, 410, 1855, 11, 779, 279, 2860, 13254, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 198, 791, 4272, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 400, 2031, 13, 410, 482, 400, 10568, 13, 410, 284, 83458, 11387, 13, 410, 198, 827, 482, 11387, 271, 48, 25]",g0_W4
+gsm8k:test:574,gsm8k,b,1,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is the revenue minus the cost, so the net profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,False,False,False,162,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 3430, 315, 1855, 28974, 374, 400, 22, 13, 410, 11, 779, 279, 2860, 13254, 505, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 627, 791, 4272, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 279, 4272, 11626, 374, 400, 2031, 13, 410, 482, 400, 1399, 13, 410, 284, 400, 605, 13, 410, 824, 220, 605, 57758, 627, 827, 220, 605, 271, 48, 25]",g1_W4
+gsm8k:test:574,gsm8k,b,2,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches, so the cost of the ingredients per sandwich is $60.00 / 10 = $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich, so the cost of the ingredients for 10 sandwiches is $6.00 * 10 = $60.00.
+The cost of the ingredients is $60.00, so the cost of the ingredients per sandwich is $60.00 / 10 = $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich, so the cost of the ingredients for 10 sandwiches is $6.00 * 10 = $60.00.
+The cost of the ingredients is $60.00, so the cost of the ingredients per sandwich",,False,True,True,256,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 14293, 824, 28974, 374, 400, 1399, 13, 410, 611, 220, 605, 284, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 11, 779, 279, 2853, 315, 279, 14293, 369, 220, 605, 57758, 374, 400, 21, 13, 410, 353, 220, 605, 284, 400, 1399, 13, 410, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 11, 779, 279, 2853, 315, 279, 14293, 824, 28974, 374, 400, 1399, 13, 410, 611, 220, 605, 284, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 11, 779, 279, 2853, 315, 279, 14293, 369, 220, 605, 57758, 374, 400, 21, 13, 410, 353, 220, 605, 284, 400, 1399, 13, 410, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 11, 779, 279, 2853, 315, 279, 14293, 824, 28974]",g2_W4
+gsm8k:test:574,gsm8k,b,3,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of the sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The profit is the revenue minus the cost, so the profit is $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,False,False,False,171,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 198, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 353, 220, 605, 284, 400, 3101, 13, 410, 198, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 3101, 13, 410, 284, 400, 10568, 13, 410, 198, 791, 2853, 315, 279, 57758, 374, 400, 22, 13, 410, 1855, 11, 779, 279, 2853, 315, 220, 605, 57758, 374, 400, 22, 13, 410, 353, 220, 605, 284, 400, 2031, 13, 410, 198, 791, 11626, 374, 279, 13254, 28382, 279, 2853, 11, 779, 279, 11626, 374, 400, 2031, 13, 410, 482, 400, 10568, 13, 410, 284, 83458, 11387, 13, 410, 198, 827, 482, 11387, 271, 48, 25]",g3_W4
+gsm8k:test:574,gsm8k,b,5,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,False,True,True,256,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13]",g5_W4
+gsm8k:test:574,gsm8k,b,6,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,False,True,True,256,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13]",g6_W4
+gsm8k:test:574,gsm8k,b,7,37," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,False,True,True,256,"[578, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 824, 77248, 11, 323, 1855, 77248, 3727, 220, 605, 57758, 11, 779, 279, 2853, 315, 279, 16385, 374, 400, 18, 13, 410, 353, 220, 605, 284, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 17604, 323, 9955, 12843, 374, 400, 966, 13, 410, 824, 220, 605, 57758, 627, 791, 2860, 2853, 315, 279, 14293, 374, 400, 966, 13, 410, 489, 400, 966, 13, 410, 284, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 1399, 13, 410, 824, 220, 605, 57758, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13, 410, 824, 28974, 627, 791, 2853, 315, 279, 14293, 374, 400, 21, 13]",g7_W4
+gsm8k:test:252,gsm8k,b,0,73," First figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 12 * 3 = 36
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 12 + 36 = 48
+#### 48
+
+Q:",48,False,False,False,116,"[5629, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 717, 353, 220, 18, 284, 220, 1927, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 717, 489, 220, 1927, 284, 220, 2166, 198, 827, 220, 2166, 271, 48, 25]",g0_W4
+gsm8k:test:252,gsm8k,b,1,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars Rick killed the previous night to the number of cougars he killed today to get the total number of cougars he killed: 12 + 3 = 15
+Now add the number of wolves Rick killed the previous night to the number of wolves he killed today to get the total number of wolves he killed: 10 + 9 = 19
+Now add the number of cougars Rick killed to the number of wolves he killed to get the total number of animals he killed: 15 + 19 = 34
+#### 34
+
+Q:",34,False,False,False,194,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 3432, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 23194, 7577, 279, 3766, 3814, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 311, 636, 279, 2860, 1396, 315, 4020, 64502, 568, 7577, 25, 220, 717, 489, 220, 18, 284, 220, 868, 198, 7184, 923, 279, 1396, 315, 56271, 23194, 7577, 279, 3766, 3814, 311, 279, 1396, 315, 56271, 568, 7577, 3432, 311, 636, 279, 2860, 1396, 315, 56271, 568, 7577, 25, 220, 605, 489, 220, 24, 284, 220, 777, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 23194, 7577, 311, 279, 1396, 315, 56271, 568, 7577, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 868, 489, 220, 777, 284, 220, 1958, 198, 827, 220, 1958, 271, 48, 25]",g1_W4
+gsm8k:test:252,gsm8k,b,2,73," First figure out how many cougars Rick killed the previous night by dividing the number of cougars he killed the first night by 3: 15/3 = 5
+Now figure out how many cougars Rick killed today by adding the number of cougars he killed the previous night to the number of cougars he killed today: 5 + 3 = 8
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 8 * 3 = 24
+Now add the number of cougars Rick killed today to the number of wolves he killed today to get the total number of animals Rick killed: 8 + 24 = 32
+#### 32
+
+Q:",32,False,False,False,152,"[5629, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 50802, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 1176, 3814, 555, 220, 18, 25, 220, 868, 14, 18, 284, 220, 20, 198, 7184, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 3432, 555, 7999, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 25, 220, 20, 489, 220, 18, 284, 220, 23, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 3432, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 555, 220, 18, 25, 220, 23, 353, 220, 18, 284, 220, 1187, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 23194, 7577, 3432, 311, 279, 1396, 315, 56271, 568, 7577, 3432, 311, 636, 279, 2860, 1396, 315, 10099, 23194, 7577, 25, 220, 23, 489, 220, 1187, 284, 220, 843, 198, 827, 220, 843, 271, 48, 25]",g2_W4
+gsm8k:test:252,gsm8k,b,3,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number of cougars he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of wolves he killed today by 3: 10 * 3 = 30
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 12 + 30 = 42
+#### 42
+
+Q:",42,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 56271, 568, 7577, 3432, 555, 220, 18, 25, 220, 605, 353, 220, 18, 284, 220, 966, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 717, 489, 220, 966, 284, 220, 2983, 198, 827, 220, 2983, 271, 48, 25]",g3_W4
+gsm8k:test:252,gsm8k,b,4,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed yesterday: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of cougars he killed: 12 + 9 = 21
+Now add the number of cougars and wolves Rick killed today to the number of wolves he killed yesterday to get the total number of wolves he killed: 9 + 15 = 24
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of animals Rick killed: 21 + 24 = 45
+#### 45
+
+Q:",45,False,False,False,198,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 13985, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 3432, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 4020, 64502, 568, 7577, 25, 220, 717, 489, 220, 24, 284, 220, 1691, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 56271, 568, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 56271, 568, 7577, 25, 220, 24, 489, 220, 868, 284, 220, 1187, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 3432, 311, 279, 1396, 315, 4020, 64502, 568, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 10099, 23194, 7577, 25, 220, 1691, 489, 220, 1187, 284, 220, 1774, 198, 827, 220, 1774, 271, 48, 25]",g4_W4
+gsm8k:test:252,gsm8k,b,5,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed yesterday: 15 - 12 = 3
+Now figure out how many wolves Rick killed yesterday by multiplying the number of cougars he killed yesterday by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed yesterday to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,False,False,False,109,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 13985, 25, 220, 868, 482, 220, 717, 284, 220, 18, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 13985, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 13985, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 13985, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 18, 489, 220, 24, 284, 220, 717, 198, 827, 220, 717, 271, 48, 25]",g5_W4
+gsm8k:test:252,gsm8k,b,6,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 717, 284, 220, 18, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 18, 353, 220, 18, 284, 220, 24, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 18, 489, 220, 24, 284, 220, 717, 198, 827, 220, 717, 271, 48, 25]",g6_W4
+gsm8k:test:252,gsm8k,b,7,73," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 12 * 3 = 36
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 12 + 36 = 48
+#### 48
+
+Q:",48,False,False,False,117,"[5629, 11, 7216, 704, 1268, 1690, 4020, 64502, 23194, 7577, 279, 3766, 3814, 555, 33356, 287, 279, 1396, 315, 4020, 64502, 568, 7577, 3432, 505, 279, 1396, 568, 7577, 279, 3766, 3814, 25, 220, 868, 482, 220, 18, 284, 220, 717, 198, 7184, 7216, 704, 1268, 1690, 56271, 23194, 7577, 279, 3766, 3814, 555, 85292, 279, 1396, 315, 4020, 64502, 568, 7577, 279, 3766, 3814, 555, 220, 18, 25, 220, 717, 353, 220, 18, 284, 220, 1927, 198, 7184, 923, 279, 1396, 315, 4020, 64502, 323, 56271, 23194, 7577, 279, 3766, 3814, 311, 636, 279, 2860, 1396, 315, 10099, 568, 7577, 25, 220, 717, 489, 220, 1927, 284, 220, 2166, 198, 827, 220, 2166, 271, 48, 25]",g7_W4
+gsm8k:test:90,gsm8k,b,1,225," First, find the total amount of potato salad that the adults will eat: 10 * 20 = 200 lbs
+Now find the total amount of potato salad that the children will eat: 5 * 5 = 25 lbs
+Now add the two amounts together to find the total amount of potato salad that will be eaten: 200 + 25 = 225 lbs
+Now multiply the total amount of potato salad that will be eaten by 1.1 to account for the 10% that will be left over: 225 * 1.1 = 247.5 lbs
+Round the answer to the nearest whole number: 247.5 = 248 lbs
+#### 248
+
+Q:",248,False,False,False,146,"[5629, 11, 1505, 279, 2860, 3392, 315, 39834, 33566, 430, 279, 12884, 690, 8343, 25, 220, 605, 353, 220, 508, 284, 220, 1049, 29160, 198, 7184, 1505, 279, 2860, 3392, 315, 39834, 33566, 430, 279, 2911, 690, 8343, 25, 220, 20, 353, 220, 20, 284, 220, 914, 29160, 198, 7184, 923, 279, 1403, 15055, 3871, 311, 1505, 279, 2860, 3392, 315, 39834, 33566, 430, 690, 387, 35661, 25, 220, 1049, 489, 220, 914, 284, 220, 11057, 29160, 198, 7184, 31370, 279, 2860, 3392, 315, 39834, 33566, 430, 690, 387, 35661, 555, 220, 16, 13, 16, 311, 2759, 369, 279, 220, 605, 4, 430, 690, 387, 2163, 927, 25, 220, 11057, 353, 220, 16, 13, 16, 284, 220, 14125, 13, 20, 29160, 198, 28597, 279, 4320, 311, 279, 24379, 4459, 1396, 25, 220, 14125, 13, 20, 284, 220, 14185, 29160, 198, 827, 220, 14185, 271, 48, 25]",g1_W4
+gsm8k:test:519,gsm8k,b,0,280," First, find the time it takes Rob to shingle a house. 2 hours = 2 * 60 minutes = 120 minutes
+Now, find the time it takes Royce to shingle a house. 40 minutes more than double Rob = 120 + 40 = 160 minutes
+#### 160
+
+Q:",1.6E+2,False,False,False,68,"[5629, 11, 1505, 279, 892, 433, 5097, 4997, 311, 559, 2222, 264, 3838, 13, 220, 17, 4207, 284, 220, 17, 353, 220, 1399, 4520, 284, 220, 4364, 4520, 198, 7184, 11, 1505, 279, 892, 433, 5097, 11284, 346, 311, 559, 2222, 264, 3838, 13, 220, 1272, 4520, 810, 1109, 2033, 4997, 284, 220, 4364, 489, 220, 1272, 284, 220, 6330, 4520, 198, 827, 220, 6330, 271, 48, 25]",g0_W4
+gsm8k:test:519,gsm8k,b,3,280," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now, subtract the number of minutes Rob takes from the number of minutes Royce takes to get the number of minutes Royce takes more than Rob: 120 - 40 = 80
+#### 80
+
+Q:",8E+1,False,False,False,73,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 85292, 220, 17, 555, 220, 1399, 25, 220, 17, 353, 220, 1399, 284, 220, 4364, 198, 7184, 11, 33356, 279, 1396, 315, 4520, 4997, 5097, 505, 279, 1396, 315, 4520, 11284, 346, 5097, 311, 636, 279, 1396, 315, 4520, 11284, 346, 5097, 810, 1109, 4997, 25, 220, 4364, 482, 220, 1272, 284, 220, 1490, 198, 827, 220, 1490, 271, 48, 25]",g3_W4
+gsm8k:test:519,gsm8k,b,5,280," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now, find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now subtract the number of minutes in 2 hours from the number of minutes in 40 minutes more than double Rob to find the difference: 160 - 120 = 40
+#### 40
+
+Q:",4E+1,False,False,False,112,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 85292, 220, 17, 555, 220, 1399, 25, 220, 17, 353, 220, 1399, 284, 220, 4364, 198, 7184, 11, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 555, 7999, 220, 1272, 311, 2033, 4997, 25, 220, 1272, 489, 220, 17, 353, 220, 1399, 284, 220, 1272, 489, 220, 4364, 284, 220, 6330, 198, 7184, 33356, 279, 1396, 315, 4520, 304, 220, 17, 4207, 505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 311, 1505, 279, 6811, 25, 220, 6330, 482, 220, 4364, 284, 220, 1272, 198, 827, 220, 1272, 271, 48, 25]",g5_W4
+gsm8k:test:519,gsm8k,b,6,280," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 1.33
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 1.33 = 159.6
+Round the answer to the nearest whole number to get 160
+#### 160
+
+Q:",1.6E+2,False,False,False,175,"[5629, 11, 1505, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 85292, 220, 17, 555, 220, 1399, 25, 220, 17, 353, 220, 1399, 284, 220, 4364, 198, 7184, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 555, 7999, 220, 1272, 311, 2033, 4997, 25, 220, 1272, 489, 220, 17, 353, 220, 1399, 284, 220, 1272, 489, 220, 4364, 284, 220, 6330, 198, 7184, 22497, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 555, 279, 1396, 315, 4520, 304, 220, 17, 4207, 311, 1505, 279, 11595, 315, 279, 1403, 3115, 25, 220, 6330, 611, 220, 4364, 284, 220, 16, 13, 1644, 198, 7184, 31370, 279, 1396, 315, 4520, 304, 220, 17, 4207, 555, 279, 11595, 315, 279, 1403, 3115, 311, 1505, 279, 1396, 315, 4520, 304, 220, 1272, 4520, 810, 1109, 2033, 4997, 25, 220, 4364, 353, 220, 16, 13, 1644, 284, 220, 11068, 13, 21, 198, 28597, 279, 4320, 311, 279, 24379, 4459, 1396, 311, 636, 220, 6330, 198, 827, 220, 6330, 271, 48, 25]",g6_W4
+arc:test:414,arc,b,0,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g0_W4
+arc:test:414,arc,b,1,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g1_W4
+arc:test:414,arc,b,2,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g2_W4
+arc:test:414,arc,b,3,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g3_W4
+arc:test:414,arc,b,4,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g4_W4
+arc:test:414,arc,b,5,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g5_W4
+arc:test:414,arc,b,6,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g6_W4
+arc:test:414,arc,b,7,C," B
+
+Q:",B,False,False,False,4,"[426, 271, 48, 25]",g7_W4
+arc:test:146,arc,b,0,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g0_W4
+arc:test:146,arc,b,1,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g1_W4
+arc:test:146,arc,b,2,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g2_W4
+arc:test:146,arc,b,3,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g3_W4
+arc:test:146,arc,b,4,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g4_W4
+arc:test:146,arc,b,5,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g5_W4
+arc:test:146,arc,b,6,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g6_W4
+arc:test:146,arc,b,7,B," C
+
+Q:",C,False,False,False,4,"[356, 271, 48, 25]",g7_W4
+boolq:validation:1545,boolq,b,0,yes," no
+
+Q:",no,False,False,False,4,"[912, 271, 48, 25]",g0_W4
+boolq:validation:1313,boolq,b,3,yes," no
+
+Q:",no,False,False,False,4,"[912, 271, 48, 25]",g3_W4
+boolq:validation:2086,boolq,b,7,no," yes
+
+Q:",yes,False,False,False,4,"[10035, 271, 48, 25]",g7_W4

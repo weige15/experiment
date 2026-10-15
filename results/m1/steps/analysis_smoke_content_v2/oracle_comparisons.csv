@@ -1,0 +1,1497 @@
+request_id,dataset,wording,strategy,selected_group,oracle,answer,parsed_answer,gold,correct,kl,truncated,parse_failure
+arc:test:146,arc,a,calibration_KL_fixed,6,False," C
+
+Q:",C,B,False,0.0005582351531151,False,False
+arc:test:146,arc,a,calibration_accuracy_fixed,1,False," C
+
+Q:",C,B,False,0.0039020291073626,False,False
+arc:test:146,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," C
+
+Q:",C,B,False,0.0005582351531151,False,False
+arc:test:146,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," C
+
+Q:",C,B,False,0.0008006127677021,False,False
+arc:test:146,arc,a,per_request_KL_ORACLE,5,True," C
+
+Q:",C,B,False,0.0004576275201185,False,False
+arc:test:146,arc,a,per_request_label_ORACLE,0,True," C
+
+Q:",C,B,False,0.0194975322583114,False,False
+arc:test:146,arc,a,cross_wording_KL_ORACLE_diagnostic,4,True," C
+
+Q:",C,B,False,0.0008006127677021,False,False
+arc:test:146,arc,b,calibration_KL_fixed,6,False," C
+
+Q:",C,B,False,0.0016484954311323,False,False
+arc:test:146,arc,b,calibration_accuracy_fixed,1,False," C
+
+Q:",C,B,False,0.0041386051118321,False,False
+arc:test:146,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," C
+
+Q:",C,B,False,0.0016484954311323,False,False
+arc:test:146,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," C
+
+Q:",C,B,False,0.0011254516269615,False,False
+arc:test:146,arc,b,per_request_KL_ORACLE,4,True," C
+
+Q:",C,B,False,0.0011254516269615,False,False
+arc:test:146,arc,b,per_request_label_ORACLE,0,True," C
+
+Q:",C,B,False,0.0350360170828322,False,False
+arc:test:146,arc,b,cross_wording_KL_ORACLE_diagnostic,5,True," C
+
+Q:",C,B,False,0.0013853050556218,False,False
+arc:test:29,arc,a,calibration_KL_fixed,6,False," B
+
+Q:",B,B,True,0.0012092641353239,False,False
+arc:test:29,arc,a,calibration_accuracy_fixed,1,False," B
+
+Q:",B,B,True,0.012146820424989,False,False
+arc:test:29,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," B
+
+Q:",B,B,True,0.0012092641353239,False,False
+arc:test:29,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," B
+
+Q:",B,B,True,0.001203092462726,False,False
+arc:test:29,arc,a,per_request_KL_ORACLE,5,True," B
+
+Q:",B,B,True,0.0010481642890641,False,False
+arc:test:29,arc,a,per_request_label_ORACLE,0,True," B
+
+Q:",B,B,True,0.0112913408792695,False,False
+arc:test:29,arc,a,cross_wording_KL_ORACLE_diagnostic,7,True," B
+
+Q:",B,B,True,0.0010871180387704,False,False
+arc:test:29,arc,b,calibration_KL_fixed,6,False," B
+
+Q:",B,B,True,0.0011664405632839,False,False
+arc:test:29,arc,b,calibration_accuracy_fixed,1,False," B
+
+Q:",B,B,True,0.0084870675974099,False,False
+arc:test:29,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," B
+
+Q:",B,B,True,0.0011664405632839,False,False
+arc:test:29,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," B
+
+Q:",B,B,True,0.0017913608150141,False,False
+arc:test:29,arc,b,per_request_KL_ORACLE,7,True," B
+
+Q:",B,B,True,0.000727155618221,False,False
+arc:test:29,arc,b,per_request_label_ORACLE,0,True," B
+
+Q:",B,B,True,0.0137875453410123,False,False
+arc:test:29,arc,b,cross_wording_KL_ORACLE_diagnostic,5,True," B
+
+Q:",B,B,True,0.0018069495936011,False,False
+arc:test:339,arc,a,calibration_KL_fixed,6,False," D
+
+Q:",D,D,True,0.0003512757344043,False,False
+arc:test:339,arc,a,calibration_accuracy_fixed,1,False," D
+
+Q:",D,D,True,0.002295173191265,False,False
+arc:test:339,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," D
+
+Q:",D,D,True,0.0003512757344043,False,False
+arc:test:339,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," D
+
+Q:",D,D,True,0.0019376631992512,False,False
+arc:test:339,arc,a,per_request_KL_ORACLE,6,True," D
+
+Q:",D,D,True,0.0003512757344043,False,False
+arc:test:339,arc,a,per_request_label_ORACLE,0,True," D
+
+Q:",D,D,True,0.0077555710782524,False,False
+arc:test:339,arc,a,cross_wording_KL_ORACLE_diagnostic,6,True," D
+
+Q:",D,D,True,0.0003512757344043,False,False
+arc:test:339,arc,b,calibration_KL_fixed,6,False," D
+
+Q:",D,D,True,0.0009597583967807,False,False
+arc:test:339,arc,b,calibration_accuracy_fixed,1,False," D
+
+Q:",D,D,True,0.0022737010881427,False,False
+arc:test:339,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," D
+
+Q:",D,D,True,0.0009597583967807,False,False
+arc:test:339,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," D
+
+Q:",D,D,True,0.0026434269658814,False,False
+arc:test:339,arc,b,per_request_KL_ORACLE,6,True," D
+
+Q:",D,D,True,0.0009597583967807,False,False
+arc:test:339,arc,b,per_request_label_ORACLE,0,True," D
+
+Q:",D,D,True,0.0126685250184987,False,False
+arc:test:339,arc,b,cross_wording_KL_ORACLE_diagnostic,6,True," D
+
+Q:",D,D,True,0.0009597583967807,False,False
+arc:test:355,arc,a,calibration_KL_fixed,6,False," D
+
+Q:",D,D,True,0.0007122392454516,False,False
+arc:test:355,arc,a,calibration_accuracy_fixed,1,False," D
+
+Q:",D,D,True,0.0044143989447921,False,False
+arc:test:355,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," D
+
+Q:",D,D,True,0.0007122392454516,False,False
+arc:test:355,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," D
+
+Q:",D,D,True,0.0010196893546808,False,False
+arc:test:355,arc,a,per_request_KL_ORACLE,5,True," D
+
+Q:",D,D,True,0.0003299220331304,False,False
+arc:test:355,arc,a,per_request_label_ORACLE,0,True," D
+
+Q:",D,D,True,0.0027969261041856,False,False
+arc:test:355,arc,a,cross_wording_KL_ORACLE_diagnostic,2,True," D
+
+Q:",D,D,True,0.001455457981498,False,False
+arc:test:355,arc,b,calibration_KL_fixed,6,False," D
+
+Q:",D,D,True,0.0016129787165372,False,False
+arc:test:355,arc,b,calibration_accuracy_fixed,1,False," D
+
+Q:",D,D,True,0.0026428885480342,False,False
+arc:test:355,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," D
+
+Q:",D,D,True,0.0016129787165372,False,False
+arc:test:355,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," D
+
+Q:",D,D,True,0.0015620513914009,False,False
+arc:test:355,arc,b,per_request_KL_ORACLE,2,True," D
+
+Q:",D,D,True,0.0008525168348159,False,False
+arc:test:355,arc,b,per_request_label_ORACLE,0,True," D
+
+Q:",D,D,True,0.0064527638423735,False,False
+arc:test:355,arc,b,cross_wording_KL_ORACLE_diagnostic,5,True," D
+
+Q:",D,D,True,0.0013091675820851,False,False
+arc:test:414,arc,a,calibration_KL_fixed,6,False," B
+
+Q:",B,C,False,0.0007666438880045,False,False
+arc:test:414,arc,a,calibration_accuracy_fixed,1,False," B
+
+Q:",B,C,False,0.0026878483436933,False,False
+arc:test:414,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," B
+
+Q:",B,C,False,0.0007666438880045,False,False
+arc:test:414,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," B
+
+Q:",B,C,False,0.0013916400720318,False,False
+arc:test:414,arc,a,per_request_KL_ORACLE,6,True," B
+
+Q:",B,C,False,0.0007666438880045,False,False
+arc:test:414,arc,a,per_request_label_ORACLE,0,True," B
+
+Q:",B,C,False,0.0024854831845291,False,False
+arc:test:414,arc,a,cross_wording_KL_ORACLE_diagnostic,4,True," B
+
+Q:",B,C,False,0.0013916400720318,False,False
+arc:test:414,arc,b,calibration_KL_fixed,6,False," B
+
+Q:",B,C,False,0.0017267027334076,False,False
+arc:test:414,arc,b,calibration_accuracy_fixed,1,False," B
+
+Q:",B,C,False,0.0018750655162482,False,False
+arc:test:414,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," B
+
+Q:",B,C,False,0.0017267027334076,False,False
+arc:test:414,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," B
+
+Q:",B,C,False,0.0012396147662236,False,False
+arc:test:414,arc,b,per_request_KL_ORACLE,4,True," B
+
+Q:",B,C,False,0.0012396147662236,False,False
+arc:test:414,arc,b,per_request_label_ORACLE,0,True," B
+
+Q:",B,C,False,0.0083748682623745,False,False
+arc:test:414,arc,b,cross_wording_KL_ORACLE_diagnostic,6,True," B
+
+Q:",B,C,False,0.0017267027334076,False,False
+arc:test:546,arc,a,calibration_KL_fixed,6,False," 1
+
+Q:",1,1,True,0.0005780813411992,False,False
+arc:test:546,arc,a,calibration_accuracy_fixed,1,False," 1
+
+Q:",1,1,True,0.0103450073264657,False,False
+arc:test:546,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," 1
+
+Q:",1,1,True,0.0005780813411992,False,False
+arc:test:546,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," 1
+
+Q:",1,1,True,0.0032777647217844,False,False
+arc:test:546,arc,a,per_request_KL_ORACLE,6,True," 1
+
+Q:",1,1,True,0.0005780813411992,False,False
+arc:test:546,arc,a,per_request_label_ORACLE,0,True," 1
+
+Q:",1,1,True,0.0178676565009527,False,False
+arc:test:546,arc,a,cross_wording_KL_ORACLE_diagnostic,6,True," 1
+
+Q:",1,1,True,0.0005780813411992,False,False
+arc:test:546,arc,b,calibration_KL_fixed,6,False," 1
+
+Q:",1,1,True,0.0008099682725581,False,False
+arc:test:546,arc,b,calibration_accuracy_fixed,1,False," 1
+
+Q:",1,1,True,0.0060320701768714,False,False
+arc:test:546,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," 1
+
+Q:",1,1,True,0.0008099682725581,False,False
+arc:test:546,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," 1
+
+Q:",1,1,True,0.0019847357914492,False,False
+arc:test:546,arc,b,per_request_KL_ORACLE,6,True," 1
+
+Q:",1,1,True,0.0008099682725581,False,False
+arc:test:546,arc,b,per_request_label_ORACLE,0,True," 1
+
+Q:",1,1,True,0.0164855769237665,False,False
+arc:test:546,arc,b,cross_wording_KL_ORACLE_diagnostic,6,True," 1
+
+Q:",1,1,True,0.0008099682725581,False,False
+arc:test:566,arc,a,calibration_KL_fixed,6,False," A
+
+Q:",A,A,True,0.000257136952313,False,False
+arc:test:566,arc,a,calibration_accuracy_fixed,1,False," A
+
+Q:",A,A,True,0.0058521545819988,False,False
+arc:test:566,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," A
+
+Q:",A,A,True,0.000257136952313,False,False
+arc:test:566,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," A
+
+Q:",A,A,True,0.0011630391840437,False,False
+arc:test:566,arc,a,per_request_KL_ORACLE,6,True," A
+
+Q:",A,A,True,0.000257136952313,False,False
+arc:test:566,arc,a,per_request_label_ORACLE,0,True," A
+
+Q:",A,A,True,0.0023489567984247,False,False
+arc:test:566,arc,a,cross_wording_KL_ORACLE_diagnostic,7,True," A
+
+Q:",A,A,True,0.0005954058418621,False,False
+arc:test:566,arc,b,calibration_KL_fixed,6,False," A
+
+Q:",A,A,True,0.0010135114235949,False,False
+arc:test:566,arc,b,calibration_accuracy_fixed,1,False," A
+
+Q:",A,A,True,0.0034316006317265,False,False
+arc:test:566,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," A
+
+Q:",A,A,True,0.0010135114235949,False,False
+arc:test:566,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," A
+
+Q:",A,A,True,0.0006321611624879,False,False
+arc:test:566,arc,b,per_request_KL_ORACLE,7,True," A
+
+Q:",A,A,True,0.0006139694939885,False,False
+arc:test:566,arc,b,per_request_label_ORACLE,0,True," A
+
+Q:",A,A,True,0.0055967661283285,False,False
+arc:test:566,arc,b,cross_wording_KL_ORACLE_diagnostic,6,True," A
+
+Q:",A,A,True,0.0010135114235949,False,False
+arc:test:794,arc,a,calibration_KL_fixed,6,False," C
+
+Q:",C,C,True,0.0004070016337102,False,False
+arc:test:794,arc,a,calibration_accuracy_fixed,1,False," C
+
+Q:",C,C,True,0.003397745885773,False,False
+arc:test:794,arc,a,evaluation_KL_best_fixed_ORACLE,6,True," C
+
+Q:",C,C,True,0.0004070016337102,False,False
+arc:test:794,arc,a,evaluation_accuracy_best_fixed_ORACLE,4,True," C
+
+Q:",C,C,True,0.0009763210962249,False,False
+arc:test:794,arc,a,per_request_KL_ORACLE,6,True," C
+
+Q:",C,C,True,0.0004070016337102,False,False
+arc:test:794,arc,a,per_request_label_ORACLE,0,True," C
+
+Q:",C,C,True,0.0112617311612087,False,False
+arc:test:794,arc,a,cross_wording_KL_ORACLE_diagnostic,4,True," C
+
+Q:",C,C,True,0.0009763210962249,False,False
+arc:test:794,arc,b,calibration_KL_fixed,6,False," C
+
+Q:",C,C,True,0.0016285879012863,False,False
+arc:test:794,arc,b,calibration_accuracy_fixed,1,False," C
+
+Q:",C,C,True,0.0013378987931895,False,False
+arc:test:794,arc,b,evaluation_KL_best_fixed_ORACLE,6,True," C
+
+Q:",C,C,True,0.0016285879012863,False,False
+arc:test:794,arc,b,evaluation_accuracy_best_fixed_ORACLE,4,True," C
+
+Q:",C,C,True,0.0009322530668255,False,False
+arc:test:794,arc,b,per_request_KL_ORACLE,4,True," C
+
+Q:",C,C,True,0.0009322530668255,False,False
+arc:test:794,arc,b,per_request_label_ORACLE,0,True," C
+
+Q:",C,C,True,0.0116385828532052,False,False
+arc:test:794,arc,b,cross_wording_KL_ORACLE_diagnostic,6,True," C
+
+Q:",C,C,True,0.0016285879012863,False,False
+boolq:validation:1313,boolq,a,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0008318753926545,False,False
+boolq:validation:1313,boolq,a,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0013850796403529,False,False
+boolq:validation:1313,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0008318753926545,False,False
+boolq:validation:1313,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0011062010658982,False,False
+boolq:validation:1313,boolq,a,per_request_KL_ORACLE,5,True," yes
+
+Q:",yes,yes,True,0.0002848428810654,False,False
+boolq:validation:1313,boolq,a,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0056183454652949,False,False
+boolq:validation:1313,boolq,a,cross_wording_KL_ORACLE_diagnostic,5,True," yes
+
+Q:",yes,yes,True,0.0002848428810654,False,False
+boolq:validation:1313,boolq,b,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0007070769138719,False,False
+boolq:validation:1313,boolq,b,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0010583492365341,False,False
+boolq:validation:1313,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0007070769138719,False,False
+boolq:validation:1313,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0005701495470479,False,False
+boolq:validation:1313,boolq,b,per_request_KL_ORACLE,5,True," yes
+
+Q:",yes,yes,True,0.0002841721440892,False,False
+boolq:validation:1313,boolq,b,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0060981387028962,False,False
+boolq:validation:1313,boolq,b,cross_wording_KL_ORACLE_diagnostic,5,True," yes
+
+Q:",yes,yes,True,0.0002841721440892,False,False
+boolq:validation:1545,boolq,a,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0023375422211895,False,False
+boolq:validation:1545,boolq,a,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0009502313038429,False,False
+boolq:validation:1545,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0023375422211895,False,False
+boolq:validation:1545,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0007806409358013,False,False
+boolq:validation:1545,boolq,a,per_request_KL_ORACLE,5,True," yes
+
+Q:",yes,yes,True,0.0002533595603807,False,False
+boolq:validation:1545,boolq,a,per_request_label_ORACLE,1,True," yes
+
+Q:",yes,yes,True,0.0009502313038429,False,False
+boolq:validation:1545,boolq,a,cross_wording_KL_ORACLE_diagnostic,5,True," yes
+
+Q:",yes,yes,True,0.0002533595603807,False,False
+boolq:validation:1545,boolq,b,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0009310352697035,False,False
+boolq:validation:1545,boolq,b,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0010107154552765,False,False
+boolq:validation:1545,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0009310352697035,False,False
+boolq:validation:1545,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0004359260820753,False,False
+boolq:validation:1545,boolq,b,per_request_KL_ORACLE,5,True," yes
+
+Q:",yes,yes,True,0.0002443877969154,False,False
+boolq:validation:1545,boolq,b,per_request_label_ORACLE,1,True," yes
+
+Q:",yes,yes,True,0.0010107154552765,False,False
+boolq:validation:1545,boolq,b,cross_wording_KL_ORACLE_diagnostic,5,True," yes
+
+Q:",yes,yes,True,0.0002443877969154,False,False
+boolq:validation:169,boolq,a,calibration_KL_fixed,6,False," no
+
+Q:",no,no,True,0.0003297549368533,False,False
+boolq:validation:169,boolq,a,calibration_accuracy_fixed,1,False," no
+
+Q:",no,no,True,0.0009038009205021,False,False
+boolq:validation:169,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," no
+
+Q:",no,no,True,0.0003297549368533,False,False
+boolq:validation:169,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," no
+
+Q:",no,no,True,0.0005161430012502,False,False
+boolq:validation:169,boolq,a,per_request_KL_ORACLE,6,True," no
+
+Q:",no,no,True,0.0003297549368533,False,False
+boolq:validation:169,boolq,a,per_request_label_ORACLE,0,True," no
+
+Q:",no,no,True,0.0132356755245115,False,False
+boolq:validation:169,boolq,a,cross_wording_KL_ORACLE_diagnostic,5,True," no
+
+Q:",no,no,True,0.0004881673000844,False,False
+boolq:validation:169,boolq,b,calibration_KL_fixed,6,False," no
+
+Q:",no,no,True,0.0004017869134911,False,False
+boolq:validation:169,boolq,b,calibration_accuracy_fixed,1,False," no
+
+Q:",no,no,True,0.0030075376724514,False,False
+boolq:validation:169,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," no
+
+Q:",no,no,True,0.0004017869134911,False,False
+boolq:validation:169,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," no
+
+Q:",no,no,True,0.000424060534335,False,False
+boolq:validation:169,boolq,b,per_request_KL_ORACLE,5,True," no
+
+Q:",no,no,True,0.000345684058526,False,False
+boolq:validation:169,boolq,b,per_request_label_ORACLE,0,True," no
+
+Q:",no,no,True,0.0101876662747472,False,False
+boolq:validation:169,boolq,b,cross_wording_KL_ORACLE_diagnostic,6,True," no
+
+Q:",no,no,True,0.0004017869134911,False,False
+boolq:validation:1883,boolq,a,calibration_KL_fixed,6,False," no
+
+Q:",no,no,True,0.0011090726678569,False,False
+boolq:validation:1883,boolq,a,calibration_accuracy_fixed,1,False," no
+
+Q:",no,no,True,0.0026427627580076,False,False
+boolq:validation:1883,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," no
+
+Q:",no,no,True,0.0011090726678569,False,False
+boolq:validation:1883,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," no
+
+Q:",no,no,True,0.0008967275417158,False,False
+boolq:validation:1883,boolq,a,per_request_KL_ORACLE,5,True," no
+
+Q:",no,no,True,0.0005883271527355,False,False
+boolq:validation:1883,boolq,a,per_request_label_ORACLE,0,True," no
+
+Q:",no,no,True,0.0112431143557659,False,False
+boolq:validation:1883,boolq,a,cross_wording_KL_ORACLE_diagnostic,6,True," no
+
+Q:",no,no,True,0.0011090726678569,False,False
+boolq:validation:1883,boolq,b,calibration_KL_fixed,6,False," no
+
+Q:",no,no,True,0.0004431194336128,False,False
+boolq:validation:1883,boolq,b,calibration_accuracy_fixed,1,False," no
+
+Q:",no,no,True,0.0026363427123849,False,False
+boolq:validation:1883,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," no
+
+Q:",no,no,True,0.0004431194336128,False,False
+boolq:validation:1883,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," no
+
+Q:",no,no,True,0.0015631873936705,False,False
+boolq:validation:1883,boolq,b,per_request_KL_ORACLE,6,True," no
+
+Q:",no,no,True,0.0004431194336128,False,False
+boolq:validation:1883,boolq,b,per_request_label_ORACLE,0,True," no
+
+Q:",no,no,True,0.0057666384447856,False,False
+boolq:validation:1883,boolq,b,cross_wording_KL_ORACLE_diagnostic,5,True," no
+
+Q:",no,no,True,0.0005616115900563,False,False
+boolq:validation:2084,boolq,a,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0003280137951596,False,False
+boolq:validation:2084,boolq,a,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0012394396726741,False,False
+boolq:validation:2084,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0003280137951596,False,False
+boolq:validation:2084,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0008597708825481,False,False
+boolq:validation:2084,boolq,a,per_request_KL_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0003280137951596,False,False
+boolq:validation:2084,boolq,a,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.004639062301044,False,False
+boolq:validation:2084,boolq,a,cross_wording_KL_ORACLE_diagnostic,5,True," yes
+
+Q:",yes,yes,True,0.0003319226965747,False,False
+boolq:validation:2084,boolq,b,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0004470283417069,False,False
+boolq:validation:2084,boolq,b,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0020985387008555,False,False
+boolq:validation:2084,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0004470283417069,False,False
+boolq:validation:2084,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0004750156535568,False,False
+boolq:validation:2084,boolq,b,per_request_KL_ORACLE,5,True," yes
+
+Q:",yes,yes,True,0.0002091374328927,False,False
+boolq:validation:2084,boolq,b,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0040559662879857,False,False
+boolq:validation:2084,boolq,b,cross_wording_KL_ORACLE_diagnostic,6,True," yes
+
+Q:",yes,yes,True,0.0004470283417069,False,False
+boolq:validation:2086,boolq,a,calibration_KL_fixed,6,False," no
+
+Q:",no,no,True,0.000352261200734,False,False
+boolq:validation:2086,boolq,a,calibration_accuracy_fixed,1,False," no
+
+Q:",no,no,True,0.002218833688516,False,False
+boolq:validation:2086,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," no
+
+Q:",no,no,True,0.000352261200734,False,False
+boolq:validation:2086,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," no
+
+Q:",no,no,True,0.0003596183163431,False,False
+boolq:validation:2086,boolq,a,per_request_KL_ORACLE,6,True," no
+
+Q:",no,no,True,0.000352261200734,False,False
+boolq:validation:2086,boolq,a,per_request_label_ORACLE,0,True," no
+
+Q:",no,no,True,0.0059237944320747,False,False
+boolq:validation:2086,boolq,a,cross_wording_KL_ORACLE_diagnostic,5,True," no
+
+Q:",no,no,True,0.0006301531406551,False,False
+boolq:validation:2086,boolq,b,calibration_KL_fixed,6,False," no
+
+Q:",no,no,True,0.0007777733908688,False,False
+boolq:validation:2086,boolq,b,calibration_accuracy_fixed,1,False," no
+
+Q:",no,no,True,0.000793743881647,False,False
+boolq:validation:2086,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," no
+
+Q:",no,no,True,0.0007777733908688,False,False
+boolq:validation:2086,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," no
+
+Q:",no,no,True,0.0008182804110889,False,False
+boolq:validation:2086,boolq,b,per_request_KL_ORACLE,5,True," no
+
+Q:",no,no,True,0.0007517278655363,False,False
+boolq:validation:2086,boolq,b,per_request_label_ORACLE,0,True," no
+
+Q:",no,no,True,0.0081294129004125,False,False
+boolq:validation:2086,boolq,b,cross_wording_KL_ORACLE_diagnostic,6,True," no
+
+Q:",no,no,True,0.0007777733908688,False,False
+boolq:validation:378,boolq,a,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0006950324873002,False,False
+boolq:validation:378,boolq,a,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0033401902422827,False,False
+boolq:validation:378,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0006950324873002,False,False
+boolq:validation:378,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0006889656348802,False,False
+boolq:validation:378,boolq,a,per_request_KL_ORACLE,5,True," yes
+
+Q:",yes,yes,True,0.0004032972812643,False,False
+boolq:validation:378,boolq,a,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0058251295004244,False,False
+boolq:validation:378,boolq,a,cross_wording_KL_ORACLE_diagnostic,6,True," yes
+
+Q:",yes,yes,True,0.0006950324873002,False,False
+boolq:validation:378,boolq,b,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0002803395656205,False,False
+boolq:validation:378,boolq,b,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0066332204411422,False,False
+boolq:validation:378,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0002803395656205,False,False
+boolq:validation:378,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0006794343499603,False,False
+boolq:validation:378,boolq,b,per_request_KL_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0002803395656205,False,False
+boolq:validation:378,boolq,b,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0046211164205601,False,False
+boolq:validation:378,boolq,b,cross_wording_KL_ORACLE_diagnostic,5,True," yes
+
+Q:",yes,yes,True,0.0004697402833387,False,False
+boolq:validation:601,boolq,a,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0009729406254245,False,False
+boolq:validation:601,boolq,a,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0013738221046407,False,False
+boolq:validation:601,boolq,a,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0009729406254245,False,False
+boolq:validation:601,boolq,a,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0004993098569951,False,False
+boolq:validation:601,boolq,a,per_request_KL_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0004993098569951,False,False
+boolq:validation:601,boolq,a,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0085278576892779,False,False
+boolq:validation:601,boolq,a,cross_wording_KL_ORACLE_diagnostic,6,True," yes
+
+Q:",yes,yes,True,0.0009729406254245,False,False
+boolq:validation:601,boolq,b,calibration_KL_fixed,6,False," yes
+
+Q:",yes,yes,True,0.0003459607665775,False,False
+boolq:validation:601,boolq,b,calibration_accuracy_fixed,1,False," yes
+
+Q:",yes,yes,True,0.0019401809623625,False,False
+boolq:validation:601,boolq,b,evaluation_KL_best_fixed_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0003459607665775,False,False
+boolq:validation:601,boolq,b,evaluation_accuracy_best_fixed_ORACLE,4,True," yes
+
+Q:",yes,yes,True,0.0007065218821193,False,False
+boolq:validation:601,boolq,b,per_request_KL_ORACLE,6,True," yes
+
+Q:",yes,yes,True,0.0003459607665775,False,False
+boolq:validation:601,boolq,b,per_request_label_ORACLE,0,True," yes
+
+Q:",yes,yes,True,0.0065906016544572,False,False
+boolq:validation:601,boolq,b,cross_wording_KL_ORACLE_diagnostic,4,True," yes
+
+Q:",yes,yes,True,0.0007065218821193,False,False
+gsm8k:test:252,gsm8k,a,calibration_KL_fixed,6,False," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012831812540458,False,False
+gsm8k:test:252,gsm8k,a,calibration_accuracy_fixed,1,False," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars Rick killed today to the number of cougars he killed the previous night to get the total number of cougars he killed: 3 + 12 = 15
+Now add the number of wolves Rick killed today to the number of wolves he killed the previous night to get the total number of wolves he killed: 9 + 10 = 19
+Now add the number of cougars Rick killed to the number of wolves he killed to get the total number of animals he killed: 15 + 19 = 34
+#### 34
+
+Q:",34,73,False,0.0077712979309309,False,False
+gsm8k:test:252,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012831812540458,False,False
+gsm8k:test:252,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed yesterday: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of cougars he killed: 12 + 9 = 21
+Now add the number of cougars and wolves Rick killed today to the number of wolves he killed yesterday to get the total number of wolves he killed: 9 + 15 = 24
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of animals Rick killed: 21 + 24 = 45
+#### 45
+
+Q:",45,73,False,0.0041422744386256,False,False
+gsm8k:test:252,gsm8k,a,per_request_KL_ORACLE,6,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012831812540458,False,False
+gsm8k:test:252,gsm8k,a,per_request_label_ORACLE,0,True," First figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of wolves he killed today by 3: 10 * 3 = 30
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 30 + 12 = 42
+#### 42
+
+Q:",42,73,False,0.0079299497228894,False,False
+gsm8k:test:252,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012831812540458,False,False
+gsm8k:test:252,gsm8k,b,calibration_KL_fixed,6,False," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012097373425241,False,False
+gsm8k:test:252,gsm8k,b,calibration_accuracy_fixed,1,False," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars Rick killed the previous night to the number of cougars he killed today to get the total number of cougars he killed: 12 + 3 = 15
+Now add the number of wolves Rick killed the previous night to the number of wolves he killed today to get the total number of wolves he killed: 10 + 9 = 19
+Now add the number of cougars Rick killed to the number of wolves he killed to get the total number of animals he killed: 15 + 19 = 34
+#### 34
+
+Q:",34,73,False,0.0081869121369891,False,False
+gsm8k:test:252,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012097373425241,False,False
+gsm8k:test:252,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed yesterday: 15 - 3 = 12
+Now figure out how many wolves Rick killed today by multiplying the number of cougars he killed today by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of cougars he killed: 12 + 9 = 21
+Now add the number of cougars and wolves Rick killed today to the number of wolves he killed yesterday to get the total number of wolves he killed: 9 + 15 = 24
+Now add the number of cougars and wolves Rick killed today to the number of cougars he killed yesterday to get the total number of animals Rick killed: 21 + 24 = 45
+#### 45
+
+Q:",45,73,False,0.0038097213073693,False,False
+gsm8k:test:252,gsm8k,b,per_request_KL_ORACLE,6,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012097373425241,False,False
+gsm8k:test:252,gsm8k,b,per_request_label_ORACLE,0,True," First figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 3 = 12
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 12 * 3 = 36
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 12 + 36 = 48
+#### 48
+
+Q:",48,73,False,0.0085052848423332,False,False
+gsm8k:test:252,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",12,73,False,0.0012097373425241,False,False
+gsm8k:test:371,gsm8k,a,calibration_KL_fixed,6,False," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001082050683979,False,False
+gsm8k:test:371,gsm8k,a,calibration_accuracy_fixed,1,False," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.003402239121138,False,False
+gsm8k:test:371,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001082050683979,False,False
+gsm8k:test:371,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they returned 6 pairs of tennis shoes.
+Therefore, they sold 14 + 28 + 14 - 6 = 50 pairs of tennis shoes.
+#### 50
+
+Q:",5E+1,50,True,0.0028303055860164,False,False
+gsm8k:test:371,gsm8k,a,per_request_KL_ORACLE,6,True," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001082050683979,False,False
+gsm8k:test:371,gsm8k,a,per_request_label_ORACLE,4,True," The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they returned 6 pairs of tennis shoes.
+Therefore, they sold 14 + 28 + 14 - 6 = 50 pairs of tennis shoes.
+#### 50
+
+Q:",5E+1,50,True,0.0028303055860164,False,False
+gsm8k:test:371,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001082050683979,False,False
+gsm8k:test:371,gsm8k,b,calibration_KL_fixed,6,False," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 / 2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001433240012641,False,False
+gsm8k:test:371,gsm8k,b,calibration_accuracy_fixed,1,False," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.0090509447391411,False,False
+gsm8k:test:371,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 / 2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001433240012641,False,False
+gsm8k:test:371,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they returned 6 pairs of tennis shoes.
+Therefore, they sold 14 + 28 + 14 - 6 = 50 pairs of tennis shoes.
+#### 50
+
+Q:",5E+1,50,True,0.0050891808924484,False,False
+gsm8k:test:371,gsm8k,b,per_request_KL_ORACLE,6,True," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 / 2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001433240012641,False,False
+gsm8k:test:371,gsm8k,b,per_request_label_ORACLE,4,True," The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they returned 6 pairs of tennis shoes.
+Therefore, they sold 14 + 28 + 14 - 6 = 50 pairs of tennis shoes.
+#### 50
+
+Q:",5E+1,50,True,0.0050891808924484,False,False
+gsm8k:test:371,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 / 2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",8,50,False,0.001433240012641,False,False
+gsm8k:test:519,gsm8k,a,calibration_KL_fixed,6,False," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,280,False,0.0016751588848013,False,False
+gsm8k:test:519,gsm8k,a,calibration_accuracy_fixed,1,False," First, find the number of minutes it takes Rob to shingle a house. Since he takes 2 hours, he takes 2 * 60 = 120 minutes.
+Now, find the number of minutes it takes Royce to shingle a house. Since he takes 40 minutes more than double Rob, he takes 2 * 120 + 40 = 280 minutes.
+#### 280
+
+Q:",2.8E+2,280,True,0.0156347710037291,False,False
+gsm8k:test:519,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,280,False,0.0016751588848013,False,False
+gsm8k:test:519,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,280,False,0.0051224160799971,False,False
+gsm8k:test:519,gsm8k,a,per_request_KL_ORACLE,6,True," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,280,False,0.0016751588848013,False,False
+gsm8k:test:519,gsm8k,a,per_request_label_ORACLE,1,True," First, find the number of minutes it takes Rob to shingle a house. Since he takes 2 hours, he takes 2 * 60 = 120 minutes.
+Now, find the number of minutes it takes Royce to shingle a house. Since he takes 40 minutes more than double Rob, he takes 2 * 120 + 40 = 280 minutes.
+#### 280
+
+Q:",2.8E+2,280,True,0.0156347710037291,False,False
+gsm8k:test:519,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 60 + 40 = 160 minutes.
+#### 160
+
+Q:",1.6E+2,280,False,0.0016751588848013,False,False
+gsm8k:test:519,gsm8k,b,calibration_KL_fixed,6,False," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 1.33
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 1.33 = 159.6
+Round the answer to the nearest whole number to get 160
+#### 160
+
+Q:",1.6E+2,280,False,0.0018402270267517,False,False
+gsm8k:test:519,gsm8k,b,calibration_accuracy_fixed,1,False," First, find the number of minutes it takes Rob to shingle a house. Since he takes 2 hours, he takes 2 * 60 = 120 minutes.
+Now, find the number of minutes it takes Royce to shingle a house. Since he takes 40 minutes more than double Rob, he takes 2 * 120 + 40 = 280 minutes.
+#### 280
+
+Q:",2.8E+2,280,True,0.0175414727183772,False,False
+gsm8k:test:519,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 1.33
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 1.33 = 159.6
+Round the answer to the nearest whole number to get 160
+#### 160
+
+Q:",1.6E+2,280,False,0.0018402270267517,False,False
+gsm8k:test:519,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2 * 60 = 160 minutes.
+Now, find the number of minutes in Royce's time. Since Royce takes 40 minutes more than double Rob, his time is 2 * 120 + 40 = 280 minutes.
+#### 280
+
+Q:",2.8E+2,280,True,0.004800149490024,False,False
+gsm8k:test:519,gsm8k,b,per_request_KL_ORACLE,6,True," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 1.33
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 1.33 = 159.6
+Round the answer to the nearest whole number to get 160
+#### 160
+
+Q:",1.6E+2,280,False,0.0018402270267517,False,False
+gsm8k:test:519,gsm8k,b,per_request_label_ORACLE,1,True," First, find the number of minutes it takes Rob to shingle a house. Since he takes 2 hours, he takes 2 * 60 = 120 minutes.
+Now, find the number of minutes it takes Royce to shingle a house. Since he takes 40 minutes more than double Rob, he takes 2 * 120 + 40 = 280 minutes.
+#### 280
+
+Q:",2.8E+2,280,True,0.0175414727183772,False,False
+gsm8k:test:519,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 1.33
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 1.33 = 159.6
+Round the answer to the nearest whole number to get 160
+#### 160
+
+Q:",1.6E+2,280,False,0.0018402270267517,False,False
+gsm8k:test:567,gsm8k,a,calibration_KL_fixed,6,False," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013408561428684,False,False
+gsm8k:test:567,gsm8k,a,calibration_accuracy_fixed,1,False," The first tooth is worth $5.00
+The second tooth is worth $1.00
+The third tooth is worth $1.00
+The fourth tooth is worth $0.50
+The fifth tooth is worth $0.50
+The total amount of money the tooth fairy left Sharon is $5.00 + $1.00 + $1.00 + $0.50 + $0.50 = $7.50
+#### 7.50
+
+Q:",7.5,9,False,0.0113177327754055,False,False
+gsm8k:test:567,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013408561428684,False,False
+gsm8k:test:567,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," The first tooth is worth $5.00
+The second tooth is worth $1.00
+The third tooth is worth $1.00
+The fourth tooth is worth $0.50
+The fifth tooth is worth $0.50
+The total amount of money the tooth fairy left Sharon is $5.00 + $1.00 + $1.00 + $0.50 + $0.50 = $7.50
+#### 7.50
+
+Q:",7.5,9,False,0.0033939724513491,False,False
+gsm8k:test:567,gsm8k,a,per_request_KL_ORACLE,6,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013408561428684,False,False
+gsm8k:test:567,gsm8k,a,per_request_label_ORACLE,5,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $0.50
+The sixth tooth was worth $0.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $0.50 + $0.50 = $9.00
+#### 9
+
+Q:",9,9,True,0.0016244994062723,False,False
+gsm8k:test:567,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013408561428684,False,False
+gsm8k:test:567,gsm8k,b,calibration_KL_fixed,6,False," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013862345598151,False,False
+gsm8k:test:567,gsm8k,b,calibration_accuracy_fixed,1,False," The first tooth is worth $5.00
+The second tooth is worth $1.00
+The third tooth is worth $1.00
+The fourth tooth is worth $0.50
+The fifth tooth is worth $0.50
+The sixth tooth is worth $0.25
+The seventh tooth is worth $0.25
+The total amount of money the tooth fairy left Sharon is $5.00 + $1.00 + $1.00 + $0.50 + $0.50 + $0.25 + $0.25 = $8.50
+#### 8.50
+
+Q:",8.5,9,False,0.0107844989335036,False,False
+gsm8k:test:567,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013862345598151,False,False
+gsm8k:test:567,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," The first tooth was worth $5.00
+The next three teeth were worth $1.00 each, so $3.00
+The last two teeth were worth half of $1.00 each, so $0.50 each, or $1.00 total
+The total amount of money the tooth fairy left Sharon was $5.00 + $3.00 + $1.00 = $9.00
+#### 9
+
+Q:",9,9,True,0.0028563575141411,False,False
+gsm8k:test:567,gsm8k,b,per_request_KL_ORACLE,6,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013862345598151,False,False
+gsm8k:test:567,gsm8k,b,per_request_label_ORACLE,4,True," The first tooth was worth $5.00
+The next three teeth were worth $1.00 each, so $3.00
+The last two teeth were worth half of $1.00 each, so $0.50 each, or $1.00 total
+The total amount of money the tooth fairy left Sharon was $5.00 + $3.00 + $1.00 = $9.00
+#### 9
+
+Q:",9,9,True,0.0028563575141411,False,False
+gsm8k:test:567,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",13,9,False,0.0013862345598151,False,False
+gsm8k:test:574,gsm8k,a,calibration_KL_fixed,6,False," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of the sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the cost of the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,37,False,0.0011586218988332,False,False
+gsm8k:test:574,gsm8k,a,calibration_accuracy_fixed,1,False," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is the revenue minus the cost, so the net profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,37,False,0.0115069626652535,False,False
+gsm8k:test:574,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of the sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the cost of the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,37,False,0.0011586218988332,False,False
+gsm8k:test:574,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of 10 sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the revenue from the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = $-260.00
+#### -260
+
+Q:",-2.6E+2,37,False,0.0032763595979607,False,False
+gsm8k:test:574,gsm8k,a,per_request_KL_ORACLE,6,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of the sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the cost of the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,37,False,0.0011586218988332,False,False
+gsm8k:test:574,gsm8k,a,per_request_label_ORACLE,0,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of the sandwiches is $7.00 each, so the price of 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,37,False,0.0067560521635184,False,False
+gsm8k:test:574,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The cost of the sandwiches is $7.00 each, so the cost of 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the cost of the sandwiches minus the cost of the ingredients: $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",-2.6E+2,37,False,0.0011586218988332,False,False
+gsm8k:test:574,gsm8k,b,calibration_KL_fixed,6,False," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,37,False,0.0011695795794764,True,True
+gsm8k:test:574,gsm8k,b,calibration_accuracy_fixed,1,False," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00.
+The net profit is the revenue minus the cost, so the net profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1E+1,37,False,0.0214344026455281,False,False
+gsm8k:test:574,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,37,False,0.0011695795794764,True,True
+gsm8k:test:574,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $0.30 per sandwich.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $3.00 per sandwich.
+The total cost of the ingredients is $0.30 + $3.00 = $3.30 per sandwich.
+The selling price of the sandwiches is $7.00 per sandwich, so the profit is $7.00 - $3.30 = $3.70 per sandwich.
+The profit on 10 sandwiches is $3.70 * 10 = $37.00.
+#### 37
+
+Q:",37,37,True,0.003312811883149,False,False
+gsm8k:test:574,gsm8k,b,per_request_KL_ORACLE,6,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,37,False,0.0011695795794764,True,True
+gsm8k:test:574,gsm8k,b,per_request_label_ORACLE,4,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $0.30 per sandwich.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $3.00 per sandwich.
+The total cost of the ingredients is $0.30 + $3.00 = $3.30 per sandwich.
+The selling price of the sandwiches is $7.00 per sandwich, so the profit is $7.00 - $3.30 = $3.70 per sandwich.
+The profit on 10 sandwiches is $3.70 * 10 = $37.00.
+#### 37
+
+Q:",37,37,True,0.003312811883149,False,False
+gsm8k:test:574,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The cost of the ingredients is $60.00 per 10 sandwiches.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.00 per sandwich.
+The cost of the ingredients is $6.",,37,False,0.0011695795794764,True,True
+gsm8k:test:581,gsm8k,a,calibration_KL_fixed,6,False," The first movie is 1 hour and 30 minutes long, which is 90 minutes.
+The second movie is 2 hours and 5 minutes long, which is 125 minutes.
+90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.001597326329134,False,False
+gsm8k:test:581,gsm8k,a,calibration_accuracy_fixed,1,False," The first movie is 1 hour and 30 minutes long, so it is 90 minutes long.
+The second movie is 2 hours and 5 minutes long, so it is 125 minutes long.
+To find the total time, add the two times together: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0039804017680887,False,False
+gsm8k:test:581,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," The first movie is 1 hour and 30 minutes long, which is 90 minutes.
+The second movie is 2 hours and 5 minutes long, which is 125 minutes.
+90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.001597326329134,False,False
+gsm8k:test:581,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," First, convert the times to minutes. 1 hour and 30 minutes is 90 minutes, and 2 hours and 5 minutes is 125 minutes.
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0021111169930087,False,False
+gsm8k:test:581,gsm8k,a,per_request_KL_ORACLE,5,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0013144957078475,False,False
+gsm8k:test:581,gsm8k,a,per_request_label_ORACLE,0,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0049410597447661,False,False
+gsm8k:test:581,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," The first movie is 1 hour and 30 minutes long, which is 90 minutes.
+The second movie is 2 hours and 5 minutes long, which is 125 minutes.
+90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.001597326329134,False,False
+gsm8k:test:581,gsm8k,b,calibration_KL_fixed,6,False," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0012305750546792,False,False
+gsm8k:test:581,gsm8k,b,calibration_accuracy_fixed,1,False," The first movie is 1 hour and 30 minutes long, so it is 90 minutes long.
+The second movie is 2 hours and 5 minutes long, so it is 125 minutes long.
+To find the total time, add the two times together: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0050178133380617,False,False
+gsm8k:test:581,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0012305750546792,False,False
+gsm8k:test:581,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0035861623715805,False,False
+gsm8k:test:581,gsm8k,b,per_request_KL_ORACLE,6,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0012305750546792,False,False
+gsm8k:test:581,gsm8k,b,per_request_label_ORACLE,0,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0074877430016423,False,False
+gsm8k:test:581,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,5,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",215,215,True,0.0017483019945478,False,False
+gsm8k:test:90,gsm8k,a,calibration_KL_fixed,6,False," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad that each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad that each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0008670341870642,False,False
+gsm8k:test:90,gsm8k,a,calibration_accuracy_fixed,1,False," First, find the total amount of potato salad that the adults will eat: 10 * 20 = 200 lbs
+Now find the total amount of potato salad that the children will eat: 5 * 5 = 25 lbs
+Now add the amount the adults will eat to the amount the children will eat to find the total amount of potato salad that will be eaten: 200 + 25 = 225 lbs
+Now multiply the total amount of potato salad that will be eaten by 1.1 to find the amount Ted needs to bring to the picnic: 225 * 1.1 = 247.5 lbs
+#### 247.5
+
+Q:",247.5,225,False,0.0032537162516006,False,False
+gsm8k:test:90,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad that each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad that each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0008670341870642,False,False
+gsm8k:test:90,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad the adults will eat to the amount the children will eat to find the total amount of potato salad Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0029259855118912,False,False
+gsm8k:test:90,gsm8k,a,per_request_KL_ORACLE,6,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad that each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad that each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0008670341870642,False,False
+gsm8k:test:90,gsm8k,a,per_request_label_ORACLE,0,True," First, find the total amount of potato salad that the adults will eat: 10 * 20 = 200 lbs
+Now find the total amount of potato salad that the children will eat: 5 * 5 = 25 lbs
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat: 200 + 25 = 225 lbs
+#### 225
+
+Q:",225,225,True,0.0044430811395463,False,False
+gsm8k:test:90,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,6,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad that each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad that each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0008670341870642,False,False
+gsm8k:test:90,gsm8k,b,calibration_KL_fixed,6,False," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0010188228230541,False,False
+gsm8k:test:90,gsm8k,b,calibration_accuracy_fixed,1,False," First, find the total amount of potato salad that the adults will eat: 10 * 20 = 200 lbs
+Now find the total amount of potato salad that the children will eat: 5 * 5 = 25 lbs
+Now add the two amounts together to find the total amount of potato salad that will be eaten: 200 + 25 = 225 lbs
+Now multiply the total amount of potato salad that will be eaten by 1.1 to account for the 10% that will be left over: 225 * 1.1 = 247.5 lbs
+Round the answer to the nearest whole number: 247.5 = 248 lbs
+#### 248
+
+Q:",248,225,False,0.0037106490185709,False,False
+gsm8k:test:90,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0010188228230541,False,False
+gsm8k:test:90,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad the adults will eat to the amount the children will eat to find the total amount of potato salad Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0027277396293837,False,False
+gsm8k:test:90,gsm8k,b,per_request_KL_ORACLE,6,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0010188228230541,False,False
+gsm8k:test:90,gsm8k,b,per_request_label_ORACLE,0,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad that each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad that each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0048403013679032,False,False
+gsm8k:test:90,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad that the adults will eat to the amount of potato salad that the children will eat to find the total amount of potato salad that Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",225,225,True,0.0010188228230541,False,False
+gsm8k:test:957,gsm8k,a,calibration_KL_fixed,6,False," First, set up an equation for the age of Shawna's father in terms of Shawna's age. Let s be Shawna's age and f be her father's age. Then f = 5s.
+Next, set up an equation for the age of Shawna in terms of Aliya's age. Let a be Aliya's age and s be Shawna's age. Then s = 3a.
+Now, substitute the value of s from the second equation into the first equation to get f = 5(3a).
+Now, substitute the value of a from the second equation into the first equation to get f = 5(3(3)) = 45.
+#### 45
+
+Q:",45,45,True,0.001103446511166,False,False
+gsm8k:test:957,gsm8k,a,calibration_accuracy_fixed,1,False," First, set up an equation to find Shawna's age. Let s be Shawna's age and a be Aliya's age. We know that s = 3a, so we can substitute 3a for s in the equation s + 5 = f, where f is Shawna's father's age. This gives us 3a + 5 = f.
+Now, we know that Aliya is 3 years old, so we can substitute 3 for a in the equation 3a + 5 = f. This gives us 3(3) + 5 = f, which simplifies to 9 + 5 = f, or 14 = f.
+#### 14
+
+Q:",14,45,False,0.0091670809214194,False,False
+gsm8k:test:957,gsm8k,a,evaluation_KL_best_fixed_ORACLE,6,True," First, set up an equation for the age of Shawna's father in terms of Shawna's age. Let s be Shawna's age and f be her father's age. Then f = 5s.
+Next, set up an equation for the age of Shawna in terms of Aliya's age. Let a be Aliya's age and s be Shawna's age. Then s = 3a.
+Now, substitute the value of s from the second equation into the first equation to get f = 5(3a).
+Now, substitute the value of a from the second equation into the first equation to get f = 5(3(3)) = 45.
+#### 45
+
+Q:",45,45,True,0.001103446511166,False,False
+gsm8k:test:957,gsm8k,a,evaluation_accuracy_best_fixed_ORACLE,4,True," First, set up an equation to find Shawna's age.  Aliya is 3 years old, so Shawna is 3x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shawna's father is 5x years old.
+Now set up an equation to find Shawna's father's age.  Shaw",,45,False,0.003804213352175,True,True
+gsm8k:test:957,gsm8k,a,per_request_KL_ORACLE,6,True," First, set up an equation for the age of Shawna's father in terms of Shawna's age. Let s be Shawna's age and f be her father's age. Then f = 5s.
+Next, set up an equation for the age of Shawna in terms of Aliya's age. Let a be Aliya's age and s be Shawna's age. Then s = 3a.
+Now, substitute the value of s from the second equation into the first equation to get f = 5(3a).
+Now, substitute the value of a from the second equation into the first equation to get f = 5(3(3)) = 45.
+#### 45
+
+Q:",45,45,True,0.001103446511166,False,False
+gsm8k:test:957,gsm8k,a,per_request_label_ORACLE,0,True," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0152841702347542,False,False
+gsm8k:test:957,gsm8k,a,cross_wording_KL_ORACLE_diagnostic,5,True," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0016603031644762,False,False
+gsm8k:test:957,gsm8k,b,calibration_KL_fixed,6,False," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0009706573334821,False,False
+gsm8k:test:957,gsm8k,b,calibration_accuracy_fixed,1,False," First, set up an equation to find Shawna's age. Aliya is 3 years old, so Shawna is 3x years old.
+Next, set up an equation to find Shawna's father's age. Shawna's father is five times as old as Shawna, so he is 5x years old.
+Now, set up an equation to find Shawna's father's age in terms of Aliya's age. Since Shawna is three times as old as Aliya, we can set up the equation 3x = 5x - 3.
+Solve for x to find Shawna's age. 3x = 5x - 3
+Add 3 to both sides to get 3x + 3 = 5x
+Subtract 3x from both sides to get 3 = 2x
+Divide both sides by 2 to get x = 1.5
+Now, plug x = 1.5 into the equation 5x = 5(1.5) = 7.5
+#### 7.5
+
+Q:",7.5,45,False,0.0069533729089298,False,False
+gsm8k:test:957,gsm8k,b,evaluation_KL_best_fixed_ORACLE,6,True," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0009706573334821,False,False
+gsm8k:test:957,gsm8k,b,evaluation_accuracy_best_fixed_ORACLE,4,True," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0029275605892219,False,False
+gsm8k:test:957,gsm8k,b,per_request_KL_ORACLE,5,True," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0009568223467111,False,False
+gsm8k:test:957,gsm8k,b,per_request_label_ORACLE,0,True," First figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0062688327277469,False,False
+gsm8k:test:957,gsm8k,b,cross_wording_KL_ORACLE_diagnostic,6,True," First, figure out how old Shawna is by multiplying Aliya's age by 3: 3 * 3 = 9
+Now figure out how old Shawna's father is by multiplying Shawna's age by 5: 9 * 5 = 45
+#### 45
+
+Q:",45,45,True,0.0009706573334821,False,False

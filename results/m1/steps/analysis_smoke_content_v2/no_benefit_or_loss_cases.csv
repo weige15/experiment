@@ -1,0 +1,188 @@
+request_id,dataset,wording,input_tokens,request_tokens,bf16_tokens,bf16_correct,bf16_answer,highest_group,lowest_group,KL_by_group,correct_by_group,wording_spearman,best_second_gap,KL_oracle_gain_vs_calibration_fixed,no_material_KL_gain_vs_calibration_fixed,all_groups_same_correctness,KL_oracle_task_loss_vs_calibration_fixed
+arc:test:146,arc,a,244,39,4,False," C
+
+Q:",0,5,"[0.0194975322583114, 0.0039020291073626, 0.0072056433026796, 0.0029922237612946, 0.0008006127677021, 0.0004576275201185, 0.0005582351531151, 0.001564115874927]","[false, false, false, false, false, false, false, false]",0.8809523809523809,0.00010060763299660008,0.00010060763299660008,False,True,False
+arc:test:146,arc,b,244,39,4,False," C
+
+Q:",0,4,"[0.0350360170828322, 0.0041386051118321, 0.0117076368549634, 0.002674299955759, 0.0011254516269615, 0.0013853050556218, 0.0016484954311323, 0.0014246420236502]","[false, false, false, false, false, false, false, false]",0.8809523809523809,0.00025985342866029996,0.0005230438041708,False,True,False
+arc:test:29,arc,a,241,37,4,True," B
+
+Q:",1,5,"[0.0112913408792695, 0.012146820424989, 0.0059932608699501, 0.0012612828963754, 0.001203092462726, 0.0010481642890641, 0.0012092641353239, 0.0010871180387704]","[true, true, true, true, true, true, true, true]",0.8095238095238095,3.895374970630007e-05,0.00016109984625979992,False,True,False
+arc:test:29,arc,b,241,37,4,True," B
+
+Q:",0,7,"[0.0137875453410123, 0.0084870675974099, 0.0064803560464076, 0.0029057726060853, 0.0017913608150141, 0.0018069495936011, 0.0011664405632839, 0.000727155618221]","[true, true, true, true, true, true, true, true]",0.8095238095238095,0.00043928494506289997,0.00043928494506289997,False,True,False
+arc:test:339,arc,a,261,56,4,True," D
+
+Q:",0,6,"[0.0077555710782524, 0.002295173191265, 0.0014623205525913, 0.002994000548308, 0.0019376631992512, 0.000494237988421, 0.0003512757344043, 0.0005806922875282]","[true, true, true, true, true, true, true, true]",0.7619047619047619,0.00014296225401670004,0.0,True,True,False
+arc:test:339,arc,b,261,56,4,True," D
+
+Q:",0,6,"[0.0126685250184987, 0.0022737010881427, 0.0023822190730496, 0.0019463486163953, 0.0026434269658814, 0.0016879515936536, 0.0009597583967807, 0.0010858361460123]","[true, true, true, true, true, true, true, true]",0.7619047619047619,0.0001260777492316001,0.0,True,True,False
+arc:test:355,arc,a,250,45,4,True," D
+
+Q:",1,5,"[0.0027969261041856, 0.0044143989447921, 0.001455457981498, 0.003184885259381, 0.0010196893546808, 0.0003299220331304, 0.0007122392454516, 0.000837444340475]","[true, true, true, true, true, true, true, true]",0.5952380952380952,0.00038231721232120003,0.00038231721232120003,False,True,False
+arc:test:355,arc,b,250,45,4,True," D
+
+Q:",0,2,"[0.0064527638423735, 0.0026428885480342, 0.0008525168348159, 0.0028663448633778, 0.0015620513914009, 0.0013091675820851, 0.0016129787165372, 0.0015526028559536]","[true, true, true, true, true, true, true, true]",0.5952380952380952,0.00045665074726919993,0.0007604618817213,False,True,False
+arc:test:414,arc,a,267,62,4,False," B
+
+Q:",3,6,"[0.0024854831845291, 0.0026878483436933, 0.0020467680634213, 0.0038647105291541, 0.0013916400720318, 0.0010311401713142, 0.0007666438880045, 0.0010227379175299]","[false, false, false, false, false, false, false, false]",0.19047619047619047,0.00025609402952540003,0.0,True,True,False
+arc:test:414,arc,b,267,62,4,False," B
+
+Q:",0,4,"[0.0083748682623745, 0.0018750655162482, 0.0015392707096254, 0.0024429077342933, 0.0012396147662236, 0.0023250126612378, 0.0017267027334076, 0.0041996591607984]","[false, false, false, false, false, false, false, false]",0.19047619047619047,0.00029965594340180006,0.00048708796718399997,False,True,False
+arc:test:546,arc,a,250,45,5,True," 1
+
+Q:",0,6,"[0.0178676565009527, 0.0103450073264657, 0.0056769600981886, 0.003043738147583, 0.0032777647217844, 0.0010023320088918, 0.0005780813411992, 0.0058159851722038]","[true, true, true, true, true, true, true, true]",0.9761904761904762,0.0004242506676925999,0.0,True,True,False
+arc:test:546,arc,b,250,45,5,True," 1
+
+Q:",0,6,"[0.0164855769237665, 0.0060320701768714, 0.0052414604775459, 0.0040679286085457, 0.0019847357914492, 0.0016905981769016, 0.0008099682725581, 0.0057241990059535]","[true, true, true, true, true, true, true, true]",0.9761904761904762,0.0008806299043434999,0.0,True,True,False
+arc:test:566,arc,a,298,94,4,True," A
+
+Q:",1,6,"[0.0023489567984247, 0.0058521545819988, 0.0005653242792287, 0.0018221942792209, 0.0011630391840437, 0.0006205999322394, 0.000257136952313, 0.0005954058418621]","[true, true, true, true, true, true, true, true]",0.6904761904761905,0.00030818732691570005,0.0,True,True,False
+arc:test:566,arc,b,298,94,4,True," A
+
+Q:",0,7,"[0.0055967661283285, 0.0034316006317265, 0.0008447807341012, 0.001883121623101, 0.0006321611624879, 0.0014389863231609, 0.0010135114235949, 0.0006139694939885]","[true, true, true, true, true, true, true, true]",0.6904761904761905,1.8191668499400017e-05,0.0003995419296064,False,True,False
+arc:test:794,arc,a,275,70,4,True," C
+
+Q:",0,6,"[0.0112617311612087, 0.003397745885773, 0.0025440291043814, 0.0033402063305033, 0.0009763210962249, 0.0004802119586051, 0.0004070016337102, 0.0010417718628539]","[true, true, true, true, true, true, true, true]",0.5476190476190477,7.321032489489998e-05,0.0,True,True,False
+arc:test:794,arc,b,275,70,4,True," C
+
+Q:",0,4,"[0.0116385828532052, 0.0013378987931895, 0.0020977393901569, 0.0028440616534682, 0.0009322530668255, 0.000967683801777, 0.0016285879012863, 0.0014371505976422]","[true, true, true, true, true, true, true, true]",0.5476190476190477,3.543073495150008e-05,0.0006963348344608001,False,True,False
+boolq:validation:1313,boolq,a,824,48,4,True," yes
+
+Q:",7,5,"[0.0056183454652949, 0.0013850796403529, 0.0024936914270296, 0.004423057546505, 0.0011062010658982, 0.0002848428810654, 0.0008318753926545, 0.0075841273849538]","[true, true, true, true, true, true, true, true]",0.9047619047619048,0.0005470325115891,0.0005470325115891,False,True,False
+boolq:validation:169,boolq,a,884,108,4,True," no
+
+Q:",0,6,"[0.0132356755245115, 0.0009038009205021, 0.0027976367719661, 0.000663367209911, 0.0005161430012502, 0.0004881673000844, 0.0003297549368533, 0.0035663786775877]","[true, true, true, true, true, true, true, true]",0.9523809523809523,0.0001584123632311,0.0,True,True,False
+boolq:validation:169,boolq,b,896,108,4,True," no
+
+Q:",0,5,"[0.0101876662747472, 0.0030075376724514, 0.0011817197273132, 0.0010360223785983, 0.000424060534335, 0.000345684058526, 0.0004017869134911, 0.0043467368651969]","[true, true, true, true, true, true, true, true]",0.9523809523809523,5.6102854965100004e-05,5.6102854965100004e-05,False,True,False
+boolq:validation:1883,boolq,a,894,118,4,True," no
+
+Q:",0,5,"[0.0112431143557659, 0.0026427627580076, 0.0049012022919586, 0.0017343529340602, 0.0008967275417158, 0.0005883271527355, 0.0011090726678569, 0.0050005107593456]","[true, true, true, true, true, true, true, true]",0.8571428571428571,0.0003084003889803,0.0005207455151214,False,True,False
+boolq:validation:1883,boolq,b,906,118,4,True," no
+
+Q:",0,6,"[0.0057666384447856, 0.0026363427123849, 0.0023866507143117, 0.0012619604911667, 0.0015631873936705, 0.0005616115900563, 0.0004431194336128, 0.0044676395628517]","[true, true, true, true, true, true, true, true]",0.8571428571428571,0.00011849215644350002,0.0,True,True,False
+boolq:validation:2084,boolq,a,867,91,4,True," yes
+
+Q:",3,6,"[0.004639062301044, 0.0012394396726741, 0.0016731831263373, 0.0066315072548721, 0.0008597708825481, 0.0003319226965747, 0.0003280137951596, 0.0007963696156048]","[true, true, true, true, true, true, true, true]",0.9285714285714286,3.9089014151000106e-06,0.0,True,True,False
+boolq:validation:2084,boolq,b,879,91,4,True," yes
+
+Q:",3,5,"[0.0040559662879857, 0.0020985387008555, 0.0014448560163381, 0.0061787265972992, 0.0004750156535568, 0.0002091374328927, 0.0004470283417069, 0.0011736901739461]","[true, true, true, true, true, true, true, true]",0.9285714285714286,0.0002378909088142,0.0002378909088142,False,True,False
+boolq:validation:2086,boolq,a,841,65,4,True," no
+
+Q:",7,6,"[0.0059237944320747, 0.002218833688516, 0.0010917692040907, 0.001662541579451, 0.0003596183163431, 0.0006301531406551, 0.000352261200734, 0.008643149811097]","[true, true, true, true, true, true, true, false]",0.7619047619047619,7.357115609100029e-06,0.0,True,False,False
+boolq:validation:378,boolq,a,838,62,4,True," yes
+
+Q:",3,5,"[0.0058251295004244, 0.0033401902422827, 0.0010148838061617, 0.006933274932973, 0.0006889656348802, 0.0004032972812643, 0.0006950324873002, 0.0026435106709393]","[true, true, true, true, true, true, true, true]",0.9047619047619048,0.0002856683536159,0.00029173520603590004,False,True,False
+boolq:validation:378,boolq,b,850,62,4,True," yes
+
+Q:",3,6,"[0.0046211164205601, 0.0066332204411422, 0.0007823223531875, 0.008833034214904, 0.0006794343499603, 0.0004697402833387, 0.0002803395656205, 0.0017465424008434]","[true, true, true, true, true, true, true, true]",0.9047619047619048,0.00018940071771820003,0.0,True,True,False
+boolq:validation:601,boolq,a,920,144,4,True," yes
+
+Q:",0,4,"[0.0085278576892779, 0.0013738221046407, 0.0060166297963562, 0.0034196666611498, 0.0004993098569951, 0.0007407538669838, 0.0009729406254245, 0.0017145174490627]","[true, true, true, true, true, true, true, true]",0.8571428571428571,0.00024144400998870003,0.00047363076842940003,False,True,False
+boolq:validation:601,boolq,b,932,144,4,True," yes
+
+Q:",0,6,"[0.0065906016544572, 0.0019401809623625, 0.0036936550131127, 0.0049693246415589, 0.0007065218821193, 0.0004190737586143, 0.0003459607665775, 0.0016219426365581]","[true, true, true, true, true, true, true, true]",0.8571428571428571,7.31129920368e-05,0.0,True,True,False
+gsm8k:test:252,gsm8k,a,747,42,117,False," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",2,6,"[0.0079299497228894, 0.0077712979309309, 0.0118657652767163, 0.0096177651261499, 0.0041422744386256, 0.0016228499673015, 0.0012831812540458, 0.0059823930551625]","[false, false, false, false, false, false, false, false]",1.0,0.00033966871325569995,0.0,True,True,False
+gsm8k:test:252,gsm8k,b,759,42,117,False," First, figure out how many cougars Rick killed the previous night by subtracting the number of cougars he killed today from the number he killed the previous night: 15 - 12 = 3
+Now figure out how many wolves Rick killed the previous night by multiplying the number of cougars he killed the previous night by 3: 3 * 3 = 9
+Now add the number of cougars and wolves Rick killed the previous night to get the total number of animals he killed: 3 + 9 = 12
+#### 12
+
+Q:",2,6,"[0.0085052848423332, 0.0081869121369891, 0.0106408103605648, 0.0102567093618016, 0.0038097213073693, 0.0017003623122251, 0.0012097373425241, 0.0064993452643319]","[false, false, false, false, false, false, false, false]",1.0,0.0004906249697009999,0.0,True,True,False
+gsm8k:test:371,gsm8k,a,789,84,116,False," The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:",2,6,"[0.0065163612293504, 0.003402239121138, 0.0065912153727333, 0.0055827699407488, 0.0028303055860164, 0.0012606563999196, 0.001082050683979, 0.0060070920553784]","[false, false, false, false, true, false, false, true]",0.9285714285714286,0.00017860571594060007,0.0,True,False,False
+gsm8k:test:371,gsm8k,b,801,84,70,False," The first day they sold 14 pairs of shoes.
+The second day they sold 14 * 2 = 28 pairs of shoes.
+The third day they sold 28 * 1/2 = 14 pairs of shoes.
+The third day they sold 14 - 6 = 8 pairs of shoes.
+#### 8
+
+Q:",2,6,"[0.0150495386716137, 0.0090509447391411, 0.0313244729282368, 0.0149142244189507, 0.0050891808924484, 0.0020240156142409, 0.001433240012641, 0.0069650064209192]","[false, false, false, false, true, false, false, true]",0.9285714285714286,0.0005907756015999001,0.0,True,False,False
+gsm8k:test:519,gsm8k,a,736,31,141,True," First, find the number of minutes in 2 hours. There are 60 minutes in an hour, so 2 hours is 2 * 60 = 120 minutes.
+Now, find the number of minutes in 40 minutes more than double Rob. 40 minutes more than double Rob is 40 + 2r, where r is the number of minutes Rob takes. 40 + 2r = 40 + 2 * 120 = 40 + 240 = 280 minutes.
+Now, find the number of minutes in Royce's time. Royce takes 40 minutes more than double Rob, so Royce takes 280 minutes.
+#### 280
+
+Q:",0,6,"[0.0239795217784658, 0.0156347710037291, 0.0176611420412616, 0.0123602408729537, 0.0051224160799971, 0.0021873669297238, 0.0016751588848013, 0.0100857151544709]","[false, true, false, false, false, false, false, true]",0.9761904761904762,0.0005122080449225001,0.0,True,False,False
+gsm8k:test:519,gsm8k,b,748,31,160,False," First, find the number of minutes in 2 hours by multiplying 2 by 60: 2 * 60 = 120
+Now find the number of minutes in 40 minutes more than double Rob by adding 40 to double Rob: 40 + 2 * 60 = 40 + 120 = 160
+Now divide the number of minutes in 40 minutes more than double Rob by the number of minutes in 2 hours to find the ratio of the two times: 160 / 120 = 4/3
+Now multiply the number of minutes in 2 hours by the ratio of the two times to find the number of minutes in 40 minutes more than double Rob: 120 * 4/3 = 160
+#### 160
+
+Q:",0,6,"[0.0177728775276704, 0.0175414727183772, 0.0123825564886581, 0.0099172005335566, 0.004800149490024, 0.0020423794741477, 0.0018402270267517, 0.0086352669679872]","[false, true, true, false, true, false, false, true]",0.9761904761904762,0.00020215244739599974,0.0,True,False,False
+gsm8k:test:567,gsm8k,a,796,91,112,False," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",1,6,"[0.0086499470988117, 0.0113177327754055, 0.0108625479753984, 0.006295002547247, 0.0033939724513491, 0.0016244994062723, 0.0013408561428684, 0.0044597147069152]","[false, false, false, false, false, true, false, false]",1.0,0.0002836432634039001,0.0,True,False,False
+gsm8k:test:567,gsm8k,b,808,91,112,False," The first tooth was worth $5.00
+The second tooth was worth $1.00
+The third tooth was worth $1.00
+The fourth tooth was worth $1.00
+The fifth tooth was worth $2.50
+The sixth tooth was worth $2.50
+The total amount of money the tooth fairy left Sharon was $5.00 + $1.00 + $1.00 + $1.00 + $2.50 + $2.50 = $13.00
+#### 13
+
+Q:",1,6,"[0.0084704570872854, 0.0107844989335036, 0.0104676322384401, 0.0076888967064939, 0.0028563575141411, 0.0018119279575036, 0.0013862345598151, 0.0042775619500671]","[false, false, false, false, true, false, false, false]",1.0,0.00042569339768849996,0.0,True,False,False
+gsm8k:test:574,gsm8k,a,771,66,173,False," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00
+The cost of the cheese and condiments is $30.00 per 10 sandwiches, so the cost of the cheese and condiments is $30.00 * 10 = $300.00
+The total cost of the ingredients is $30.00 + $300.00 = $330.00
+The price of each sandwich is $7.00, so the total revenue from 10 sandwiches is $7.00 * 10 = $70.00
+The net profit is the revenue minus the cost, so the net profit is $70.00 - $330.00 = -$260.00
+#### -260
+
+Q:",1,6,"[0.0067560521635184, 0.0115069626652535, 0.0060537583071583, 0.00656229938455, 0.0032763595979607, 0.0016314140617525, 0.0011586218988332, 0.0071629007172469]","[false, false, false, false, false, false, false, false]",0.9523809523809523,0.0004727921629192999,0.0,True,True,False
+gsm8k:test:574,gsm8k,b,783,66,166,False," The cost of the bread is $3.00 per loaf, and each loaf makes 10 sandwiches, so the cost of the bread is $3.00 * 10 = $30.00 per 10 sandwiches.
+The cost of the cheese and condiments is $30.00 per 10 sandwiches.
+The total cost of the ingredients is $30.00 + $30.00 = $60.00 per 10 sandwiches.
+The price of the sandwiches is $7.00 each, so the price of 10 sandwiches is $7.00 * 10 = $70.00.
+The profit is the price of the sandwiches minus the cost of the ingredients, so the profit is $70.00 - $60.00 = $10.00 per 10 sandwiches.
+#### 10
+
+Q:",1,6,"[0.0083788782448177, 0.0214344026455281, 0.0074600254922716, 0.006671775214725, 0.003312811883149, 0.0016087378538767, 0.0011695795794764, 0.0075849909107954]","[false, false, false, false, true, false, false, false]",0.9523809523809523,0.00043915827440030005,0.0,True,False,False
+gsm8k:test:581,gsm8k,b,765,48,91,True," First, convert the times to minutes by multiplying the number of hours by 60 and adding the number of minutes:
+1 hour and 30 minutes = 1 * 60 + 30 = 90 minutes
+2 hours and 5 minutes = 2 * 60 + 5 = 125 minutes
+Now add the two times together to get the total time: 90 + 125 = 215 minutes
+#### 215
+
+Q:",0,6,"[0.0074877430016423, 0.0050178133380617, 0.0059708649727899, 0.005743596245649, 0.0035861623715805, 0.0017483019945478, 0.0012305750546792, 0.0067588849852058]","[true, true, false, true, true, true, true, true]",0.9285714285714286,0.0005177269398686001,0.0,True,False,False
+gsm8k:test:90,gsm8k,a,789,84,128,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad the adults will eat to the amount the children will eat to find the total amount of potato salad Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",3,6,"[0.0044430811395463, 0.0032537162516006, 0.0043869715136189, 0.0051167457860287, 0.0029259855118912, 0.0012758183007647, 0.0008670341870642, 0.0046668207083497]","[true, false, true, true, true, true, true, true]",1.0,0.0004087841137005,0.0,True,False,False
+gsm8k:test:90,gsm8k,b,801,84,128,True," First, find the total amount of potato salad that the adults will eat by multiplying the number of adults by the amount of potato salad each adult will eat: 10 * 20 = 200
+Now find the total amount of potato salad that the children will eat by multiplying the number of children by the amount of potato salad each child will eat: 5 * 5 = 25
+Now add the amount of potato salad the adults will eat to the amount the children will eat to find the total amount of potato salad Ted needs to bring to the picnic: 200 + 25 = 225
+#### 225
+
+Q:",3,6,"[0.0048403013679032, 0.0037106490185709, 0.0042194911836497, 0.0054570758052329, 0.0027277396293837, 0.0013365462076252, 0.0010188228230541, 0.0050624648782963]","[true, false, true, true, true, true, true, true]",1.0,0.0003177233845711,0.0,True,False,False
+gsm8k:test:957,gsm8k,a,748,43,256,False," First, set up an equation to find Shawna's age. Let s be Shawna's age and a be Aliya's age. We know that s = 3a, so we can substitute 3a for s in the first equation: 5(3a) = s
+Now distribute the 5 to get 15a = s
+Now substitute 3a for s to get 15a = 3a
+Divide both sides of the equation to get 5 = 1
+Since this is not true, we know that we made a mistake somewhere. Let's go back and check our work. We know that s = 3a, so we can substitute 3a for s in the first equation: 5(3a) = s
+Now distribute the 5 to get 15a = s
+Now substitute 3a for s to get 15a = 3a
+Divide both sides of the equation to get 5 = 1
+Since this is not true, we know that we made a mistake somewhere. Let's go back and check our work. We know that s = 3a, so we can substitute 3a for s in the first equation: 5(",0,6,"[0.0152841702347542, 0.0091670809214194, 0.0132664427471598, 0.0093831462509679, 0.003804213352175, 0.0016603031644762, 0.001103446511166, 0.0090160050709623]","[true, false, true, true, false, true, true, true]",0.6666666666666666,0.0005568566533101999,0.0,True,False,False

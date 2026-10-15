@@ -1,0 +1,11 @@
+{
+  "role": "smoke",
+  "source_requests": 24,
+  "raw_color_floor": 1e-08,
+  "row_order": "dataset then original source index; never sorted by outcome",
+  "inputs": {
+    "results/m1/steps/analysis_smoke_content_v2/statistics.csv": "86bf4c61e265db241f8ac5624f98d7456cb80dccd372947eb0fbc53e2871b18a",
+    "results/m1/steps/analysis_smoke_content_v2/per_request_measurements.csv": "66d5a098f976dfda61e70a1bbb7810b82b50e8c3ac341cbe566992c5b15acfd0"
+  },
+  "code_sha256": "f5d466faa027f997964a7a1a3f8c7ebfcf049728e641745d395fc2216c974004"
+}
