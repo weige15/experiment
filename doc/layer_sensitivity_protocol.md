@@ -1,0 +1,41 @@
+# Layer sensitivity study — locked protocol
+
+This is a new **32 individual-layer** study, not a relabeling of the historical four-layer-group campaign. Historical raw data and documents are preserved. Protocol written before any individual-layer model result. The prior group study informed the choice of a feasible harness, not sample selection or individual-layer outcomes.
+
+## Questions and scope
+1. Do requests have measurable, stable differences in the ranking of individual-layer W4 sensitivity?
+2. Do these differences change which layers to retain in BF16, and does that choice change directly measured answer accuracy?
+3. How are the differences associated with dataset, prompt/output length, and difficulty proxies?
+
+No clustering, learned request router, production batching, packed W4 speed/memory claim, or grouped-layer substitute.
+
+## Model, intervention, and data
+- Official `meta-llama/Llama-3.1-8B` **base**, revision `d04e592bb4f6aa9cfee91e2e20afa771667e1d4b`; same tokenizer and fixed explicit Q/A chat template for every configuration. This base checkpoint has no upstream chat template. The custom template, three train demonstrations, instructions and greedy stop rules are retained from the existing tested harness and recorded verbatim.
+- BF16 reference. Single-layer intervention on each layer 0..31, seven matrices: `self_attn.{q,k,v,o}_proj.weight` and `mlp.{gate,up,down}_proj.weight`. All other parameters unchanged. Symmetric groupwise RTN W4, contiguous input-axis group size 128, FP32 `absmax/7` scale (all-zero group scale 1), zero point 0, round-to-even signed codes [-7,7], no clipping. Actual packed-nibble encode/decode before dequantizing to BF16. **Quantization sensitivity simulation**, not an integer kernel. Activations and KV cache BF16; same PyTorch SDPA path throughout.
+- Dataset sources/revisions and deterministic seed `20261015` are inherited from `quantization_sensitivity/data.py`. For each of GSM8K test, ARC-Challenge test, BoolQ validation: 8 disjoint smoke requests and 32 evaluation requests. Three demonstrations and 8 sensitivity-selection requests per dataset come only from train; all roles deduplicated by normalized question. No quantizer calibration is needed. Selection data must not overlap evaluation.
+- One fixed wording (`a`) per source is sufficient for this study. Unlike the earlier study, no cross-wording claim is made. Raw prompts, source IDs, source parquet hashes, generated token IDs and parser outcomes are retained. Every sampled request, including parse failures/truncations, stays in analysis.
+
+## Measurements and order
+Environment/weight provenance → fresh BF16 baseline → exact seven-matrix single-layer isolation + restore + numerical repeatability gate → one request × all 32 layers → 3 datasets × 8-request smoke × all 32 layers, strict validation → train-only sensitivity selection × all 32 layers → freeze allocation choices → formal 96 requests × all 32 layers, strict validation → direct precision-allocation experiments → statistics/report.
+
+For each request BF16 greedy tokens are a fixed teacher-forced continuation. Compare full-vocabulary `KL(P_BF16 || P_W4)` at the identical causal positions, average per token (nats). Log probabilities in FP32, reduction in FP64. The full-sequence path is used for both; cached decoding is not substituted for the BF16 reference distribution. Retain every token KL, mean, first token, halves and secondary answer-content-only segments. Actual free-generation answers are independently scored by fixed dataset parsers; KL change and correctness change are distinct outcomes. Numeric replay/restore checks on actual model, plus analytic tests, precede any interpretation.
+
+## Analysis (all requests)
+- Full request × 32-layer KL and rank heatmaps; per-layer distributions; per-request 32-value CSV vectors plus long CSV/Parquet.
+- Request-pair Spearman rank correlations, Top-4/Top-8 intersections (intersection/k and Jaccard), and all 496 layer-pair ordering reversals. Report overall and within-dataset descriptive effects, not selected examples.
+- Within-request first/second-half and answer-content segment rank correlations/Top-k overlap. Explicitly count insufficient-length traces rather than imputing stability for one-token answers.
+- 2,000 dataset-stratified **request-level** bootstrap replicates for primary means, pairwise summaries, stability and paired accuracy differences; never treat 3,072 layer rows as independent requests. Bootstrap pair summaries exclude two resampled copies of the same original request from different-request pairs.
+- Associations with log prompt length, log BF16 continuation length, dataset fixed effects and BF16 correctness as a limited difficulty proxy. Report design rank, uncertainty and explanatory scope; output length/correctness are post-model variables, not causal confounders. Dataset-specific analyses show remaining dispersion. A residualized normalized profile and residual dispersion are descriptive, not an identification theorem.
+- All pair reversals descriptive with material numerical threshold 1e-6 nats/token and at least 2 requests on each side; first/second-half replication counts where segments are long enough. No significance claim from hundreds of unadjusted pair tests.
+
+## Precision allocation check
+Primary budget: **8 BF16 Transformer layers**, other 24 layers jointly W4. Embeddings/head/norms always BF16. Three selection methods:
+- `request_oracle`: retain highest 8 KL layers for that same evaluation request. This uses costly current-request evaluation and is an **oracle-information benchmark / oracle upper-bound proxy**, not a deployable router and not a mathematical upper bound on accuracy.
+- `fixed`: same 8 layers for every request, highest mean KL on 24 train-only selection requests, frozen with input hashes and timestamp before evaluation begins.
+- `random_0`, `random_1`, `random_2`: three seeded globally fixed uniform 8-layer sets (seed 20261016 + replicate), frozen alongside fixed selection. Report each, their average, and paired differences. A label oracle over these **measured** configurations is separately labeled an actual finite-candidate accuracy upper bound, not learned selection.
+Directly generate and score all 5 joint configurations on all 96 formal requests. Also compute joint KL on the same BF16 continuation, to expose nonadditive interactions. Audit installed seven-matrix-per-layer state and restoration. Cached CPU Q/DQ weights may amortize quantization, but forward computation is still BF16. No benefit is assumed from additive single-layer sensitivities.
+
+## Escalation and stopping
+No threshold-based favorable sample selection. If W4 is too weak to resolve structure: first verify changed-weight magnitudes, KL direction/alignment/replay and answer parsing; record findings. Then extend the deterministic heldout sample prefix to 64 per dataset, explicitly inspect all longer requests without dropping short ones; only if still needed run W3 stress under a separately frozen addendum. Retain all W4. Null or inconclusive allocation benefits are valid, but must be separated from claims of heterogeneity and investigated with these diagnostics if ambiguity is merely numerical/underpowered. Do not broaden into a router project.
+
+Completion requires actual test/command exits, full 32-layer smoke and 96-request formal coverage, direct allocation, checked raw data/figures/report, and a prompt-to-artifact audit. Missing evidence means incomplete. Model permission or hardware blockers must be reported rather than replaced by fabricated/toy model results.
