@@ -118,6 +118,24 @@ def control_design(datasets, input_tokens, output_tokens, bf16_correct):
     return x, names
 
 
+def cubic_prompt_output_design(datasets, input_tokens, output_tokens):
+    """Protocol diagnostic: separate dataset-specific cubic log-length terms."""
+    datasets = np.asarray(datasets)
+    columns, names = [], []
+    for dataset in np.unique(datasets):
+        mask = datasets == dataset
+        columns.append(mask.astype(float))
+        names.append(f"{dataset}_intercept")
+        for label, lengths in [("prompt", input_tokens), ("output", output_tokens)]:
+            values = np.log(np.asarray(lengths, dtype=float)[mask])
+            z = np.zeros(len(datasets))
+            z[mask] = (values - values.mean()) / max(values.std(), 1e-12)
+            for power in [1, 2, 3]:
+                columns.append(z ** power)
+                names.append(f"{dataset}_log_{label}_z_power_{power}")
+    return np.column_stack(columns), names
+
+
 def regression_statistics(x, values, names):
     shape = shape_normalize(values)
     coefficients = np.linalg.lstsq(x, shape, rcond=None)[0]
@@ -201,6 +219,10 @@ def bootstrap_summary(values, correct, baseline, datasets, segment_rho, allocati
         finite = np.asarray(draws[name])[np.isfinite(draws[name])]
         lo, hi = np.percentile(finite, [2.5, 97.5]) if len(finite) else [np.nan, np.nan]
         scope, metric = name.split("/", 1)
+        interpretation = ("nominal in-sample refit range; bias/coverage unassessed; not heldout-performance CI"
+                          if scope == "controls" and (metric == "shape_R2" or metric.startswith("shape_partial_R2_"))
+                          else "pointwise paired dataset-stratified request-bootstrap percentile interval")
         rows.append(dict(scope=scope, metric=metric, estimate=value, ci_low=float(lo), ci_high=float(hi),
+                         interval_interpretation=interpretation,
                          valid_bootstraps=len(finite), bootstrap_replicates=iterations))
     return rows, matrices

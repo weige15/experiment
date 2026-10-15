@@ -1,8 +1,10 @@
 """Rebuild all tables, figures and report from validated real individual-layer records."""
 import argparse
 from datetime import datetime, timezone
+from importlib.metadata import version
 from pathlib import Path
 import json
+import platform
 
 import matplotlib
 matplotlib.use("Agg")
@@ -18,10 +20,13 @@ from quantization_sensitivity.runner import file_hash, read_json
 from . import DEFAULT_RESULTS
 from .runner import source_hashes
 from .statistics import (bootstrap_summary, conservative_paired_accuracy_interval, control_design,
-                         stratified_binomial_interval, row_spearman, shape_normalize, top_mask)
+                         cubic_prompt_output_design, stratified_binomial_interval, row_spearman, shape_normalize, top_mask)
 from .validate import check_coverage, validate_gates
 
 STRATEGIES = ["fixed", "random_0", "random_1", "random_2", "request_oracle"]
+ANALYSIS_SOURCES = ["layer_sensitivity/analysis.py", "layer_sensitivity/statistics.py",
+                    "quantization_sensitivity/analysis.py", "layer_sensitivity/validate.py",
+                    "scripts/validate_runs.py", "layer_sensitivity/gates.py"]
 
 
 def matrices_from_records(root):
@@ -141,8 +146,9 @@ def figures(root, baseline, values, pairwise, statistics, allocation_correct):
     ax.bar(np.arange(len(names)), estimate, color=colors)
     ax.errorbar(np.arange(len(names)), estimate, yerr=np.maximum(0, np.array([estimate - low, high - estimate])),
                 fmt="none", color="black", capsize=3)
-    ax.set_xticks(np.arange(len(names)), names, rotation=20, ha="right")
-    ax.set(ylabel="Actual answer accuracy (%)", ylim=(0, 100), title="8 BF16 layers / 24 jointly W4 layers; request-bootstrap 95% CI")
+    ax.set_xticks(np.arange(len(names)), ["BF16 (all 32)", *names[1:]], rotation=20, ha="right")
+    ax.set(ylabel="Actual answer accuracy (%)", ylim=(0, 100),
+           title="Joint strategies: 8 BF16 / 24 W4; reference: all 32 BF16\nPaired request-bootstrap 95% CI")
     save(fig, "precision_allocation_accuracy")
 
 
@@ -163,6 +169,13 @@ def write_report(root, statistics, baseline, frame, allocation, reversals, segme
         return f"{row.estimate * scale:.5g} [{row.ci_low * scale:.5g}, {row.ci_high * scale:.5g}]"
     meta = read_json(root / "runs/evaluation/attempt_0.json")
     selection = read_json(root / "precision_allocation_selection.json")
+    diagnostics = read_json(root / "analysis/metadata.json")
+    eligible_content = segment_table[(segment_table.segment == "content") & segment_table.eligible]
+    content_population = eligible_content.groupby("dataset").size().to_dict()
+    conservative = pd.read_csv(root / "analysis/conservative_paired_accuracy_intervals.csv")
+    paired_fixed = conservative[(conservative.scope == "all") & (conservative.comparison == "request_oracle_minus_fixed")].iloc[0]
+    scalar_rows = [dict(term=metric.removeprefix("log_mean_KL_coefficient_"), estimate_and_pointwise_interval=ci(metric, "controls"))
+                   for scope, metric in stats.index if scope == "controls" and metric.startswith("log_mean_KL_coefficient_")]
     accuracy_rows = []
     for scope in ["all", *sorted(baseline.dataset.unique())]:
         count = len(baseline) if scope == "all" else int((baseline.dataset == scope).sum())
@@ -184,22 +197,32 @@ def write_report(root, statistics, baseline, frame, allocation, reversals, segme
         "A generated report or passing validator is not an automatic completion declaration.\n",
         "## Research questions and evidence\n\n"
         f"1. **Request-dependent sensitivity and stability.** Different-request mean layer-rank Spearman: {ci('different_request_spearman')}; "
-        f"rank heterogeneity (1 − correlation): {ci('rank_heterogeneity')}. Content-half mean within-request Spearman: {ci('content_halves_mean_spearman')}. "
-        f"{material}/496 layer pairs reverse by >1e-6 nats/token with at least two requests on each side; {replicated}/496 have both directions replicated across content halves. "
+        f"rank heterogeneity (1 − correlation): {ci('rank_heterogeneity')}. Content-half mean within-request Spearman: {ci('content_halves_mean_spearman')} "
+        f"**among {len(eligible_content)} eligible requests ({content_population}) only**. "
+        f"{material}/496 layer pairs reverse by >1e-6 nats/token with at least two requests on each side across the formal cohort; "
+        f"{replicated}/496 have both directions repeated across content halves in that eligible subset. "
         f"Secondary different-request Spearman using content-only means: {ci('secondary_content_different_request_spearman')}; "
         f"using only the first continuation token: {ci('secondary_first_token_different_request_spearman')}. "
         f"Content-profile eligibility: {int(((segment_table.segment == 'content') & (segment_table.tokens > 0)).sum())}/{len(baseline)} requests; "
         "empty content is omitted only from that secondary diagnostic, never primary outcomes. "
-        "Reversals are descriptive, not 496 independent hypothesis tests. Stability claims apply only to eligible token traces, not every dataset.\n\n"
+        "Reversals are descriptive, not 496 independent hypothesis tests. Stability claims apply only to eligible token traces, not every dataset. "
+        "Content-only and first-token diagnostics overlap (they coincide for these BoolQ traces), so they are not independent replications or evidence of temporal/cross-wording stability.\n\n"
         f"2. **Higher-precision layer choice and actual utility.** Different-request Top-4 overlap fraction: {ci('different_request_top4_overlap_fraction')}; "
         f"Top-8: {ci('different_request_top8_overlap_fraction')}. At the directly measured 8-layer BF16 budget, request-KL oracle minus train-selected fixed "
         f"accuracy: **{ci('allocation_request_oracle_delta_vs_fixed', scale=100)} percentage points**; versus the three-set random mean: "
-        f"{ci('allocation_request_oracle_delta_vs_random_mean', scale=100)} pp. A CI spanning zero is inconclusive, not evidence of deployable improvement.\n\n"
-        f"3. **Type, length, difficulty proxies.** Descriptive standardized-profile regression R²: {ci('shape_R2', 'controls')}. Partial R² for dataset: "
+        f"{ci('allocation_request_oracle_delta_vs_random_mean', scale=100)} pp. The oracle has {int(paired_fixed.gain_requests)} gains and "
+        f"{int(paired_fixed.loss_requests)} losses versus fixed; its conservative stratified difference interval is "
+        f"[{100 * paired_fixed.ci_low:.2f}, {100 * paired_fixed.ci_high:.2f}] pp. A CI spanning zero is inconclusive: neither deployable improvement, "
+        "equivalence, nor proof that request-adaptive allocation cannot help is established.\n\n"
+        f"3. **Type, length, difficulty proxies.** Descriptive standardized-profile regression R²: {ci('shape_R2', 'controls')}. "
+        "**Bracketed R² ranges in this paragraph are nominal in-sample refit/bootstrap ranges, not validated confidence bounds for heldout explanatory performance.** Partial R² for dataset: "
         f"{ci('shape_partial_R2_dataset', 'controls')}, prompt length: {ci('shape_partial_R2_prompt_length', 'controls')}, BF16 output length: "
         f"{ci('shape_partial_R2_output_length', 'controls')}, BF16 correctness proxy: {ci('shape_partial_R2_difficulty_proxy', 'controls')}. "
-        "These are in-sample associations, not causal effects or independent difficulty labels. All layer coefficients, pointwise intervals, residuals, "
-        "dataset-specific nonlinear-control diagnostics and length-quartile results are retained.\n",
+        "Resampling/refitting optimism can shift these ranges upward and exclude the original point estimate; bias and coverage are unassessed. "
+        "Positive partial-R² bounds are not evidence of an independent covariate effect. These are in-sample associations, not causal effects or independent difficulty labels. "
+        "All layer coefficients, pointwise intervals, residuals, dataset-specific nonlinear-control diagnostics and length-quartile results are retained. "
+        "The scalar log(mean KL) regression below uses the same controls; its coefficients are retrospective conditional associations.\n\n"
+        + markdown_table(pd.DataFrame(scalar_rows)) + "\n",
         "## Method and data\n\n"
         f"Model: `{MODEL_ID}` **base**, exact revision `{REVISION}`. Tokenizer is from the same snapshot. "
         "The base checkpoint has no official chat template: the explicit fixed Q/A template in [chat_template.jinja](chat_template.jinja) is used consistently. "
@@ -225,7 +248,8 @@ def write_report(root, statistics, baseline, frame, allocation, reversals, segme
         "before formal inference. Every strategy retains exactly 8 BF16 layers and jointly quantizes the other 24. "
         "The `request_oracle` uses that evaluation request's full individual-layer KL vector: an expensive oracle-information benchmark, **not a learned/deployable router, "
         "and not a guaranteed accuracy upper bound**. The separately reported `candidate_label_oracle` chooses a correct answer among the five *actually measured* joint "
-        "configurations and is only a finite-candidate, label-using upper bound.\n\n"
+        "configurations and is only a finite-candidate, label-using upper bound. "
+        f"Its measured accuracy is **{ci('allocation_candidate_label_oracle_accuracy', scale=100)}%**; it neither searches every possible eight-layer set nor demonstrates a deployable selector.\n\n"
         + markdown_table(pd.DataFrame(accuracy_rows)) + "\n\n"
         + "Random sets (conditional request-bootstrap inference, not uncertainty over all possible random sets):\n\n"
         + markdown_table(pd.DataFrame([dict(strategy=s, BF16_layers=str(selection['random_high_precision_layers'][s]),
@@ -237,15 +261,26 @@ def write_report(root, statistics, baseline, frame, allocation, reversals, segme
         f"{iterations} paired, dataset-stratified request bootstrap replicates, seed 20261015, percentile 95% intervals. All 32 layer rows and all 5 configurations "
         "for one source remain paired; neither layer rows nor the 4,560 request pairs are treated as independent observations. Repeated bootstrap copies of the same "
         "source are excluded from different-request pairs. Random sets and train-selected fixed set are conditioned upon; selection-data uncertainty is not included. "
-        "Per-layer/control intervals are pointwise and descriptive, not simultaneous tests. Bootstrap accuracy intervals can collapse when no discordance is observed; "
+        "Per-layer/coefficient intervals are pointwise and descriptive, not simultaneous tests. R²/partial-R² entries are the explicitly qualified nominal refit ranges above; "
+        "the `interval_interpretation` column in statistics.csv distinguishes them. Bootstrap accuracy intervals can collapse when no discordance is observed; "
         "this does not establish zero population risk. [Exact binomial accuracy intervals](analysis/exact_accuracy_intervals.csv) and "
         "[conservative paired difference intervals](analysis/conservative_paired_accuracy_intervals.csv) are therefore also reported. The latter combine two "
         "Clopper–Pearson intervals for gain/loss probabilities by a union bound. Within one dataset these are two 97.5% intervals; for the combined "
         "three-dataset result, Bonferroni allocation across all six component probabilities and weighted aggregation respects the fixed dataset strata. "
         "This is conservative and does not assume independent paired answers or a common accuracy across datasets.\n\n"
         "Control response: per-request centered/unit-SD 32-layer profile; intercept, dataset indicators (ARC reference), standardized log prompt/output tokens and BF16 correctness. "
-        "Output length/correctness are post-model variables; adjustments do not establish causality. A second descriptive fit uses dataset-specific cubic log prompt and linear "
-        "log output. Model rank, leverage, residuals and all coefficients are saved. No preferred control model is chosen from favorable results.\n\n"
+        "Output length/correctness are post-model variables; adjustments do not establish causality. The protocol-required secondary fit uses dataset-specific cubic "
+        "log prompt **and cubic log output** (separate powers 1–3, dataset intercepts). The initially implemented cubic-prompt/linear-output fit is also retained, "
+        "not silently replaced. See [cubic-output residuals](analysis/cubic_prompt_output_profile_residuals.csv), "
+        "[its minimum-norm coefficients](analysis/cubic_prompt_output_coefficients.csv), and [the earlier diagnostic](analysis/nonlinear_controlled_profile_residuals.csv). "
+        f"Primary linear rank {diagnostics['design_rank']}/6, max leverage {diagnostics['max_leverage']:.5g}; "
+        f"cubic-prompt/linear-output rank {diagnostics['nonlinear_design_rank']}/{diagnostics['nonlinear_design_columns']}, max leverage {diagnostics['nonlinear_max_leverage']:.5g}; "
+        f"cubic-both-lengths rank {diagnostics['cubic_prompt_output_design_rank']}/{diagnostics['cubic_prompt_output_design_columns']}, "
+        f"max leverage {diagnostics['cubic_prompt_output_max_leverage']:.5g}. "
+        f"Effectively interpolated cubic-both-lengths requests: {diagnostics['cubic_prompt_output_interpolated_request_ids']}. "
+        "Rank deficiency makes individual polynomial coefficients nonidentifiable; unit leverage means a row is interpolated. "
+        "Lower in-sample residual RMS is not better generalization or proof of nuisance-independent structure. All rows and both nonlinear fits remain available; "
+        "no preferred control model is chosen from favorable results.\n\n"
         + markdown_table(eligible) + "\n\n"
         "Insufficient content traces are explicitly ineligible, not assigned perfect stability. Full-trace halves may include delimiters, so they cannot alone establish "
         "within-answer stability for ARC/BoolQ. See [analysis/segment_stability.csv](analysis/segment_stability.csv) and "
@@ -349,6 +384,12 @@ def main():
     nonlinear = profile_residuals(values, datasets, baseline.input_tokens.to_numpy(), baseline.generated_tokens.to_numpy(), normalize="shape", nonlinear=True)
     pd.DataFrame(nonlinear, index=baseline.request_id, columns=[f"layer_{i}" for i in range(32)]).to_csv(out / "nonlinear_controlled_profile_residuals.csv")
     nonlinear_x = cubic_design(datasets, baseline.input_tokens.to_numpy(), baseline.generated_tokens.to_numpy(), nonlinear=True)
+    cubic_x, cubic_names = cubic_prompt_output_design(datasets, baseline.input_tokens, baseline.generated_tokens)
+    cubic_coefficients = np.linalg.lstsq(cubic_x, shape_normalize(values), rcond=None)[0]
+    cubic_residual = shape_normalize(values) - cubic_x @ cubic_coefficients
+    cubic_residual -= cubic_residual.mean(axis=1, keepdims=True)
+    pd.DataFrame(cubic_residual, index=baseline.request_id, columns=[f"layer_{i}" for i in range(32)]).to_csv(out / "cubic_prompt_output_profile_residuals.csv")
+    pd.DataFrame(cubic_coefficients, index=cubic_names, columns=[f"layer_{i}" for i in range(32)]).to_csv(out / "cubic_prompt_output_coefficients.csv")
     leverage = np.einsum("ij,ji->i", x, np.linalg.pinv(x))
     summary = baseline[["request_id", "dataset", "input_tokens", "request_tokens", "generated_tokens", "correct", "parse_failure", "truncated"]].copy()
     summary["mean_KL"] = values.mean(axis=1)
@@ -357,6 +398,7 @@ def main():
     summary["oracle_allocation_delta_vs_fixed"] = allocation_correct[:, 4] - allocation_correct[:, 0]
     summary["control_leverage"] = leverage
     summary["nonlinear_control_leverage"] = np.einsum("ij,ji->i", nonlinear_x, np.linalg.pinv(nonlinear_x))
+    summary["cubic_prompt_output_leverage"] = np.einsum("ij,ji->i", cubic_x, np.linalg.pinv(cubic_x))
     for k in [4, 8]:
         summary[f"top{k}_layers"] = [json.dumps(np.flatnonzero(row).tolist()) for row in top_mask(values, k)]
     summary["within_dataset_prompt_length_quartile"] = summary.groupby("dataset").input_tokens.transform(
@@ -387,17 +429,24 @@ def main():
                       preserve_original_96=True, extensions_are_exploratory=True)
     save_json(out / "escalation.json", escalation)
     save_json(out / "metadata.json", dict(created_utc=datetime.now(timezone.utc).isoformat(), bootstrap=args.bootstrap,
-        source_sha256={name: file_hash(name) for name in ["layer_sensitivity/analysis.py", "layer_sensitivity/statistics.py"]},
+        source_sha256={name: file_hash(name) for name in ANALYSIS_SOURCES},
+        python=platform.python_version(), analysis_versions={name: version(name) for name in ["numpy", "pandas", "scipy", "matplotlib", "transformers", "tokenizers"]},
+        requirements_lock_sha256=file_hash("requirements.lock"),
         measurement_source_sha256=source_hashes(), input_sha256={path: file_hash(root / path) for path in [
             "runs/evaluation/measurements.csv", "runs/evaluation/baselines.csv", "precision_allocation_check/measurements.csv",
-            "precision_allocation_selection.json", "requests.jsonl"]},
+            "precision_allocation_selection.json", "requests.jsonl", "runs/evaluation/attempt_0.json",
+            "gates/single_layer/result.json", "gates/single_request/result.json"]},
         requests=len(baseline), single_layer_measurements=len(frame), joint_measurements=len(allocation),
         secondary_content_eligible_request_ids=baseline.request_id[np.isfinite(parts["content"]).all(axis=1)].tolist(),
         design_rank=int(np.linalg.matrix_rank(x)), max_leverage=float(leverage.max()),
-        nonlinear_design_rank=int(np.linalg.matrix_rank(nonlinear_x)),
+        nonlinear_design_rank=int(np.linalg.matrix_rank(nonlinear_x)), nonlinear_design_columns=nonlinear_x.shape[1],
         nonlinear_max_leverage=float(summary.nonlinear_control_leverage.max()),
         nonlinear_residual_RMS=float(np.sqrt(np.mean(nonlinear ** 2))),
-        confidence_scope="paired request bootstrap; conditional on frozen train selection and three random layer sets; pointwise intervals"))
+        cubic_prompt_output_design_rank=int(np.linalg.matrix_rank(cubic_x)), cubic_prompt_output_design_columns=cubic_x.shape[1],
+        cubic_prompt_output_max_leverage=float(summary.cubic_prompt_output_leverage.max()),
+        cubic_prompt_output_residual_RMS=float(np.sqrt(np.mean(cubic_residual ** 2))),
+        cubic_prompt_output_interpolated_request_ids=summary.loc[summary.cubic_prompt_output_leverage >= 1 - 1e-9, "request_id"].tolist(),
+        confidence_scope="paired request bootstrap; conditional on frozen train selection and three random layer sets; pointwise intervals except R2 nominal in-sample refit ranges"))
     figures(root, baseline, values, pairwise, statistics, allocation_correct)
     write_report(root, statistics, baseline, frame, allocation, reversals, segment_table, escalation, args.bootstrap)
     print(f"Report rebuilt from {len(frame)} individual-layer rows and {len(allocation)} joint rows; escalation={escalation}", flush=True)

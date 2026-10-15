@@ -61,6 +61,28 @@ def test_shape_normalization_removes_magnitude_and_offset():
     assert np.isnan(row_spearman(np.ones((2, 32)), np.ones((2, 32)))).all()
 
 
+def test_protocol_cubic_design_includes_output_powers_and_isolates_datasets():
+    from layer_sensitivity.statistics import cubic_prompt_output_design
+    rng = np.random.default_rng(8)
+    datasets = np.repeat(["arc", "boolq", "gsm8k"], 12)
+    prompt = rng.integers(20, 500, len(datasets))
+    output = rng.integers(4, 200, len(datasets))
+    x, names = cubic_prompt_output_design(datasets, prompt, output)
+    assert x.shape == (36, 21)
+    for dataset in set(datasets):
+        mask = datasets == dataset
+        log_output = np.log(output[mask])
+        z = (log_output - log_output.mean()) / log_output.std()
+        for power in [1, 2, 3]:
+            column = x[:, names.index(f"{dataset}_log_output_z_power_{power}")]
+            assert np.allclose(column[mask], z ** power)
+            assert np.array_equal(column[~mask], np.zeros((~mask).sum()))
+    target = x[:, names.index("gsm8k_log_output_z_power_3")]
+    assert np.allclose(x @ np.linalg.lstsq(x, target, rcond=None)[0], target)
+    constant, _ = cubic_prompt_output_design(datasets, prompt, np.ones(len(datasets)))
+    assert np.isfinite(constant).all()
+
+
 def test_dataset_strata_and_paired_allocation_uncertainty(tmp_path):
     rng = np.random.default_rng(3)
     datasets = np.repeat(["arc", "boolq", "gsm8k"], 4)
@@ -79,6 +101,8 @@ def test_dataset_strata_and_paired_allocation_uncertainty(tmp_path):
     table = pd.DataFrame(rows).set_index(["scope", "metric"])
     delta = table.loc[("all", "allocation_request_oracle_delta_vs_fixed")]
     assert delta.estimate == delta.ci_low == delta.ci_high == 1
+    assert "in-sample refit range" in table.loc[("controls", "shape_R2"), "interval_interpretation"]
+    assert "percentile interval" in delta.interval_interpretation
     assert table.loc[("all", "secondary_content_different_request_spearman"), "estimate"] == pytest.approx(
         table.loc[("all", "different_request_spearman"), "estimate"])
     assert table.loc[("gsm8k", "content_halves_mean_spearman"), "estimate"] == 1
@@ -87,7 +111,8 @@ def test_dataset_strata_and_paired_allocation_uncertainty(tmp_path):
 
 
 def test_figures_are_reconstructible_without_optional_tabulate(tmp_path):
-    from layer_sensitivity.analysis import figures, markdown_table
+    from layer_sensitivity.analysis import ANALYSIS_SOURCES, figures, markdown_table
+    assert "quantization_sensitivity/analysis.py" in ANALYSIS_SOURCES
     rng = np.random.default_rng(4)
     values = rng.random((12, 32)) * .01
     baseline = pd.DataFrame(dict(request_id=[f"synthetic_test_only_{i}" for i in range(12)]))

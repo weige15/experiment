@@ -54,6 +54,7 @@ run validate_allocation "$PY" -m layer_sensitivity.validate --root "$OUT" --allo
 # Rebuilding a report does not overwrite raw inference. Preserve older derived output.
 if [[ -d "$OUT/analysis" ]]; then cp -a "$OUT/analysis" "$LEDGER/analysis_before"; fi
 if [[ -f "$OUT/report.md" ]]; then cp "$OUT/report.md" "$LEDGER/report_before.md"; fi
+if [[ -d "$OUT/figures" ]]; then cp -a "$OUT/figures" "$LEDGER/figures_before"; fi
 run report "$PY" -m layer_sensitivity.analysis --root "$OUT" --bootstrap 2000
 printf '%s\n' "$LEDGER" > "$OUT/last_successful_command.txt"
 echo "Artifacts produced: $OUT/report.md. This is not by itself a completion audit."
