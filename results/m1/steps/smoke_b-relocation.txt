@@ -1,0 +1,1 @@
+Interrupted owned smoke_b PID 4107262 because another user occupied GPU 7 (7634 MiB); preserve checkpoints and resume on GPU 1. No other user process modified.

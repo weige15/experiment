@@ -1,0 +1,8 @@
+{
+  "sentinels": [
+    "arc:train:147",
+    "boolq:train:4413",
+    "gsm8k:train:5641"
+  ],
+  "exact": true
+}

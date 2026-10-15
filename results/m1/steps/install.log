@@ -1,0 +1,12 @@
+Resolved 60 packages in 1m 45s
+Downloading nvidia-nccl-cu12 (307.4MiB)
+Downloading torch (847.9MiB)
+Downloading pillow (6.6MiB)
+Downloading triton (148.4MiB)
+Downloading numpy (15.8MiB)
+Downloading fonttools (5.2MiB)
+Downloading hf-xet (4.0MiB)
+Downloading transformers (11.1MiB)
+Downloading pandas (11.8MiB)
+Downloading scipy (34.0MiB)
+Downloading pyarrow (40.8MiB)

@@ -1,0 +1,11 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.44s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.41s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.39s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.14s/it]
+g0: KL=0.00651636, correct=False, restoration=exact
+g1: KL=0.00340224, correct=False, restoration=exact
+g2: KL=0.00659122, correct=False, restoration=exact
+g3: KL=0.00558277, correct=False, restoration=exact
+g4: KL=0.00283031, correct=True, restoration=exact
+g5: KL=0.00126066, correct=False, restoration=exact
+g6: KL=0.00108205, correct=False, restoration=exact
+g7: KL=0.00600709, correct=True, restoration=exact
+PASS 8 measured configurations

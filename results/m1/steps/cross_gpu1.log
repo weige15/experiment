@@ -1,0 +1,5 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.51s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.46s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.43s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.00it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.16s/it]
+g0: KL=0.00651636, correct=False, restoration=exact
+PASS 1 measured configurations
+PASS exact cross-device reproduction: {'BF16_logits_bitwise_equal': True, 'W4_KL_max_absolute_difference': 0.0, 'W4_generated_ids_equal': True, 'token_count': 116, 'original': 'results/m1/steps/single_sensitivity', 'repeat': 'results/m1/steps/cross_gpu1'}

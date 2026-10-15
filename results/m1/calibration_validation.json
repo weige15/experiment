@@ -1,0 +1,31 @@
+{
+  "status": "verified",
+  "runs": [
+    {
+      "path": "results/m1/runs/calibration_a",
+      "role": "calibration",
+      "wording": "a",
+      "requests": 24,
+      "measured_rows": 192,
+      "counts": {
+        "gsm8k": 8,
+        "arc": 8,
+        "boolq": 8
+      },
+      "verified": true
+    },
+    {
+      "path": "results/m1/runs/calibration_b",
+      "role": "calibration",
+      "wording": "b",
+      "requests": 24,
+      "measured_rows": 192,
+      "counts": {
+        "gsm8k": 8,
+        "arc": 8,
+        "boolq": 8
+      },
+      "verified": true
+    }
+  ]
+}

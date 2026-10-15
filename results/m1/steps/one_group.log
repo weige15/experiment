@@ -1,0 +1,10 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.92s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.79s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.17s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.39s/it]
+PASS group=0, changed=28, restored=exact, BF16 correct=False, W4 correct=False
+ The first day they sold 14 pairs of tennis shoes.
+The second day they sold 14 * 2 = 28 pairs of tennis shoes.
+The third day they sold 28 * 1/2 = 14 pairs of tennis shoes.
+The third day they sold 14 - 6 = 8 pairs of tennis shoes.
+#### 8
+
+Q:
