@@ -44,6 +44,8 @@ Independent read-only review: `doc/protocol-review.md`.
 ### Smoke-stage boundary-token check (before formal evaluation)
 The first actual baseline ended with the model-generated `\n\nQ:` delimiter. These tokens are retained in the preregistered primary trace, but can dominate short BoolQ/ARC responses. Therefore also report, for **every** request, KL over content tokens before the delimiter (and excluding special EOS), first generated token alone, and content-only half segments where >=4 tokens exist. Derive boundaries from the saved BF16 IDs with the pinned tokenizer, not gold labels. Apply the same content mask to all groups. Do not claim a robust request-level conclusion if the effect is confined to formatting/delimiter tokens. Report both original and content-only results; never replace or suppress the primary results.
 
+Smoke-based implementation refinement (formal inference running, no formal analysis inspected): ARC numeric answers tokenize as `[space, digit, newline, Q, colon]`, unlike letter/BoolQ answers with a combined leading-space word token. Consequently content-only masks also exclude **standalone whitespace-only tokens everywhere**, uniformly across all requests/groups. The initial smoke boundary-only analysis is preserved in `steps/analysis_smoke_test/`; the revised non-whitespace analysis is tested separately. First-generated-token KL remains unchanged and is explicitly a potentially formatting-sensitive diagnostic, not always a semantic answer-token metric.
+
 ## Incremental gates and deliverables
 Status starts **not achieved**. Execute and record exit codes in order:
 BF16 → one-group W4 → single-request KL → eight-group scan → 8/dataset smoke → 32/dataset formal evaluation → analysis and audit.
