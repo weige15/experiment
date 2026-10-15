@@ -3,16 +3,17 @@ import argparse
 import json
 from pathlib import Path
 
-from m1_data import save_json
-from m1_model import check_precision, encode, generate, load_model, metadata
-from m1_quant import QUANTIZATION, fingerprints, group_parameters, quantized_group
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.model import check_precision, encode, generate, load_model, metadata
+from quantization_sensitivity.quantization import QUANTIZATION, fingerprints, group_parameters, quantized_group
 
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--group", type=int, default=0)
-    p.add_argument("--baseline", default="results/m1/steps/baseline/baseline.json")
-    p.add_argument("--out", default="results/m1/steps/one_group")
+    p.add_argument("--baseline", default=f"{DEFAULT_RESULTS}/steps/baseline/baseline.json")
+    p.add_argument("--out", default=f"{DEFAULT_RESULTS}/steps/one_group")
     args = p.parse_args()
     out = Path(args.out)
     saved = json.loads(Path(args.baseline).read_text())

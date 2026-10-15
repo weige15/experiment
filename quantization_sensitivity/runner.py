@@ -11,12 +11,14 @@ import numpy as np
 import pandas as pd
 import torch
 
-from m1_data import SOURCES, save_json
-from m1_metrics import continuation_logits, summarize_kl, token_kl
-from m1_model import check_precision, encode, generate, load_model, metadata
-from m1_quant import QUANTIZATION, quantized_group
+from . import DEFAULT_RESULTS
+from .data import SOURCES, save_json
+from .metrics import continuation_logits, summarize_kl, token_kl
+from .model import check_precision, encode, generate, load_model, metadata
+from .quantization import QUANTIZATION, quantized_group
 
-MEASUREMENT_SOURCES = ["m1_run.py", "m1_data.py", "m1_model.py", "m1_metrics.py", "m1_quant.py"]
+MEASUREMENT_SOURCES = [f"quantization_sensitivity/{name}.py"
+                       for name in ["__init__", "runner", "data", "model", "metrics", "quantization"]]
 
 
 def file_hash(path):
@@ -69,10 +71,10 @@ def export_run(out, requests):
 
 
 def main():
-    p = argparse.ArgumentParser()
+    p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--role", required=True, choices=["smoke", "calibration", "evaluation"])
     p.add_argument("--wording", required=True, choices=["a", "b"])
-    p.add_argument("--requests", default="results/m1/requests.jsonl")
+    p.add_argument("--requests", default=f"{DEFAULT_RESULTS}/requests.jsonl")
     p.add_argument("--out", required=True)
     args = p.parse_args()
     out = Path(args.out)

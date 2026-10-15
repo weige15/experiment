@@ -12,7 +12,7 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, LogitsProcessor
 
-from m1_data import CHAT_TEMPLATE, MAX_NEW_TOKENS, SEED, messages_for, score_answer
+from .data import CHAT_TEMPLATE, MAX_NEW_TOKENS, SEED, messages_for, score_answer
 
 MODEL_ID = "meta-llama/Llama-3.1-8B"
 REVISION = "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
@@ -25,7 +25,7 @@ def load_model():
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     if not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
-        raise RuntimeError("M1 requires an available BF16-capable CUDA GPU")
+        raise RuntimeError("Quantization sensitivity measurements require an available BF16-capable CUDA GPU")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, revision=REVISION)
     assert tokenizer.chat_template is None, "Recheck protocol if upstream template changes"
     tokenizer.chat_template = CHAT_TEMPLATE
@@ -111,5 +111,5 @@ def metadata():
                 kv_cache_precision="BF16", attention="sdpa", deterministic=True,
                 max_new_tokens=MAX_NEW_TOKENS,
                 git_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
-                source_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                               for p in sorted(Path('.').glob('m1_*.py'))})
+                source_sha256={f"quantization_sensitivity/{p.name}": hashlib.sha256(p.read_bytes()).hexdigest()
+                               for p in sorted(Path(__file__).parent.glob('*.py'))})

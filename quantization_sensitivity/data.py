@@ -89,8 +89,12 @@ def messages_for(request, demos, wording="a"):
 def parse_answer(text, dataset, labels=()):
     text = re.split(r"\n\s*Q:", text, maxsplit=1)[0].strip()
     if dataset == "gsm8k":
-        # Strict final-answer marker avoids silently scoring a number in unfinished reasoning.
-        match = re.search(r"####\s*([-+]?\d[\d,]*(?:\.\d+)?)", text)
+        # Final marked answer, entire first line: never accept a prefix of 1/2 or 1e3.
+        if "####" not in text:
+            return None
+        tail = text.rsplit("####", 1)[1].strip()
+        line = tail.splitlines()[0].strip() if tail else ""
+        match = re.fullmatch(r"([-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)[.!?]?", line)
         if not match:
             return None
         from decimal import Decimal

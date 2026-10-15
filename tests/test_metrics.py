@@ -3,8 +3,8 @@ import math
 import pytest
 import torch
 
-from m1_metrics import continuation_logits, prediction_inputs, summarize_kl, token_kl
-from m1_model import RequireFiniteLogits
+from quantization_sensitivity.metrics import continuation_logits, prediction_inputs, summarize_kl, token_kl
+from quantization_sensitivity.model import RequireFiniteLogits
 
 
 def test_causal_shift_includes_first_generated_token_and_excludes_last_input():

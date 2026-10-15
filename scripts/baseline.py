@@ -3,13 +3,14 @@ import argparse
 import time
 from pathlib import Path
 
-from m1_data import sample_dataset, save_json
-from m1_model import check_precision, encode, generate, load_model, metadata
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import sample_dataset, save_json
+from quantization_sensitivity.model import check_precision, encode, generate, load_model, metadata
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out", default="results/m1/steps/baseline")
+    parser.add_argument("--out", default=f"{DEFAULT_RESULTS}/steps/baseline")
     args = parser.parse_args()
     out = Path(args.out)
     start = time.monotonic()

@@ -8,10 +8,11 @@ import numpy as np
 import pandas as pd
 from transformers import AutoTokenizer
 
-from m1_data import CHAT_TEMPLATE, SOURCES, messages_for, save_json, score_answer
-from m1_model import MODEL_ID, REVISION
-from m1_quant import QUANTIZATION
-from m1_run import MEASUREMENT_SOURCES, file_hash, key, read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import CHAT_TEMPLATE, SOURCES, messages_for, save_json, score_answer
+from quantization_sensitivity.model import MODEL_ID, REVISION
+from quantization_sensitivity.quantization import QUANTIZATION
+from quantization_sensitivity.runner import MEASUREMENT_SOURCES, file_hash, key, read_json
 
 
 def check_measurement(row, base, request):
@@ -42,7 +43,8 @@ def validate_run(path, all_requests, role, tokenizer):
         meta = read_json(attempt)
         assert meta["model_revision"] == REVISION and meta["model_id"] == MODEL_ID
         assert meta["kv_cache_precision"] == "BF16"
-    assert config["code_sha256"] == {f: file_hash(f) for f in MEASUREMENT_SOURCES}
+    assert config["code_sha256"] == {f: file_hash(f) for f in MEASUREMENT_SOURCES}, (
+        "measurement sources changed: use the original source snapshot to validate archived runs")
     csv = pd.read_csv(path / "measurements.csv", keep_default_na=False)
     base_csv = pd.read_csv(path / "baselines.csv", keep_default_na=False).set_index("request_id")
     assert len(base_csv) == len(requests) and base_csv.index.is_unique
@@ -101,7 +103,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--runs", nargs="+", required=True)
     p.add_argument("--role", required=True, choices=["smoke", "calibration", "evaluation"])
-    p.add_argument("--requests", default="results/m1/requests.jsonl")
+    p.add_argument("--requests", default=f"{DEFAULT_RESULTS}/requests.jsonl")
     p.add_argument("--out", required=True)
     args = p.parse_args()
     rows = [json.loads(line) for line in Path(args.requests).read_text().splitlines()]

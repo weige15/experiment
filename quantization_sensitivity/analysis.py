@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import rankdata
 
-from m1_data import SEED
+from .data import SEED
 
 
 def content_indices(tokenizer, generated_ids):

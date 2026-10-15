@@ -7,12 +7,13 @@ from pathlib import Path
 
 from huggingface_hub import hf_hub_download
 
-from m1_data import CHAT_TEMPLATE, SEED, SOURCES, sample_dataset, save_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import CHAT_TEMPLATE, SEED, SOURCES, sample_dataset, save_json
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--out", default="results/m1")
+    p.add_argument("--out", default=DEFAULT_RESULTS)
     p.add_argument("--n-eval", type=int, default=32)
     args = p.parse_args()
     out = Path(args.out)

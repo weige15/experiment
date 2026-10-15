@@ -2,123 +2,137 @@
 
 ## Project Summary
 
-M1 only: real Llama 3.1 8B BF16 versus one fixed W4 layer group, complete benchmark measurements, robust statistics and a bounded report. All commands below run from the repository root.
+Run the real **32 individual-layer** Llama 3.1 8B W4 sensitivity study, then a fixed-budget joint precision-allocation check. Commands run from the repository root; default output `results/layer_sensitivity/`. The preserved earlier group study is not interchangeable; see [archived runbook](archived_group_study_runbook.md).
 
 ## Setup
 
-Requirements: Linux, Python 3.12, uv (recorded version 0.12.15), NVIDIA driver supporting the pinned CUDA 12.8 Torch build, BF16 GPU with about 24 GiB VRAM. Obtain authorized access to `meta-llama/Llama-3.1-8B` and cache/login through Hugging Face. Credentials are external to the repo.
+Linux/Bash/flock, Python 3.12, uv, authorized official model login/cache, BF16-capable NVIDIA GPU (~24 GiB), driver supporting pinned CUDA 12.8 PyTorch. Recommend ≥48 GiB available host RAM and storage for ~16 GB model weights plus several GB output. Never place credentials in repo.
 
 ```bash
 bash scripts/install.sh
 ```
 
-This syncs all 60 versions from `requirements.lock` into `.venv`. Model/datasets use immutable revisions; their cached paths follow Hugging Face settings (`HF_HOME` if configured). Initial model/dataset access requires network unless already cached. Installation, cached model verification and individual inference stages were executed successfully; a separate completely empty-machine rebuild was not performed.
+This syncs `requirements.lock` into `.venv`. Hugging Face cache locations follow normal `HF_HOME` settings. Model revision and dataset revisions are pinned in shared model/data modules; model shards are checked against official digests.
 
 ## Run
 
 ```bash
-M1_GPU=1 bash scripts/run_m1.sh
-# Separate complete inference reproduction, without overwriting the original:
-M1_OUT=results/m1_reproduction M1_GPU=1 bash scripts/run_m1.sh
+# 24 heldout requests × all 32 layers, after incremental real-model gates:
+LAYER_GPU=7 bash scripts/run_layer_sensitivity.sh smoke
+
+# Reuse/revalidate identical smoke, then 24 train-only selection requests,
+# freeze choices, 96 formal requests × 32 layers, 480 joint answers, report:
+LAYER_GPU=7 bash scripts/run_layer_sensitivity.sh full
+
+# Fresh inference reproduction in a separate root:
+LAYER_OUT=results/layer_sensitivity_reproduction LAYER_GPU=7 \
+  bash scripts/run_layer_sensitivity.sh full
 ```
 
-Choose a GPU allocated to you. The script uses one GPU sequentially, takes a repository lock, verifies official weights, executes missing baseline → single-group → KL → eight-group gates, prepares fixed samples, runs smoke → calibration → evaluation, freezes fixed choices before evaluation, and produces analysis/figures/report/audit.
+`LAYER_GPU` must refer to a device allocated to you. No automatic eviction or batching. Runtime is several hours on a shared RTX 3090; no measured full-runtime claim until the new campaign finishes. Each root is locked. Existing matching completed stages are revalidated, not rerun; partial stages resume only if input/source hashes match. Train-only choices must predate formal evaluation.
 
-Outputs: `M1_OUT/{report.md,analysis/,runs/,completion_checks.json}`; command/exit/log ledger under `M1_OUT/steps/one_click_*`. Existing completed inference is reused and revalidated. Previous derived analysis/report are archived in that ledger. Success: overall exit 0 and `M1 artifacts verified`; inspect the scientific conclusion separately. Fresh inference runtime depends on GPU contention; no fresh one-command total-runtime benchmark is claimed.
+Success surfaces: smoke validator for all 24 × 32 rows; formal validator for all 96 × 32 rows; allocation validator for all 96 × 5 joint configurations; per-command `.exit` and final ledger `overall.exit` equal 0. These are necessary but not sufficient for completion: [requirement audit](layer_sensitivity_completion_audit.md) includes interpretation and manual verification.
 
 ## Test
 
 ```bash
 .venv/bin/python -m pytest -q tests
-# Audit actual completed smoke, not a synthetic substitute:
-.venv/bin/python -m scripts.validate_runs --role smoke \
-  --runs results/m1/runs/smoke_a results/m1/runs/smoke_b \
-  --out results/m1/smoke_validation.json
+bash -n scripts/run_layer_sensitivity.sh scripts/record_command.sh scripts/install.sh
+git diff --check
 ```
 
-Recorded final suite: 27 passed. Smoke: 8 sources/dataset, both wordings, 384 W4 rows. Unit tests use small synthetic tensors only for mathematical/software correctness; raw experiment records always come from the real model.
+CPU tests exercise integer codes, causal KL, strict parsing, all individual-layer targets, exception restoration, cached joint allocation state, source guards, full-32 coverage, paired bootstrap and figures. Synthetic values are confined to tests, not model results. Real incremental gates are launched by smoke/full; inspect `gates/` and their logged exits.
 
 ## Evaluate
 
 ```bash
-.venv/bin/python -m scripts.validate_runs --role evaluation \
-  --runs results/m1/runs/evaluation_a results/m1/runs/evaluation_b \
-  --out results/m1/evaluation_validation.json
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m scripts.calibrate_statistics
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m scripts.analyze_m1 --bootstrap 2000
-.venv/bin/python -m scripts.check_leverage  # diagnostic copy only; preserves full primary sample
-.venv/bin/python -m scripts.plot_m1
-.venv/bin/python -m scripts.report_m1
-.venv/bin/python -m scripts.audit_m1
+.venv/bin/python -m layer_sensitivity.validate --gates
+.venv/bin/python -m layer_sensitivity.validate --role smoke
+.venv/bin/python -m layer_sensitivity.validate --role calibration
+.venv/bin/python -m layer_sensitivity.validate --role evaluation
+.venv/bin/python -m layer_sensitivity.validate --allocation
+
+# Separate CPU-only report rebuild, after real inference is complete:
+bash scripts/run_layer_sensitivity.sh report
 ```
 
-`calibrate_statistics` is explicitly synthetic method-validation, not model evaluation. It must match the current analysis source hash. Preserve earlier analysis before manual methodology changes (or use `analyze_m1 --out NEW_DIRECTORY`); the one-command runner archives it automatically.
-
-Metrics: KL nats/token, rankings/reversals, actual correctness, paired bootstrap intervals, controlled profile association and approximate wild-score tests. Expected formal coverage: 96 independent sources, 192 prompts, 1,536 W4 rows, 1,728 actual answers. Report sources/wordings separately; 192 is not the number of independent bootstrap clusters.
+Use `--root PATH` for validators or `LAYER_OUT=PATH` for the shell command. Report reconstruction reruns formal/allocation validation, archives previous derived analysis/report, then runs `python -m layer_sensitivity.analysis --bootstrap 2000`. It does not load a GPU model or regenerate raw answers. Primary values are full-vocabulary mean KL in nats/token, 32-layer ranks, Top-4/8 overlap, pair correlations/reversals, actual correctness, paired request-bootstrap CIs and descriptive controls. See the protocol for token-segment eligibility, oracle distinctions and escalation criteria.
 
 ## Common Failures
 
-| Symptom | Likely Cause | Inspect | Fix |
+| Symptom | Likely cause | Inspect | Fix |
 |---|---|---|---|
-| Model HTTP 401/403 | Gated model access/login unavailable | Hugging Face account authorization | Obtain authorized access; do not replace the model |
-| `ModuleNotFoundError` | Wrong Python/incomplete install | `.venv/bin/python --version`; install log | Run `scripts/install.sh`, use `.venv/bin/python` |
-| CUDA OOM / slowdown | Shared GPU occupied | `nvidia-smi`; own attempt metadata | Resume on allocated GPU; never kill others' jobs |
-| `inputs/code changed` | Changed measurement source/sample | `run_config.json` hashes | Use new output directory; preserve old evidence |
-| Missing reference cache during partial resume | Git ignores `.pt` files | `reference_logits/` | Reproduce into new directory; do not fabricate logits |
-| Calibration/analysis hash assertion | Source or frozen inputs changed | `calibration_selection.json`, analysis metadata | Diagnose, preserve old analysis, rerun appropriate validated stage |
-| Lock already held | Another one-command run | Process/ledger for your run | Wait or stop only your own run; do not launch concurrent writers |
-| Approximate permutation mistaken for exact p | Invalid exchangeability interpretation | Statistical review/plan | Use qualified wild-score results and uncertainty, retain caveats |
+| Model 401/403 | Missing gated authorization | Authorized HF account/cache | Obtain permission, never swap model |
+| Missing Python module | Wrong environment | `.venv/bin/python --version`, lock | Use `.venv`, install before launching inference |
+| CUDA OOM/slow run | GPU contention | `nvidia-smi`, attempt metadata | Resume on an allocated device; preserve failure |
+| Input/source assertion | Measurement code/data changed | `run_config.json` | New output root; never restamp old hashes |
+| Lock held | Another writer | `ps`, command ledger | Do not launch concurrent writes into one root |
+| Missing reference tensors | Partial run/cache not preserved | `reference_logits/` | Fresh reproduction root, never invent logits |
+| Coverage assertion | Missing or duplicate layers/requests | JSON rows, run summary | Complete actual missing inference, revalidate |
+| Frozen selection assertion | Selection differs or postdates evaluation | selection JSON, attempts | Investigate contamination; no manual success flag |
+| Escalation required | W4 signal/segment evidence unresolved | `analysis/escalation.json` | Recorded diagnostics → deterministic sample extension → optional W3 |
 
 ## Recovery Steps
 
-1. Read the failed stage's `.log` and `.exit` in the one-click ledger. Do not delete successful raw checkpoints.
-2. For an interrupted measurement with unchanged code/sample, rerun the same shard command, choosing an allocated GPU:
+1. Inspect the failed step's `.command`, `.environment`, `.log`, `.exit`. Preserve all attempts.
+2. Ensure no process still holds the output lock and measurement code/sample hashes have not changed.
+3. Resume the same shell command on an allocated device:
 
 ```bash
-CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m m1_run \
-  --role evaluation --wording a --out results/m1/runs/evaluation_a
+LAYER_GPU=7 bash scripts/run_layer_sensitivity.sh full
 ```
 
-3. Revalidate both wordings, then rerun analysis/report/audit. `M1_GPU=1 bash scripts/run_m1.sh` performs these steps and resumes incomplete shards.
-4. If measurement code or frozen inputs changed, set a new `M1_OUT`. Never disable immutable-input guards. Interrupted attempts remain evidence, not successful measurements.
+For diagnosis of an individual shard (do not run concurrently with the shell workflow):
+
+```bash
+CUDA_VISIBLE_DEVICES=7 .venv/bin/python -m layer_sensitivity.runner \
+  --role evaluation --requests results/layer_sensitivity/requests.jsonl \
+  --out results/layer_sensitivity/runs/evaluation
+```
+
+4. Revalidate raw results and rebuild the report. If inputs/code changed, use a new root and retain old evidence. Analysis changes alone do not require GPU reruns, but must be recorded and previous derived outputs preserved.
 
 ## Useful Commands
 
 ```bash
 nvidia-smi
-.venv/bin/python -m scripts.provenance --out results/m1/steps/provenance_recheck.json
-.venv/bin/python -m scripts.select_fixed  # checks existing frozen decision, does not reselect from evaluation
-bash -n scripts/run_m1.sh
-git diff --check
+.venv/bin/python -m layer_sensitivity.runner --help
+.venv/bin/python -m layer_sensitivity.precision_allocation_check --help
+.venv/bin/python -m layer_sensitivity.analysis --help
+find results/layer_sensitivity/steps -name '*.exit' -print
 ```
 
-No destructive cleanup, publishing, or push command is required. There is no project lint/type-check configuration; unit/integration/evidence checks are the declared checks.
+No publishing, destructive cleanup, lint framework or production server is required.
 
 ## File Locations
 
 | Path | Purpose | Notes |
 |---|---|---|
-| `results/m1/requests.jsonl` | All 153 source records | Demos/calibration/smoke/evaluation disjoint |
-| `results/m1/model_provenance.json` | Official shard/tokenizer digests | Four real model shards |
-| `results/m1/runs/{role}_{wording}/` | Actual prompts, answers, scores, KL and audits | Resume only with identical measurement inputs/code |
-| `results/m1/runs/*/reference_logits/` | BF16 local tensors | Retained locally, Git-ignored |
-| `results/m1/analysis/*.csv` | Complete derived tables | All 12 matched exactly on repeated analysis |
-| `results/m1/report.md` | Bounded scientific conclusion | Includes failures, null cases and oracle limitations |
-| `results/m1/last_one_click_run.txt` | Latest ledger path | Per-step command/log/exit files |
-| `doc/statistical-validation-plan.md` | Review-driven analysis amendment | Written before formal outcomes inspected |
+| `results/layer_sensitivity/{requests.jsonl,data_manifest.json}` | Frozen 153 sources and dataset revisions | Demo/selection/smoke/eval isolated |
+| `results/layer_sensitivity/model_provenance.json` | Official model/tokenizer hashes | Four real shards |
+| `results/layer_sensitivity/gates/` | BF16, 7-matrix isolation, 1-request 32-layer proof | Actual model only |
+| `results/layer_sensitivity/runs/{smoke,calibration,evaluation}/` | Raw per-request JSON, CSV, Parquet, vectors, audits | Each request × 32 layers |
+| `results/layer_sensitivity/runs/*/reference_logits/` | Fixed BF16 logits | Local/Git-ignored |
+| `results/layer_sensitivity/precision_allocation_selection.json` | Train-only fixed top-8 + three random sets | Frozen before evaluation |
+| `results/layer_sensitivity/precision_allocation_check/` | Direct joint configuration results | 8 BF16 / 24 W4 layers |
+| `results/layer_sensitivity/{analysis,figures}/` | All-request statistics and plots | No cherry-picked sample exclusion |
+| `results/layer_sensitivity/report.md` | Methods, numerical results/CIs, failures, limits | Exists after actual complete inference |
+| `results/layer_sensitivity/steps/` | Commands/environment/logs/exits | Append-only ledgers |
+| `doc/layer_sensitivity_{protocol,progress,completion_audit}.md` | Design and evidence-based status | Manual completion audit required |
 
 ## Operational Notes
 
-- `M1_GPU` controls `CUDA_VISIBLE_DEVICES`; no automated GPU eviction or process termination.
-- `M1_OUT` selects the experiment output directory. Model/dataset caches are external; do not commit weights or credentials.
-- Seed 20261015; base model, fixed three-shot explicit template, symmetric block-128 W4 RTN/QDQ. No packed-runtime performance claim.
-- Independent source-level uncertainty, finite sample size and fixed calibration/demos matter. Label/BF16-assisted policies are oracles, not routers.
-- Cached/full scoring paths differ numerically. Primary KL is always matched full-sequence teacher forcing; actual answers are separate greedy decodes.
-- M1 does not include M2–M4 or automatic follow-on research.
+- Base checkpoint has no upstream chat template; the recorded explicit three-shot Q/A template is fixed across configurations.
+- Main scan passes exactly one layer to `quantized_layers`. Do not use the preserved grouped runner for this goal.
+- Weight Q/DQ uses BF16 kernels. No claimed W4 throughput/VRAM savings.
+- Precision allocation CPU bank installs cached Q/DQ weights and audits exact state. Combined configurations are directly measured; not predicted by summing individual effects.
+- Request-KL oracle uses evaluation information. Label oracle is separately an upper bound over five measured candidates. Neither is a router.
+- New GSM8K parser rejects partial numeric prefixes and uses the last answer marker; historical raw grouped scores are not silently rewritten.
+- Old grouped source snapshot `54fefa363211aa515a7eb70b2be30e01dd8318ff` is required to validate its archived manifests; do not alter those manifests.
 
 ## Last Verified
 
-- Date: 2026-10-15 UTC (2026-10-16 local +08:00).
-- Verified commands: locked install, 27-test suite, all real incremental GPU gates, complete smoke/calibration/evaluation, strict raw validators, synthetic method calibration, 2,000-replicate formal analysis, plots/report/audit, and one-command resume/re-analysis — all final exits 0.
-- Final ledger: `results/m1/steps/one_click_20261015T173520Z_209164/` (including leverage influence diagnostic); exact 12-CSV re-analysis comparison passed. The earlier one-click ledger is also preserved.
-- Known unverified commands: the separate **fresh-output one-command** campaign has not been redundantly run a second time; its individual inference commands were actually executed during the original staged campaign. No claim of an empty-machine rebuild or identical answers on untested hardware.
+- Date: 2026-10-15 UTC (2026-10-16 local).
+- Verified: pinned real weights and data; fresh BF16 baseline; single-layer exact 7-matrix isolation/restoration/replay; single-request all-32-layer scan; strict gate validator; **61-test full suite**; Bash syntax; **24 × 32 smoke and raw validation**, including separate smoke command exit 0.
+- Running: full command, currently train-only 24-request × 32-layer selection scan, after validated smoke reuse.
+- Not yet verified: formal 96 × 32 scan, real joint allocations, real-data report reconstruction, and final objective completion. Update this section only from actual new exits.

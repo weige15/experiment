@@ -9,8 +9,9 @@ from matplotlib.colors import LogNorm, TwoSlopeNorm
 import numpy as np
 import pandas as pd
 
-from m1_data import SOURCES, save_json
-from m1_run import file_hash, read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import SOURCES, save_json
+from quantization_sensitivity.runner import file_hash, read_json
 
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9,
     "axes.titlesize": 10, "axes.labelsize": 9, "pdf.fonttype": 42,
@@ -79,9 +80,9 @@ def accuracy_plot(stats, meta, path):
 
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--analysis", default="results/m1/analysis")
-    p.add_argument("--out", default="results/m1")
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--analysis", default=f"{DEFAULT_RESULTS}/analysis")
+    p.add_argument("--out", default=DEFAULT_RESULTS)
     args = p.parse_args()
     source, out = Path(args.analysis), Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

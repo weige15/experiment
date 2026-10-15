@@ -9,14 +9,15 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from m1_data import save_json
-from m1_model import MODEL_ID, REVISION
-from m1_run import file_hash, read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.model import MODEL_ID, REVISION
+from quantization_sensitivity.runner import MEASUREMENT_SOURCES, file_hash, read_json
 
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--root", default="results/m1")
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--root", default=DEFAULT_RESULTS)
     p.add_argument("--compare-analysis", help="Optional archived analysis to check exact re-analysis reproducibility")
     args = p.parse_args()
     root = Path(args.root)
@@ -33,7 +34,8 @@ def main():
         for wording in ["a", "b"]:
             config = read_json(root / "runs" / f"{role}_{wording}" / "run_config.json")
             assert config["requests_sha256"] == manifest["requests_sha256"]
-            assert all(file_hash(file) == digest for file, digest in config["code_sha256"].items())
+            assert config["code_sha256"] == {f: file_hash(f) for f in MEASUREMENT_SOURCES}, (
+                "measurement sources changed: use the original source snapshot to audit archived runs")
             frame = pd.read_csv(root / "runs" / f"{role}_{wording}" / "measurements.csv")
             assert len(frame) == n * 8 and frame.request_id.nunique() == n
     selection = read_json(root / "calibration_selection.json")
@@ -62,7 +64,8 @@ def main():
     assert meta["calibration_selection_sha256"] == file_hash(root / "calibration_selection.json")
     null = read_json(root / "steps" / "statistical_null_calibration.json")
     assert null["completed"] and null["all_criteria_pass"] and null["trials_per_case"] >= 500
-    assert null["code_sha256"]["m1_analysis.py"] == file_hash("m1_analysis.py")
+    assert null["code_sha256"].get("quantization_sensitivity/analysis.py") == file_hash(
+        "quantization_sensitivity/analysis.py"), "analysis source changed: rerun statistical-method calibration"
     rows = pd.concat([pd.read_csv(root / "runs" / f"evaluation_{w}" / "measurements.csv") for w in ["a","b"]])
     baselines = pd.concat([pd.read_csv(root / "runs" / f"evaluation_{w}" / "baselines.csv") for w in ["a","b"]])
     kl = rows.pivot(index=["request_id","wording"], columns="group", values="kl_mean").to_numpy()
@@ -90,7 +93,7 @@ def main():
     report = read_json(root / "report_provenance.json")
     assert report["report_sha256"] == file_hash(root / "report.md")
     assert all(file_hash(path)==digest for path,digest in report["inputs"].items())
-    assert report["renderer_sha256"] == file_hash("scripts/report_m1.py")
+    assert report["renderer_sha256"] == file_hash("scripts/report_results.py")
     save_json(root / "completion_checks.json", dict(status="verified_artifacts_not_automatic_goal_completion",
         source_requests=96, worded_requests=192, W4_rows=1536, actual_answers=1728,
         independent_raw_table_checks=expected, exact_reanalysis_csvs=compared,

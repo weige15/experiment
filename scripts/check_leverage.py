@@ -5,14 +5,15 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from m1_analysis import control_design, controlled_association, cube
-from m1_data import save_json
-from m1_run import file_hash
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.analysis import control_design, controlled_association, cube
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.runner import file_hash
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--root", default="results/m1")
+    p.add_argument("--root", default=DEFAULT_RESULTS)
     p.add_argument("--threshold", type=float, default=.95)
     args = p.parse_args()
     root = Path(args.root)

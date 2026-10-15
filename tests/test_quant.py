@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from m1_quant import group_parameters, pack_codes, quantize_blocks, quantized_group, unpack_codes
+from quantization_sensitivity.quantization import group_parameters, pack_codes, quantize_blocks, quantized_group, unpack_codes
 
 
 def test_known_quantizer_and_zero_block():

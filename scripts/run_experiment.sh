@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# One-command M1 only. Existing real inference checkpoints are verified/resumed.
+# Measure layer-group quantization sensitivity; verify/resume matching real checkpoints.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-: "${M1_GPU:?Set M1_GPU to a CUDA device allocated to you (e.g. M1_GPU=1)}"
-export CUDA_VISIBLE_DEVICES="$M1_GPU"
+: "${EXPERIMENT_GPU:?Set EXPERIMENT_GPU to a CUDA device allocated to you (e.g. EXPERIMENT_GPU=1)}"
+export CUDA_VISIBLE_DEVICES="$EXPERIMENT_GPU"
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false
-OUT=${M1_OUT:-results/m1}
+OUT=${EXPERIMENT_OUT:-results/quantization_sensitivity}
 PY=.venv/bin/python
 mkdir -p "$OUT/steps"
-exec 9>.m1-run.lock
-flock -n 9 || { echo 'Another one-command M1 run holds this repository lock' >&2; exit 1; }
+exec 9>.quantization-sensitivity-run.lock
+flock -n 9 || { echo 'Another quantization sensitivity experiment holds this repository lock' >&2; exit 1; }
 LEDGER="$OUT/steps/one_click_$(date -u +%Y%m%dT%H%M%SZ)_$$"
 mkdir -p "$LEDGER"
 trap 'printf "%s\n" "$?" > "$LEDGER/overall.exit"' EXIT
-printf 'CUDA_VISIBLE_DEVICES=%q\nM1_OUT=%q\n' "$CUDA_VISIBLE_DEVICES" "$OUT" > "$LEDGER/environment.txt"
+printf 'CUDA_VISIBLE_DEVICES=%q\nEXPERIMENT_OUT=%q\n' "$CUDA_VISIBLE_DEVICES" "$OUT" > "$LEDGER/environment.txt"
 
 run() {
   local name=$1 rc=0
@@ -57,7 +57,7 @@ for role in smoke calibration evaluation; do
     if [[ -f "$directory/summary.json" ]]; then
       echo "REUSE raw $role $wording; strict validation follows" | tee "$LEDGER/${role}_${wording}.reused"
     else
-      run "${role}_${wording}" "$PY" -m m1_run --role "$role" --wording "$wording" --requests "$OUT/requests.jsonl" --out "$directory"
+      run "${role}_${wording}" "$PY" -m quantization_sensitivity.runner --role "$role" --wording "$wording" --requests "$OUT/requests.jsonl" --out "$directory"
     fi
   done
   run "validate_$role" "$PY" -m scripts.validate_runs --role "$role" --requests "$OUT/requests.jsonl" --runs "$OUT/runs/${role}_a" "$OUT/runs/${role}_b" --out "$OUT/${role}_validation.json"
@@ -71,12 +71,12 @@ if [[ -f "$OUT/steps/statistical_null_calibration.json" ]]; then
   cp "$OUT/steps/statistical_null_calibration.json" "$LEDGER/statistical_null_calibration_before.json"
 fi
 run synthetic_method_validation "$PY" -m scripts.calibrate_statistics --out "$OUT/steps/statistical_null_calibration.json"
-run analysis "$PY" -m scripts.analyze_m1 --root "$OUT" --bootstrap 2000
+run analysis "$PY" -m scripts.analyze_results --root "$OUT" --bootstrap 2000
 run leverage_influence "$PY" -m scripts.check_leverage --root "$OUT"
-run figures "$PY" -m scripts.plot_m1 --analysis "$OUT/analysis" --out "$OUT"
-run report "$PY" -m scripts.report_m1 --root "$OUT"
+run figures "$PY" -m scripts.plot_results --analysis "$OUT/analysis" --out "$OUT"
+run report "$PY" -m scripts.report_results --root "$OUT"
 compare=()
 if [[ -d "$LEDGER/analysis_before" ]]; then compare=(--compare-analysis "$LEDGER/analysis_before"); fi
-run completion_evidence "$PY" -m scripts.audit_m1 --root "$OUT" "${compare[@]}"
+run completion_evidence "$PY" -m scripts.audit_results --root "$OUT" "${compare[@]}"
 printf '%s\n' "$LEDGER" > "$OUT/last_one_click_run.txt"
-echo "M1 artifacts verified: $OUT/report.md — inspect bounded conclusion/limitations before claiming research success."
+echo "Quantization sensitivity artifacts verified: $OUT/report.md — inspect bounded conclusion/limitations before claiming research success."

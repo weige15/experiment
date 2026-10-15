@@ -1,6 +1,6 @@
 import pandas as pd
-import m1_data
-from m1_data import CHAT_TEMPLATE, messages_for, normalize, parse_answer, score_answer
+from quantization_sensitivity import data
+from quantization_sensitivity.data import CHAT_TEMPLATE, messages_for, normalize, parse_answer, score_answer
 
 
 def test_gsm8k_parser_requires_final_answer():
@@ -9,6 +9,10 @@ def test_gsm8k_parser_requires_final_answer():
     r = dict(dataset="gsm8k", labels=[], gold="1200")
     assert score_answer("#### 1,200.00", r)["correct"]
     assert not score_answer("unfinished 1200", r)["correct"]
+    for unsupported in ["#### 1/2", "#### 1 / 2", "#### 1e3", "#### 1,23", "#### 12 apples", "####"]:
+        assert parse_answer(unsupported, "gsm8k") is None
+    assert parse_answer("#### 12\nCorrection: #### 13", "gsm8k") == "13"
+    assert parse_answer("#### -0.25.", "gsm8k") == "-0.25"
 
 
 def test_arc_and_boolq_parser():
@@ -39,9 +43,9 @@ def test_sampling_is_reproducible_and_split_isolated(monkeypatch):
     def split(dataset, name):
         return pd.DataFrame([dict(question=f"{name} question {i}", answer=f"#### {i}")
                              for i in range(100)])
-    monkeypatch.setattr(m1_data, "load_split", split)
-    first, excluded = m1_data.sample_dataset("gsm8k")
-    second, _ = m1_data.sample_dataset("gsm8k")
+    monkeypatch.setattr(data, "load_split", split)
+    first, excluded = data.sample_dataset("gsm8k")
+    second, _ = data.sample_dataset("gsm8k")
     assert first == second and not excluded
     assert len({r["question_sha256"] for r in first}) == len(first) == 51
     assert sum(r["role"] == "evaluation" for r in first) == 32

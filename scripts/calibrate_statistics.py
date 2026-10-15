@@ -7,8 +7,9 @@ import time
 import numpy as np
 from scipy.stats import binomtest
 
-from m1_analysis import wild_shape_test
-from m1_data import save_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.analysis import wild_shape_test
+from quantization_sensitivity.data import save_json
 
 SIMULATION_SEED = 314159
 
@@ -46,7 +47,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--trials", type=int, default=500)
     p.add_argument("--wild-replicates", type=int, default=999)
-    p.add_argument("--out", default="results/m1/steps/statistical_null_calibration.json")
+    p.add_argument("--out", default=f"{DEFAULT_RESULTS}/steps/statistical_null_calibration.json")
     args = p.parse_args()
     started = time.monotonic()
     scenarios = ["homoskedastic", "heteroskedastic", "nonlinear_input", "input_output", "shared_profile_positive_control"]
@@ -80,7 +81,7 @@ def main():
                 trials_per_case=args.trials, wild_replicates=args.wild_replicates, results=results,
                 completed=len(results) == 10, all_criteria_pass=all(r["criterion_pass"] for r in results),
                 code_sha256={f: hashlib.sha256(Path(f).read_bytes()).hexdigest()
-                             for f in ["m1_analysis.py", "scripts/calibrate_statistics.py"]},
+                             for f in ["quantization_sensitivity/analysis.py", "scripts/calibrate_statistics.py"]},
                 elapsed_seconds=time.monotonic() - started))
     assert all(r["criterion_pass"] for r in results), "null calibration/power criterion failed; investigate, do not claim significance"
 

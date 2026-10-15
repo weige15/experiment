@@ -1,53 +1,58 @@
-# M1: request-dependent layer quantization sensitivity
+# Llama 3.1 8B individual-layer quantization sensitivity
 
-Real **meta-llama/Llama-3.1-8B (base)**; BF16 reference versus exactly one W4 four-layer group at a time. GSM8K, ARC-Challenge, BoolQ. **M1 only: no router, clustering, batching, or packed-integer performance claims.**
+## Research questions
+1. Do different requests have stable, measurable differences in **individual-layer** W4 sensitivity?
+2. Do these differences change which layers to retain in BF16, and actual answer accuracy?
+3. Are they associated with dataset, prompt/output length or difficulty proxies?
 
-## Results
+**Current study: `layer_sensitivity/`, output `results/layer_sensitivity/`.** This is a new 32-layer study. The historical `results/m1/` campaign quantized four-layer groups and **does not satisfy this study's completion criteria**. Its raw evidence is preserved, not renamed as individual-layer results.
 
-[Full report](results/m1/report.md): 96 independent evaluation sources, two wordings, 1,536 W4 measurements and 1,728 actual answers. The evidence supports bounded request×group sensitivity, **not** deployable configuration selection. Label-oracle accuracy gain over accuracy-best fixed: **6.77 pp [95% CI 2.60–9.38]**; cross-wording KL-choice transfer is not clearly beneficial. Null cases and failures are retained.
+## Method
+- Official **meta-llama/Llama-3.1-8B base**, revision `d04e592bb4f6aa9cfee91e2e20afa771667e1d4b`; fixed tokenizer, explicit Q/A template, train-only demonstrations and deterministic greedy decoding.
+- BF16 reference; quantize **one layer at a time**, all layers **0–31**. Seven attention/MLP matrices per layer, symmetric RTN W4, input-axis group size 128, FP32 `absmax/7` scale, zero point 0, round-to-even codes [-7,7]. Activations/KV remain BF16.
+- Packed-code round-trip then BF16 dequantization: **quantization sensitivity simulation**, no W4 kernel speed/memory claims.
+- GSM8K, ARC-Challenge, BoolQ: 8 disjoint smoke requests + 32 formal requests each; 8 train-only selection requests each. Fixed BF16 continuation, full-vocabulary per-token mean `KL(BF16 || W4)`. Free-generation answers are scored separately and all failures retained.
+- Direct allocation check: retain 8 BF16 layers, jointly quantize 24. Compare current-request KL **oracle-information** choice, train-selected fixed choice and three seeded random choices. This is not a deployable router or a guaranteed accuracy upper bound.
 
-## Quickstart
+See the [locked protocol](doc/layer_sensitivity_protocol.md), [review](doc/layer_sensitivity_protocol_review.md), and [requirement/evidence audit](doc/layer_sensitivity_completion_audit.md). No clustering, request router or production batching.
 
-Linux with `bash`/`flock`, Python 3.12, `uv`, CUDA-compatible NVIDIA driver, and a BF16-capable GPU with roughly 24 GiB VRAM. Accept the model's Meta/Hugging Face license and use your authorized login/cache. Do not put credentials in this repository.
+## Quickstart / separate commands
+Linux, Bash/flock, Python 3.12, `uv`, authorized access/cache for the gated model, CUDA driver supporting PyTorch CUDA 12.8, one BF16-capable GPU (~24 GiB VRAM). Recommend ≥48 GiB available host RAM for allocation CPU copies; allow model cache (~16 GB) and several GB of results. Credentials stay outside the repository.
 
 ```bash
 bash scripts/install.sh
 .venv/bin/python -m pytest -q tests
-M1_GPU=1 bash scripts/run_m1.sh   # choose a GPU allocated to you
+
+# Choose a GPU allocated to you. Smoke: 24 requests × all 32 layers.
+LAYER_GPU=7 bash scripts/run_layer_sensitivity.sh smoke
+
+# Full experiment: validates/reuses identical gates and smoke, then
+# train-only selection → 96 × 32 formal scan → 480 joint allocations → report.
+LAYER_GPU=7 bash scripts/run_layer_sensitivity.sh full
+
+# CPU-only raw validation and report/figure reconstruction after completion.
+bash scripts/run_layer_sensitivity.sh report
+
+# Fresh independent reproduction, preserving previous evidence:
+LAYER_OUT=results/layer_sensitivity_reproduction LAYER_GPU=7 \
+  bash scripts/run_layer_sensitivity.sh full
 ```
 
-The one-command runner installs the 60 pinned dependencies, verifies official weights, executes missing incremental gates, runs/resumes smoke → calibration → evaluation, validates raw records, and renders statistics/figures/report. It serializes work on one GPU and preserves prior derived results. Existing completed inference is **reused and audited**, not silently rerun.
+Command implementation is not execution proof. The current individual-layer campaign is **in progress**: BF16, single-layer isolation, one-request 32-layer gates and **24-request × 32-layer smoke** passed (exit 0); formal evaluation/allocation/report are not yet certified. Inspect the [execution journal](doc/layer_sensitivity_progress.md) and [audit](doc/layer_sensitivity_completion_audit.md) for actual command exits. Do not use historical completion claims for this goal.
 
-For a separate full inference reproduction:
+## Outputs and code
+- `layer_sensitivity/{quantization,runner,gates}.py`: seven-matrix single-layer intervention and real-model scan.
+- `layer_sensitivity/{selection,precision_allocation_check}.py`: isolated fixed selection and directly measured joint models.
+- `layer_sensitivity/{validate,statistics,analysis}.py`: coverage/raw auditing, request-level bootstrap, all-request figures and report.
+- `quantization_sensitivity/{data,model,metrics,quantization}.py`: reused pinned datasets/tokenizer/model, parsers, causal KL and weight-level RTN primitives. Historical grouped runner is not used by the new experiment.
+- `results/layer_sensitivity/runs/evaluation/{measurements.csv,measurements.parquet,sensitivity_vectors.csv}`: every request × 32 values, plus raw JSON/prompts/answers.
+- `results/layer_sensitivity/precision_allocation_check/`: every directly evaluated joint configuration.
+- `results/layer_sensitivity/{analysis/,figures/,report.md}`: derived statistics/CIs, all-request figures, failures and limitations (produced after complete inference).
+- `results/layer_sensitivity/steps/`: append-only command, UTC start/end, GPU visibility, log and exit evidence.
 
-```bash
-M1_OUT=results/m1_reproduction M1_GPU=1 bash scripts/run_m1.sh
-```
+## Documentation / troubleshooting
+[Onboarding](doc/onboarding.md) · [Runbook](doc/runbook.md) · [Protocol](doc/layer_sensitivity_protocol.md) · [Progress](doc/layer_sensitivity_progress.md) · [Audit](doc/layer_sensitivity_completion_audit.md).
 
-All constituent GPU stages were actually executed. The one-command **resume/re-analysis** path was also executed successfully; a second full fresh-directory GPU campaign was not redundantly repeated.
+Use `.venv/bin/python`. On OOM inspect `nvidia-smi`, never terminate another user's process. Changed measurement source/sample hashes require a **new output directory**; do not bypass resume guards or overwrite raw results. BF16 `.pt` references are local-only/Git-ignored and regenerated by a fresh inference run. CPU report reconstruction uses published JSON/CSV, not those tensors.
 
-## Common commands
-
-```bash
-# Recompute statistics from verified real measurements (CPU)
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m scripts.analyze_m1
-.venv/bin/python -m scripts.plot_m1
-.venv/bin/python -m scripts.report_m1
-.venv/bin/python -m scripts.audit_m1
-```
-
-Use a new analysis output directory or preserve the previous one when changing methodology. `run_m1.sh` archives existing derived results automatically. The full smoke/validation and recovery commands are in the [runbook](doc/runbook.md).
-
-## Project structure / documentation
-
-- `m1_{data,model,quant,metrics,run,analysis}.py`: fixed data/protocol, real inference, W4 intervention and analysis.
-- `scripts/`: incremental gates, one-command execution, validation, plots/report.
-- `tests/`: quantization/isolation, scoring, causal KL, audit corruption checks and statistics tests.
-- `results/m1/runs/`: actual prompts, token IDs, answers, KL vectors and precision/restoration audits.
-- [Protocol](doc/protocol.md) · [Onboarding](doc/onboarding.md) · [Runbook](doc/runbook.md)
-- [Execution journal](WORK_LOG.md) · [Requirement audit](doc/completion-audit.md)
-- [Statistical review](doc/statistics-review.md) · [Resolution](doc/statistics-review-resolution.md) · [Final review](doc/final-review.md)
-
-## Troubleshooting
-
-Use `.venv/bin/python`, not an unrelated environment. On OOM, inspect `nvidia-smi`, stop **only your own** process if necessary, and resume on an allocated device. Changed measurement code/samples require a new output directory. Raw reference logits are retained locally but Git-ignored; CSV/JSON contain the full public measurement evidence. See the runbook for detailed recovery and interpretation limits.
+Historical grouped-campaign operation is documented separately in [archived group runbook](doc/archived_group_study_runbook.md); use its original source snapshot for old manifest validation.

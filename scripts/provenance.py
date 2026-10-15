@@ -3,13 +3,14 @@ import argparse
 import hashlib
 from pathlib import Path
 from huggingface_hub import HfApi, hf_hub_download
-from m1_data import save_json
-from m1_model import MODEL_ID, REVISION
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.model import MODEL_ID, REVISION
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out", default="results/m1/model_provenance.json")
+    parser.add_argument("--out", default=f"{DEFAULT_RESULTS}/model_provenance.json")
     args = parser.parse_args()
     info = HfApi().model_info(MODEL_ID, revision=REVISION, files_metadata=True)
     verified = []

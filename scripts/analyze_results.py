@@ -1,4 +1,4 @@
-"""Whole-set, source-clustered M1 analysis. Inputs must be actual validated runs."""
+"""Analyze request-dependent quantization sensitivity from actual validated runs."""
 import argparse
 from datetime import datetime, timezone
 import json
@@ -8,12 +8,13 @@ import numpy as np
 import pandas as pd
 from transformers import AutoTokenizer
 
-from m1_analysis import (add_content_metrics, bootstrap_basic, control_diagnostic, cube, holm_adjust,
-                         pair_signs, percentile_interval, resample_sources, reversal_summary,
-                         row_spearman, strategy_choices, wild_shape_test)
-from m1_data import SEED, SOURCES, save_json
-from m1_model import MODEL_ID, REVISION
-from m1_run import file_hash, read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.analysis import (add_content_metrics, bootstrap_basic, control_diagnostic, cube, holm_adjust,
+                                              pair_signs, percentile_interval, resample_sources, reversal_summary,
+                                              row_spearman, strategy_choices, wild_shape_test)
+from quantization_sensitivity.data import SEED, SOURCES, save_json
+from quantization_sensitivity.model import MODEL_ID, REVISION
+from quantization_sensitivity.runner import file_hash, read_json
 
 
 def reversal_table(values, datasets, metric):
@@ -70,8 +71,8 @@ def segment_statistics(frame, datasets, iterations):
 
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--root", default="results/m1")
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--root", default=DEFAULT_RESULTS)
     p.add_argument("--role", choices=["smoke", "evaluation"], default="evaluation")
     p.add_argument("--bootstrap", type=int, default=2000)
     p.add_argument("--out")
@@ -87,7 +88,8 @@ def main():
         null_check = read_json(root / "steps" / "statistical_null_calibration.json")
         assert null_check["completed"] and null_check["all_criteria_pass"]
         assert null_check["trials_per_case"] >= 500 and null_check["wild_replicates"] >= 999
-        assert null_check["code_sha256"]["m1_analysis.py"] == file_hash("m1_analysis.py")
+        assert null_check["code_sha256"].get("quantization_sensitivity/analysis.py") == file_hash(
+            "quantization_sensitivity/analysis.py"), "analysis source changed: rerun statistical-method calibration"
     selection = read_json(root / "calibration_selection.json")
     fixed_kl, fixed_acc = selection["selected_group_kl"], selection["selected_group_accuracy"]
     paths = [root / "runs" / f"{args.role}_{w}" for w in ["a", "b"]]
@@ -211,7 +213,7 @@ def main():
         input_sha256={str(path.relative_to(root)): file_hash(path) for parent in paths
             for path in [parent / "baselines.csv", parent / "measurements.csv"]},
         calibration_selection_sha256=file_hash(root / "calibration_selection.json"),
-        code_sha256={f: file_hash(f) for f in ["m1_analysis.py", "scripts/analyze_m1.py"]},
+        code_sha256={f: file_hash(f) for f in ["quantization_sensitivity/analysis.py", "scripts/analyze_results.py"]},
         analyzed_utc=datetime.now(timezone.utc).isoformat()))
     print(f"COMPLETE analysis role={args.role} source_n={len(ids)} W4_rows={len(frame)}", flush=True)
 

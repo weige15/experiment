@@ -1,11 +1,12 @@
-"""Render a bounded factual report from completed real M1 artifacts, never default results."""
+"""Render a bounded quantization-sensitivity report from completed real measurements."""
 import argparse
 from pathlib import Path
 import pandas as pd
 
-from m1_data import SEED, SOURCES, save_json
-from m1_model import MODEL_ID, REVISION
-from m1_run import file_hash, read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import SEED, SOURCES, save_json
+from quantization_sensitivity.model import MODEL_ID, REVISION
+from quantization_sensitivity.runner import file_hash, read_json
 
 
 def table(headers, rows):
@@ -16,8 +17,8 @@ def table(headers, rows):
 
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--root", default="results/m1")
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--root", default=DEFAULT_RESULTS)
     args = p.parse_args()
     root, analysis = Path(args.root), Path(args.root) / "analysis"
     meta = read_json(analysis / "analysis_metadata.json")
@@ -66,10 +67,10 @@ def main():
     supported = bool(len(strict) == 2 and set(strict.metric) == {"full", "content"}
                      and (strict.ci_low > 0).all() and (strict.wild_p_holm < .05).all()
                      and quality.ci_low > 0 and correctness_crossovers > 0 and untruncated_gains > 0)
-    lines = ["# M1 — Llama 3.1 8B request-dependent layer quantization sensitivity", "",
+    lines = ["# Llama 3.1 8B request-dependent layer quantization sensitivity", "",
         "## 結論與範圍", "",
-        ("**證據支持一個有限的 M1 結論：在本模型、RTN W4、四層一組與固定 few-shot protocol 下，不同 request 對不同 group 的相對敏感度與實際答案效用存在可重現差異。**"
-         if supported else "**目前證據不足以充分支持 M1 核心命題；不能只憑程式或圖表完成就宣告成功。**"),
+        ("**證據支持一個有限的量化敏感度結論：在本模型、RTN W4、四層一組與固定 few-shot protocol 下，不同 request 對不同 group 的相對敏感度與實際答案效用存在可重現差異。**"
+         if supported else "**目前證據不足以充分支持 request-dependent 量化敏感度的核心命題；不能只憑程式或圖表完成就宣告成功。**"),
         "這**不是**可部署 router、跨 wording 最佳配置可直接轉移、完整模型 W4 品質、或量化 runtime 效能的證據。", "",
         f"- 正式資料：**{meta['source_requests']} 個獨立 source request**（每 dataset 32），兩種 wording 共 {meta['worded_requests']} 個 prompt；**{meta['W4_rows']} 筆 W4 配置量測、{meta['actual_answer_rows']} 筆實際答案、{meta['token_KL_values']:,} 個 token-level KL 值**。未依效果或正確率剔除 request。",
         f"- 全 continuation 與非空白 content-only 分析，各有 {int(pairs[(pairs.metric=='full')&(pairs.scope=='all')].replicated_reversal.sum())}/28、{int(pairs[(pairs.metric=='content')&(pairs.scope=='all')].replicated_reversal.sum())}/28 個 group pair 出現**兩種 wording 都重現**的跨 request 排序反轉；實際 correctness 有 **{correctness_crossovers}/28** 個 pair 的雙向 crossover 也在兩種 wording 重現。",
@@ -166,29 +167,8 @@ def main():
         "- 全部 CI：[statistics.csv](analysis/statistics.csv)；逐 request 摘要：[request_summary.csv](analysis/request_summary.csv)；輸入/分析 code hashes：[analysis_metadata.json](analysis/analysis_metadata.json)。",
         "- 原始量測：`runs/evaluation_{a,b}/{baselines.csv,measurements.csv}`、每 group JSON；`reference_logits/*.pt` 本機保留但 Git-ignored。Smoke/calibration raw records 在同目錄對應 role。", "",
         "## 實際執行紀錄與可重現命令", "",
-        "安裝：`bash scripts/install.sh`；unit tests：`.venv/bin/python -m pytest -q tests`。一鍵 M1：`M1_GPU=1 bash scripts/run_m1.sh`（選自己的可用 GPU；既有 raw checkpoints 會驗證/續跑，不重做已完成 inference）。完整新推論重現可指定 `M1_OUT=results/m1_reproduction M1_GPU=1 bash scripts/run_m1.sh`。", ""]
-    executed = [
-        ("locked install", "bash scripts/install.sh", "install-locked"),
-        ("unit tests + inferential fixes", ".venv/bin/python -m pytest -q tests", "review-fix-tests"),
-        ("real BF16 baseline", "CUDA_VISIBLE_DEVICES=5 <qaq-gptq425>/bin/python -m scripts.baseline", "baseline"),
-        ("one-group intervention", "CUDA_VISIBLE_DEVICES=5 <qaq-gptq425>/bin/python -m scripts.one_group", "one_group"),
-        ("same-path KL / repeat", "CUDA_VISIBLE_DEVICES=5 .venv/bin/python -m scripts.sensitivity --groups 0 --repeat-check", "single_sensitivity"),
-        ("8-group gate", "CUDA_VISIBLE_DEVICES=5 .venv/bin/python -m scripts.sensitivity --groups 0 1 2 3 4 5 6 7 --out results/m1/steps/eight_groups", "eight_groups"),
-    ]
-    for role in ["smoke", "calibration", "evaluation"]:
-        for w in ["a", "b"]:
-            executed.append((f"{role} {w}", f".venv/bin/python -m m1_run --role {role} --wording {w} --out results/m1/runs/{role}_{w}", f"{role}_{w}"))
-        executed.append((role+" raw audit", f".venv/bin/python -m scripts.validate_runs --role {role} --runs results/m1/runs/{role}_a results/m1/runs/{role}_b --out results/m1/{role}_validation.json", f"validate-{role}"))
-    executed += [("fixed choices", ".venv/bin/python -m scripts.select_fixed", "select-fixed"),
-        ("synthetic method calibration ONLY", "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m scripts.calibrate_statistics", "statistical-null-calibration-reviewed"),
-        ("formal analysis", "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m scripts.analyze_m1", "analyze-evaluation"),
-        ("formal figures", ".venv/bin/python -m scripts.plot_m1", "plot-evaluation"),
-        ("one-command resume + re-analysis", "M1_GPU=1 bash scripts/run_m1.sh", "one-click")]
-    lines += [table(["步驟", "command 摘要（實際 argv 見 metadata/ledger）", "exit code / log"],
-        [[name,command.replace('results/m1', str(root)),(root / "steps" / (stem+".exit")).read_text().strip()+f" / [log](steps/{stem}.log)"
-          if (root / "steps" / (stem+".exit")).exists() else "see one-click execution ledger"] for name,command,stem in executed]), "",
-        "初期 baseline/one-group 用既有 `/nfs/home/s314511048/.venvs/qaq-gptq425`（相同 Torch/Transformers）；之後使用本專案 locked `.venv`，並 exact 重現 baseline。首次套件下載超過 tool 600 秒 timeout（沒有捏造 exit code），背景重試與 locked install 成功。Smoke-B 因 GPU 共用遷移而主動中斷一次 **exit 143**，續跑完成 exit 0；原 log 保留。", "",
-        "一鍵命令逐步 `.command/.log/.exit` 的完整 ledger 路徑：[last_one_click_run.txt](last_one_click_run.txt)。此次一鍵驗證使用既有真實 raw checkpoints 並重新跑 provenance、unit tests、raw audit、統計與圖/報告；未聲稱又做一次全新 GPU inference。原分析/報告已備份到該 ledger。",
+        "安裝：`bash scripts/install.sh`；unit tests：`.venv/bin/python -m pytest -q tests`。一鍵執行：`EXPERIMENT_GPU=1 bash scripts/run_experiment.sh`（選自己的可用 GPU；相同 source hashes 的 raw checkpoints 可驗證/續跑）。完整新推論可指定 `EXPERIMENT_OUT=results/quantization_sensitivity_reproduction EXPERIMENT_GPU=1 bash scripts/run_experiment.sh`。", "",
+        "實際執行的命令、exit code 與原始 log 保留在 `steps/`；一鍵命令逐步 `.command/.log/.exit` 的完整 ledger 路徑：[last_one_click_run.txt](last_one_click_run.txt)。以上命令是目前的重現入口，不是對歷史執行命令的重新命名。原分析/報告由一鍵 runner 備份到 ledger，未執行的推論不宣稱為完成。", "",
         "這份報告不以 tests/manifest 的綠燈代替研究結論。逐條 objective→artifact 的完成審核見 repository 的 `doc/completion-audit.md`；執行歷程與原始審查在 `WORK_LOG.md`、`doc/`。"]
     (root / "report.md").write_text("\n".join(lines) + "\n")
     report_inputs = {str(analysis / name): file_hash(analysis / name) for name in ["statistics.csv", "controlled_shape_wild.csv", "answers.csv"]}

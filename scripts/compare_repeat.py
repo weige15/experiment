@@ -3,13 +3,14 @@ import argparse
 from pathlib import Path
 import numpy as np
 import torch
-from m1_data import save_json
-from m1_run import read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.runner import read_json
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--original", default="results/m1/steps/single_sensitivity")
+    p.add_argument("--original", default=f"{DEFAULT_RESULTS}/steps/single_sensitivity")
     p.add_argument("--repeat", required=True)
     args = p.parse_args()
     original, repeat = Path(args.original), Path(args.repeat)

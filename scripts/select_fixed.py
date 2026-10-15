@@ -6,8 +6,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from m1_data import save_json
-from m1_run import file_hash, read_json
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.runner import file_hash, read_json
 
 
 def choose_fixed(kl, correct):
@@ -18,7 +19,7 @@ def choose_fixed(kl, correct):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--root", default="results/m1")
+    p.add_argument("--root", default=DEFAULT_RESULTS)
     args = p.parse_args()
     root = Path(args.root)
     assert read_json(root / "calibration_validation.json")["status"] == "verified"

@@ -7,18 +7,19 @@ from pathlib import Path
 import pandas as pd
 import torch
 
-from m1_data import save_json
-from m1_metrics import cached_continuation_logits, continuation_logits, summarize_kl, token_kl
-from m1_model import encode, generate, load_model, metadata
-from m1_quant import QUANTIZATION, quantized_group
+from quantization_sensitivity import DEFAULT_RESULTS
+from quantization_sensitivity.data import save_json
+from quantization_sensitivity.metrics import cached_continuation_logits, continuation_logits, summarize_kl, token_kl
+from quantization_sensitivity.model import encode, generate, load_model, metadata
+from quantization_sensitivity.quantization import QUANTIZATION, quantized_group
 
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--groups", type=int, nargs="+", default=[0])
     p.add_argument("--repeat-check", action="store_true")
-    p.add_argument("--baseline", default="results/m1/steps/baseline/baseline.json")
-    p.add_argument("--out", default="results/m1/steps/single_sensitivity")
+    p.add_argument("--baseline", default=f"{DEFAULT_RESULTS}/steps/baseline/baseline.json")
+    p.add_argument("--out", default=f"{DEFAULT_RESULTS}/steps/single_sensitivity")
     args = p.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

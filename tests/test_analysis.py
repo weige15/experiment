@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
-from m1_analysis import (basic_statistics, bootstrap_basic, content_indices, control_diagnostic,
-                         controlled_association, holm_adjust, profile_residuals, reversal_summary,
-                         row_spearman, strategy_choices, wild_shape_test)
+from quantization_sensitivity.analysis import (basic_statistics, bootstrap_basic, content_indices, control_diagnostic,
+                                              controlled_association, holm_adjust, profile_residuals, reversal_summary,
+                                              row_spearman, strategy_choices, wild_shape_test)
 
 
 class TinyTokenizer:
