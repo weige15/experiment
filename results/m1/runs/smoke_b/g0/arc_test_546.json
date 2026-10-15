@@ -1,0 +1,46 @@
+{
+  "request_id": "arc:test:546",
+  "dataset": "arc",
+  "role": "smoke",
+  "wording": "b",
+  "group": 0,
+  "gold": "1",
+  "input_tokens": 250,
+  "request_tokens": 45,
+  "bf16_answer": " 1\n\nQ:",
+  "bf16_correct": true,
+  "bf16_generated_ids": [
+    220,
+    16,
+    271,
+    48,
+    25
+  ],
+  "reference_logits_sha256": "ba41514a88999a933a16fe1316e65d04dd5deef3f0fc967ec4841a3e77bc4c4f",
+  "kl_mean": 0.016485576923766513,
+  "kl_tokens": 5,
+  "token_kl": [
+    0.025383018792950608,
+    0.0002085414647793099,
+    0.04917047488987536,
+    0.007381285628431886,
+    0.00028456384279539125
+  ],
+  "kl_first_half": 0.012795780128864958,
+  "kl_second_half": 0.01894544145370088,
+  "kl_first_token": 0.025383018792950608,
+  "answer": " 1\n\nQ:",
+  "generated_ids": [
+    220,
+    16,
+    271,
+    48,
+    25
+  ],
+  "generated_tokens": 5,
+  "generation_seconds": 1.2963442727923393,
+  "truncated": false,
+  "parsed_answer": "1",
+  "correct": true,
+  "parse_failure": false
+}

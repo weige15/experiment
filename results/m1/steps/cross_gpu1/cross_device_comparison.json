@@ -1,0 +1,8 @@
+{
+  "BF16_logits_bitwise_equal": true,
+  "W4_KL_max_absolute_difference": 0.0,
+  "W4_generated_ids_equal": true,
+  "token_count": 116,
+  "original": "results/m1/steps/single_sensitivity",
+  "repeat": "results/m1/steps/cross_gpu1"
+}

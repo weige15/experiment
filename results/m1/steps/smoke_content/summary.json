@@ -1,0 +1,23 @@
+{
+  "scope": "smoke_only_not_formal_evidence",
+  "datasets": {
+    "arc": {
+      "worded_requests": 16,
+      "min_content_tokens": 1,
+      "max_content_tokens": 2,
+      "content_segments_available": 0
+    },
+    "boolq": {
+      "worded_requests": 16,
+      "min_content_tokens": 1,
+      "max_content_tokens": 1,
+      "content_segments_available": 0
+    },
+    "gsm8k": {
+      "worded_requests": 16,
+      "min_content_tokens": 50,
+      "max_content_tokens": 256,
+      "content_segments_available": 16
+    }
+  }
+}

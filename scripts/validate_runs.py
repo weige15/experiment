@@ -10,6 +10,7 @@ from transformers import AutoTokenizer
 
 from m1_data import CHAT_TEMPLATE, SOURCES, messages_for, save_json, score_answer
 from m1_model import MODEL_ID, REVISION
+from m1_quant import QUANTIZATION
 from m1_run import MEASUREMENT_SOURCES, file_hash, key, read_json
 
 
@@ -36,6 +37,11 @@ def validate_run(path, all_requests, role, tokenizer):
     demos = {d: [r for r in all_requests if r["role"] == "demo" and r["dataset"] == d] for d in SOURCES}
     config, summary = read_json(path / "run_config.json"), read_json(path / "summary.json")
     assert config["role"] == role and summary["status"] == "complete"
+    assert config["quantization"] == QUANTIZATION
+    for attempt in path.glob("attempt_*.json"):
+        meta = read_json(attempt)
+        assert meta["model_revision"] == REVISION and meta["model_id"] == MODEL_ID
+        assert meta["kv_cache_precision"] == "BF16"
     assert config["code_sha256"] == {f: file_hash(f) for f in MEASUREMENT_SOURCES}
     csv = pd.read_csv(path / "measurements.csv", keep_default_na=False)
     base_csv = pd.read_csv(path / "baselines.csv", keep_default_na=False).set_index("request_id")
@@ -50,7 +56,10 @@ def validate_run(path, all_requests, role, tokenizer):
         assert read_json(path / "checks" / f"g{g}_restoration.json")["exact"]
         audit = read_json(path / "quantization" / f"g{g}.json")
         assert len(audit) == 28 and len({a["name"] for a in audit}) == 28
-        assert {int(a["name"].split(".")[2]) for a in audit} == set(range(g * 4, g * 4 + 4))
+        suffixes = ["self_attn.q_proj", "self_attn.k_proj", "self_attn.v_proj", "self_attn.o_proj",
+                    "mlp.up_proj", "mlp.gate_proj", "mlp.down_proj"]
+        assert {a["name"] for a in audit} == {f"model.layers.{i}.{s}.weight"
+            for i in range(g * 4, g * 4 + 4) for s in suffixes}
         assert all(a["changed_elements"] > 0 and a["mse"] > 0 for a in audit)
         group_sizes.append(sum(a["numel"] for a in audit))
     assert set(group_sizes) == {872415232}
@@ -83,6 +92,7 @@ def validate_run(path, all_requests, role, tokenizer):
         check = read_json(path / "checks" / f"{key(sentinel)}_baseline.json")
         assert check["independent_replay_exact"] and check["self_kl_max"] == 0
         assert check["precision"]["kv_cache_dtypes"] == ["torch.bfloat16"]
+        assert check["precision"]["linear_input_output_dtypes"] == [["torch.bfloat16", "torch.bfloat16"]]
     return dict(path=str(path), role=role, wording=config["wording"], requests=len(requests),
                 measured_rows=len(csv), counts=dict(Counter(r["dataset"] for r in requests)), verified=True)
 
@@ -106,6 +116,10 @@ def main():
         results.append(result)
         print("PASS", json.dumps(result), flush=True)
     assert sorted(r["wording"] for r in results) == ["a", "b"], "both predefined wordings required"
+    for g in range(8):
+        audits = [read_json(Path(r["path"]) / "quantization" / f"g{g}.json") for r in results]
+        assert {a["name"]: a["packed_scale_sha256"] for a in audits[0]} == {
+            a["name"]: a["packed_scale_sha256"] for a in audits[1]}, "quantized weights differ between wordings"
     save_json(args.out, dict(status="verified", runs=results))
 
 
