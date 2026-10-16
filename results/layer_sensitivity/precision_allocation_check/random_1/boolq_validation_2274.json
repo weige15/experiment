@@ -1,0 +1,82 @@
+{
+  "request_id": "boolq:validation:2274",
+  "dataset": "boolq",
+  "strategy": "random_1",
+  "budget": 8,
+  "gold": "yes",
+  "input_tokens": 876,
+  "bf16_generated_ids": [
+    10035,
+    271,
+    48,
+    25
+  ],
+  "bf16_answer": " yes\n\nQ:",
+  "bf16_correct": true,
+  "reference_logits_sha256": "a027f664f509c33f38e116053fc9e5db7be6be0e58dc64e5f46db1987d32a110",
+  "state": {
+    "high_precision_layers": [
+      1,
+      14,
+      20,
+      21,
+      24,
+      27,
+      28,
+      31
+    ],
+    "quantized_layers": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      23,
+      25,
+      26,
+      29,
+      30
+    ],
+    "changed_layers": [],
+    "copied_weights_exact": true
+  },
+  "sum_individual_layer_kl": 0.01766192664597501,
+  "kl_mean": 0.008544517972284784,
+  "kl_tokens": 4,
+  "token_kl": [
+    0.018147120428680344,
+    0.006323012881992314,
+    0.009653324509625399,
+    5.461406884107613e-05
+  ],
+  "kl_first_half": 0.01223506665533633,
+  "kl_second_half": 0.004853969289233238,
+  "kl_first_token": 0.018147120428680344,
+  "answer": " yes\n\nQ:",
+  "generated_ids": [
+    10035,
+    271,
+    48,
+    25
+  ],
+  "generated_tokens": 4,
+  "generation_seconds": 1.3729384411126375,
+  "truncated": false,
+  "parsed_answer": "yes",
+  "correct": true,
+  "parse_failure": false
+}

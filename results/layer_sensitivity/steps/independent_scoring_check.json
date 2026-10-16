@@ -1,0 +1,18 @@
+{
+  "status": "independent_valid-parsed-answer_ground-truth_comparison_passed",
+  "answers_checked": 3168,
+  "by_dataset": {
+    "boolq": 1056,
+    "arc": 1056,
+    "gsm8k": 1056
+  },
+  "parse_failures": {
+    "gsm8k": 84
+  },
+  "truncated": {
+    "boolq": 0,
+    "arc": 0,
+    "gsm8k": 54
+  },
+  "note": "Numeric comparison uses Decimal equality independently of frozen canonical-string scoring; unparseable formats remain explicitly incorrect under frozen policy."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "joint_raw_answers_checked": 480,
+  "unique_formal_requests": 96,
+  "oracle_gains_vs_fixed": 5,
+  "oracle_losses_vs_fixed": 9,
+  "all_joint_budgets_and_selected_layers_verified": true,
+  "reference_continuations_matched": true,
+  "full_restoration_verified": true,
+  "all_measured_source_hashes_unchanged": true,
+  "unique_frozen_sources": 153,
+  "documentation_links_checked": 54,
+  "audit_note": "Two initial ad-hoc audit attempts made wrong JSON-schema assumptions (audit lists and generated_text instead of answer). Corrected to declared strategy directories/schema; no experiment data or code changed."
+}

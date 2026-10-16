@@ -1,0 +1,25 @@
+{
+  "status": "independently_checked_raw_formal_counts_and_reference_caches",
+  "goal_complete": false,
+  "requests": 96,
+  "single_layer_rows": 3072,
+  "all_32_layers_per_request": true,
+  "counts": {
+    "boolq": 32,
+    "arc": 32,
+    "gsm8k": 32
+  },
+  "BF16_correct": {
+    "gsm8k": 17,
+    "arc": 28,
+    "boolq": 30
+  },
+  "mean_KL": 0.0010087121617656167,
+  "min_KL": 2.543534032741096e-05,
+  "max_KL": 0.022333857280588894,
+  "teacher_forced_token_values": 125824,
+  "reference_cache_bytes_checked": 1008605184,
+  "reference_cache_dtypes": [
+    "torch.bfloat16"
+  ]
+}

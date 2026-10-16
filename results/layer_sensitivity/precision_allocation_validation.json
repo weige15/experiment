@@ -1,0 +1,28 @@
+{
+  "status": "verified",
+  "requests": 96,
+  "measurements": 480,
+  "budget": 8,
+  "strategies": [
+    "fixed",
+    "random_0",
+    "random_1",
+    "random_2",
+    "request_oracle"
+  ],
+  "measurements_sha256": "563a1ebebb2f2d16423b6997e647ebc1bff6722002133469ef82e612bee58530",
+  "source_sha256": {
+    "quantization_sensitivity/__init__.py": "9954e82e50ea580f3caad0939850e09599098e49b1a05f9ddb4b1ce5372ab961",
+    "quantization_sensitivity/data.py": "8f409bd56974bb43a37c4bc88e318e3493ca847b3afd4b2049e33e325cdebe5d",
+    "quantization_sensitivity/model.py": "acdc488004eb55d27fc225221a496491ebbf2f13de7c154c6bd88aebe6593437",
+    "quantization_sensitivity/metrics.py": "5558abe656b547833a8446422059e1be598dcaa9ccda616f6917e8e7528dc05b",
+    "quantization_sensitivity/quantization.py": "23eb5b9f4070163c9a6cb19650b94c22f82ced06253d81763eb58d49b544f5aa",
+    "quantization_sensitivity/runner.py": "f2c28b99f4a76ed2aa7bef850774419343077f80ad7e9d272cdf05914d28d439",
+    "layer_sensitivity/__init__.py": "5d31f6ceebd92220e8488a5f9df279a1f36501c4a3a144a651894d99d2ca0ef6",
+    "layer_sensitivity/quantization.py": "c91dcdbe908bc0d2a3013cebaa286367393b86284ec7509405fe73285cf4a9ce",
+    "layer_sensitivity/runner.py": "5713fd715be7046c159c22b377dae37faa6225a1d2e75e1878336196036062bc",
+    "layer_sensitivity/selection.py": "511743afbb81e5dbe31e245f1788f3451c51f2f51253cec6e0f126039c076166",
+    "layer_sensitivity/precision_allocation_check.py": "8afb7ea2bd0ce2d88b93ee0dbcc46e1042786544f7bd93d06929882bdc9f9d36"
+  },
+  "validator_sha256": "babf23baec27d2296679276e8eb4a2a1029f27113933eb72930c4c4843b58f19"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "layers": [
+    0
+  ],
+  "actual_model": true,
+  "BF16_replay_exact": true,
+  "BF16_generation_restoration_exact": true,
+  "self_kl_max": 0,
+  "request_id": "gsm8k:test:371",
+  "n_measurements": 1
+}

@@ -1,0 +1,31 @@
+{
+  "status": "verified",
+  "ledger": "results/layer_sensitivity/steps/report_20261016T000504Z_962223",
+  "csv_files_exactly_identical": 20,
+  "report_exactly_identical": true,
+  "png_figures_exactly_identical": 4,
+  "metadata_identical_except_creation_time": true,
+  "pdf_note": "PDF creation timestamps may differ; vector figures were visually checked.",
+  "csv_sha256": {
+    "answer_failures.csv": "13ec01e6377bf6ae121b1d8d5c18088577169daafc3a556b228dfba407e37353",
+    "answers.csv": "8cd4a413b413b63353c25e0ea494a14d8b015fcdd2b499333141c6550057e49d",
+    "conservative_paired_accuracy_intervals.csv": "4519e74c3d1ee2dec4e70b6955f6345f53a6c9405a8308ce770d68fdb6e56e99",
+    "content_first_vectors.csv": "3333d3a3160373bc8a9c2bb97921ca1f84a4572d693d17c44cdc6cfaa2e778f7",
+    "content_second_vectors.csv": "858141f2790f5e4dd12d38756e7e37b8c181b4b0af22d32e70386e76d43d952b",
+    "content_vectors.csv": "924799d7014a3e0486977cde0b6c33dff379ebcbdab1743f97a3659c139e2fd9",
+    "controlled_profile_residuals.csv": "71ba668d665afb959ee3d17d1f752fd62dd7abf17c15189152f16cd24b4d29a5",
+    "cubic_prompt_output_coefficients.csv": "10a3878fff8fd5a58a646aba687823cd8462711c4598bec242f9d4e03e3139ea",
+    "cubic_prompt_output_profile_residuals.csv": "1cc403edab8cd1558843616f00570bb1831b97a73024ee3e187dcf577969029f",
+    "exact_accuracy_intervals.csv": "1d1bfd098e99d2fa75412ee38154e1b02709a767b521e5cd64ae120502d99678",
+    "first_token_vectors.csv": "c68fd321658c2915ee80c352efd0b93a7fa96fe346c6d28ea764c3fcc3077238",
+    "full_first_vectors.csv": "58d2e56d381ec6eaed8559fb9100689fe365723024b49dcd93be71ca77aca144",
+    "full_second_vectors.csv": "f60dc8feaaa25977388bd061d341e2b9c73a0b355c469bf7d891d96e51207e96",
+    "length_quartiles.csv": "c8f01af4179a224d682b718c5283dd8abedeeb3c1320219d94e0c7d61550f6d1",
+    "nonlinear_controlled_profile_residuals.csv": "5133310b356a8bfc474c81efc13424c0a3ef337177845bef363daf9a90919bd2",
+    "ranking_reversals.csv": "f8d3f1fec5964e958d802b209244ef171f33a1c2cd9fbf6e43c8680afcdca7f4",
+    "request_pairs.csv": "7bc90dd6fd4434f2735afd10917d75576d7b5fb708481e17db0b94d30c80a0e3",
+    "request_summary.csv": "eafcbc1a8fe178152852c9a6b4d4dfb305dd34460f31877ae2b1a485003b21c5",
+    "segment_stability.csv": "abcc4538806837f01cd70e5cf64648d2fe0a81daca8384532a701ed4cc6c6c5e",
+    "statistics.csv": "bf87940ef67085878d02ca17379123b95a81c4f6f8f12acfa306c253c9eb983f"
+  }
+}

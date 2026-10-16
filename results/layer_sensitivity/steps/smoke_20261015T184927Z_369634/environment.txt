@@ -1,0 +1,3 @@
+mode=smoke
+output=results/layer_sensitivity
+CUDA_VISIBLE_DEVICES=7

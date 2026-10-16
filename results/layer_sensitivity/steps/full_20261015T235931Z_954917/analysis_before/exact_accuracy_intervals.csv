@@ -1,0 +1,25 @@
+scope,configuration,requests,correct,accuracy,ci_low,ci_high,method
+all,BF16,96,75,0.78125,0.5806104967149175,0.9039396218702009,dataset-stratified Clopper-Pearson / union-bound 95%
+all,fixed,96,68,0.7083333333333334,0.5001036669873389,0.8596813327576234,dataset-stratified Clopper-Pearson / union-bound 95%
+all,random_0,96,60,0.625,0.41830963460943554,0.7976633694050945,dataset-stratified Clopper-Pearson / union-bound 95%
+all,random_1,96,67,0.6979166666666666,0.48780436826150897,0.8541371904246537,dataset-stratified Clopper-Pearson / union-bound 95%
+all,random_2,96,70,0.7291666666666666,0.5287386790061177,0.8660339351697686,dataset-stratified Clopper-Pearson / union-bound 95%
+all,request_oracle,96,64,0.6666666666666666,0.4644342727335536,0.82322630546496,dataset-stratified Clopper-Pearson / union-bound 95%
+arc,BF16,32,28,0.875,0.7100515798092443,0.9648693468966886,dataset-stratified Clopper-Pearson / union-bound 95%
+arc,fixed,32,27,0.84375,0.6721212343179582,0.9472494355978659,dataset-stratified Clopper-Pearson / union-bound 95%
+arc,random_0,32,27,0.84375,0.6721212343179582,0.9472494355978659,dataset-stratified Clopper-Pearson / union-bound 95%
+arc,random_1,32,27,0.84375,0.6721212343179582,0.9472494355978659,dataset-stratified Clopper-Pearson / union-bound 95%
+arc,random_2,32,26,0.8125,0.63560769013591,0.9279238345415024,dataset-stratified Clopper-Pearson / union-bound 95%
+arc,request_oracle,32,28,0.875,0.7100515798092443,0.9648693468966886,dataset-stratified Clopper-Pearson / union-bound 95%
+boolq,BF16,32,30,0.9375,0.7919305701049926,0.9923392636535436,dataset-stratified Clopper-Pearson / union-bound 95%
+boolq,fixed,32,27,0.84375,0.6721212343179582,0.9472494355978659,dataset-stratified Clopper-Pearson / union-bound 95%
+boolq,random_0,32,22,0.6875,0.49992241836783036,0.8388152759117995,dataset-stratified Clopper-Pearson / union-bound 95%
+boolq,random_1,32,26,0.8125,0.63560769013591,0.9279238345415024,dataset-stratified Clopper-Pearson / union-bound 95%
+boolq,random_2,32,30,0.9375,0.7919305701049926,0.9923392636535436,dataset-stratified Clopper-Pearson / union-bound 95%
+boolq,request_oracle,32,25,0.78125,0.6002717362878924,0.9072284677152807,dataset-stratified Clopper-Pearson / union-bound 95%
+gsm8k,BF16,32,17,0.53125,0.3474368092863928,0.7090601770939847,dataset-stratified Clopper-Pearson / union-bound 95%
+gsm8k,fixed,32,14,0.4375,0.2636381244109847,0.6233742684099061,dataset-stratified Clopper-Pearson / union-bound 95%
+gsm8k,random_0,32,11,0.34375,0.18571909171656614,0.5319310362802687,dataset-stratified Clopper-Pearson / union-bound 95%
+gsm8k,random_1,32,14,0.4375,0.2636381244109847,0.6233742684099061,dataset-stratified Clopper-Pearson / union-bound 95%
+gsm8k,random_2,32,14,0.4375,0.2636381244109847,0.6233742684099061,dataset-stratified Clopper-Pearson / union-bound 95%
+gsm8k,request_oracle,32,11,0.34375,0.18571909171656614,0.5319310362802687,dataset-stratified Clopper-Pearson / union-bound 95%

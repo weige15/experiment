@@ -1,0 +1,9 @@
+{
+  "status": "verified",
+  "existing_statistic_rows": 648,
+  "all_existing_numeric_statistics_exactly_unchanged": true,
+  "preserved_previous_derived_directory": "results/layer_sensitivity/steps/report_20261015T235515Z_947031",
+  "measurement_source_unchanged": true,
+  "cubic_design_columns": 21,
+  "cubic_design_rank": 16
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "model.layers.1.self_attn.q_proj.weight",
+    "numel": 16777216,
+    "changed_elements": 16487535,
+    "mse": 6.6325786320931e-06,
+    "packed_scale_sha256": "00429c9cf514c1990863439087a707f05445b624837c05a54b39c786054c0b1a"
+  },
+  {
+    "name": "model.layers.1.self_attn.k_proj.weight",
+    "numel": 4194304,
+    "changed_elements": 4123788,
+    "mse": 1.49394717254836e-05,
+    "packed_scale_sha256": "38a84bc50843ed4876d1c1054fdad29eb85aa4bdfbd324a720e0e581cec0f7e4"
+  },
+  {
+    "name": "model.layers.1.self_attn.v_proj.weight",
+    "numel": 4194304,
+    "changed_elements": 4118824,
+    "mse": 1.1874689818114348e-06,
+    "packed_scale_sha256": "d56dc739dcadbc3a31bd811b62605c7da915dd1b99c614c72c7023cdc96526a4"
+  },
+  {
+    "name": "model.layers.1.self_attn.o_proj.weight",
+    "numel": 16777216,
+    "changed_elements": 16468676,
+    "mse": 1.3902382534070057e-06,
+    "packed_scale_sha256": "0dbf38494a9235437b90715e8725b7ffc6d4ab831f1ac9f7e40c9b655814e46a"
+  },
+  {
+    "name": "model.layers.1.mlp.gate_proj.weight",
+    "numel": 58720256,
+    "changed_elements": 57637291,
+    "mse": 2.4933670244666118e-06,
+    "packed_scale_sha256": "ccb79620b6b20e99f336914460dfaf826daab3e09e03f46cb9bc4774dd8e37a1"
+  },
+  {
+    "name": "model.layers.1.mlp.up_proj.weight",
+    "numel": 58720256,
+    "changed_elements": 57628519,
+    "mse": 2.1136187829792367e-06,
+    "packed_scale_sha256": "99277e8208bdcb128d203a779ecca1bbbb63ff8ee5c373398a42f53981458475"
+  },
+  {
+    "name": "model.layers.1.mlp.down_proj.weight",
+    "numel": 58720256,
+    "changed_elements": 57628637,
+    "mse": 2.1434726582875944e-06,
+    "packed_scale_sha256": "39d90c14c46b8301576c88791e55f87ab9da5fa20efcfbcc35bed2802fd0c930"
+  }
+]

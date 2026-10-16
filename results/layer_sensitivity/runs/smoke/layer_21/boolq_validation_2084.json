@@ -1,0 +1,43 @@
+{
+  "request_id": "boolq:validation:2084",
+  "dataset": "boolq",
+  "role": "smoke",
+  "wording": "a",
+  "layer": 21,
+  "gold": "yes",
+  "input_tokens": 867,
+  "request_tokens": 91,
+  "bf16_answer": " yes\n\nQ:",
+  "bf16_correct": true,
+  "bf16_generated_ids": [
+    10035,
+    271,
+    48,
+    25
+  ],
+  "reference_logits_sha256": "cd75b4737ae169013fe0cdb7a01cb14dd7fc4767110e65a44031358b91e32c34",
+  "kl_mean": 0.00013579134106477453,
+  "kl_tokens": 4,
+  "token_kl": [
+    3.4846624424302735e-05,
+    0.0003725566195554643,
+    0.00013480524773793763,
+    9.56872541393415e-07
+  ],
+  "kl_first_half": 0.00020370162198988351,
+  "kl_second_half": 6.788106013966553e-05,
+  "kl_first_token": 3.4846624424302735e-05,
+  "answer": " yes\n\nQ:",
+  "generated_ids": [
+    10035,
+    271,
+    48,
+    25
+  ],
+  "generated_tokens": 4,
+  "generation_seconds": 1.4018479883670807,
+  "truncated": false,
+  "parsed_answer": "yes",
+  "correct": true,
+  "parse_failure": false
+}

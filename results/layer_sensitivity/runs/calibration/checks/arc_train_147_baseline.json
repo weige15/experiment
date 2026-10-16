@@ -1,0 +1,15 @@
+{
+  "precision": {
+    "linear_input_output_dtypes": [
+      [
+        "torch.bfloat16",
+        "torch.bfloat16"
+      ]
+    ],
+    "kv_cache_dtypes": [
+      "torch.bfloat16"
+    ]
+  },
+  "independent_replay_exact": true,
+  "self_kl_max": 0.0
+}

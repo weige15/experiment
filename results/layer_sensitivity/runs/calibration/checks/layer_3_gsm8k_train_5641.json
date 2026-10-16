@@ -1,0 +1,14 @@
+{
+  "independent_W4_replay_exact": true,
+  "precision": {
+    "linear_input_output_dtypes": [
+      [
+        "torch.bfloat16",
+        "torch.bfloat16"
+      ]
+    ],
+    "kv_cache_dtypes": [
+      "torch.bfloat16"
+    ]
+  }
+}

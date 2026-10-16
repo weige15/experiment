@@ -1,0 +1,60 @@
+{
+  "model_id": "meta-llama/Llama-3.1-8B",
+  "model_revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+  "seed": 20261015,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "hostname": "basic-1",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.56.1",
+    "accelerate": "1.10.1",
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pyarrow": "21.0.0"
+  },
+  "cuda_runtime": "12.8",
+  "cuda_visible_devices": "7",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "nvidia_smi": "Fri Oct 16 02:51:30 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3090        On  |   00000000:1B:00.0 Off |                  N/A |\n| 46%   51C    P2            126W /  275W |    4118MiB /  24576MiB |     20%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   1  NVIDIA GeForce RTX 3090        On  |   00000000:1C:00.0 Off |                  N/A |\n| 30%   31C    P8             31W /  275W |       6MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   2  NVIDIA GeForce RTX 3090        On  |   00000000:1D:00.0 Off |                  N/A |\n| 76%   70C    P2            271W /  275W |    1127MiB /  24576MiB |     87%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   3  NVIDIA GeForce RTX 3090        On  |   00000000:1E:00.0 Off |                  N/A |\n| 30%   32C    P8             27W /  275W |       4MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   4  NVIDIA GeForce RTX 3090        On  |   00000000:89:00.0 Off |                  N/A |\n| 30%   32C    P8             18W /  275W |       6MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   5  NVIDIA GeForce RTX 3090        On  |   00000000:8A:00.0 Off |                  N/A |\n| 30%   33C    P8             18W /  275W |       4MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   6  NVIDIA GeForce RTX 3090        On  |   00000000:8B:00.0 Off |                  N/A |\n| 30%   32C    P8             17W /  275W |       5MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   7  NVIDIA GeForce RTX 3090        On  |   00000000:8C:00.0 Off |                  N/A |\n| 30%   38C    P2            135W /  275W |   15628MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A         2631096      C   python                                 4108MiB |\n|    2   N/A  N/A          283928      C   ...onda3/envs/ddpm/bin/python3.9        584MiB |\n|    2   N/A  N/A          341115      C   ...onda3/envs/ddpm/bin/python3.9        528MiB |\n|    7   N/A  N/A          373592      C   .venv/bin/python                      15618MiB |\n+-----------------------------------------------------------------------------------------+\n",
+  "chat_template": "{{ bos_token }}{% for m in messages %}{% if m['role'] == 'system' %}{{ m['content'] + '\n\n' }}{% elif m['role'] == 'user' %}{{ 'Q: ' + m['content'] + '\n' }}{% else %}{{ 'A: ' + m['content'] + '\n\n' }}{% endif %}{% endfor %}{% if add_generation_prompt %}{{ 'A:' }}{% endif %}",
+  "chat_template_sha256": "51cc81377e183b22281cda2f8fdc72e60e2a0de86f0e92aee1958b6de6c526d9",
+  "activation_precision": "BF16 (standard Llama internal norm/softmax behavior)",
+  "kv_cache_precision": "BF16",
+  "attention": "sdpa",
+  "deterministic": true,
+  "max_new_tokens": {
+    "gsm8k": 256,
+    "arc": 16,
+    "boolq": 16
+  },
+  "git_commit": "46fa39cff0d82d9f6ad4587c8dd4c9e39ea60b64",
+  "source_sha256": {
+    "quantization_sensitivity/__init__.py": "9954e82e50ea580f3caad0939850e09599098e49b1a05f9ddb4b1ce5372ab961",
+    "quantization_sensitivity/analysis.py": "8640dbd56e724c8a31206a5ee2c52754a9861f33fac7cb63296637a18131c01b",
+    "quantization_sensitivity/data.py": "8f409bd56974bb43a37c4bc88e318e3493ca847b3afd4b2049e33e325cdebe5d",
+    "quantization_sensitivity/metrics.py": "5558abe656b547833a8446422059e1be598dcaa9ccda616f6917e8e7528dc05b",
+    "quantization_sensitivity/model.py": "acdc488004eb55d27fc225221a496491ebbf2f13de7c154c6bd88aebe6593437",
+    "quantization_sensitivity/quantization.py": "23eb5b9f4070163c9a6cb19650b94c22f82ced06253d81763eb58d49b544f5aa",
+    "quantization_sensitivity/runner.py": "f2c28b99f4a76ed2aa7bef850774419343077f80ad7e9d272cdf05914d28d439"
+  },
+  "args": {
+    "role": "smoke",
+    "requests": "results/layer_sensitivity/requests.jsonl",
+    "out": "results/layer_sensitivity/runs/smoke"
+  },
+  "started_utc": "2026-10-15T18:51:30.550013+00:00",
+  "measurement_sources": {
+    "quantization_sensitivity/__init__.py": "9954e82e50ea580f3caad0939850e09599098e49b1a05f9ddb4b1ce5372ab961",
+    "quantization_sensitivity/data.py": "8f409bd56974bb43a37c4bc88e318e3493ca847b3afd4b2049e33e325cdebe5d",
+    "quantization_sensitivity/model.py": "acdc488004eb55d27fc225221a496491ebbf2f13de7c154c6bd88aebe6593437",
+    "quantization_sensitivity/metrics.py": "5558abe656b547833a8446422059e1be598dcaa9ccda616f6917e8e7528dc05b",
+    "quantization_sensitivity/quantization.py": "23eb5b9f4070163c9a6cb19650b94c22f82ced06253d81763eb58d49b544f5aa",
+    "quantization_sensitivity/runner.py": "f2c28b99f4a76ed2aa7bef850774419343077f80ad7e9d272cdf05914d28d439",
+    "layer_sensitivity/__init__.py": "5d31f6ceebd92220e8488a5f9df279a1f36501c4a3a144a651894d99d2ca0ef6",
+    "layer_sensitivity/quantization.py": "c91dcdbe908bc0d2a3013cebaa286367393b86284ec7509405fe73285cf4a9ce",
+    "layer_sensitivity/runner.py": "5713fd715be7046c159c22b377dae37faa6225a1d2e75e1878336196036062bc"
+  },
+  "run_config_sha256": "19a74c044b8e3bff9dbe7ef4bfcb58cd442c3c9fb0301f3dde07125a4334ea75"
+}

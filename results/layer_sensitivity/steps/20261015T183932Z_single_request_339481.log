@@ -1,0 +1,34 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.60s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.58s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.55s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.09s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.27s/it]
+PASS layer=0, changed_matrices=7, KL=0.001288549, correct=False
+PASS layer=1, changed_matrices=7, KL=0.003746378, correct=False
+PASS layer=2, changed_matrices=7, KL=0.001354034, correct=False
+PASS layer=3, changed_matrices=7, KL=0.000933746, correct=False
+PASS layer=4, changed_matrices=7, KL=0.001107836, correct=False
+PASS layer=5, changed_matrices=7, KL=0.000940466, correct=False
+PASS layer=6, changed_matrices=7, KL=0.001472836, correct=False
+PASS layer=7, changed_matrices=7, KL=0.001300703, correct=False
+PASS layer=8, changed_matrices=7, KL=0.002207463, correct=True
+PASS layer=9, changed_matrices=7, KL=0.001353808, correct=False
+PASS layer=10, changed_matrices=7, KL=0.001687626, correct=False
+PASS layer=11, changed_matrices=7, KL=0.001620345, correct=False
+PASS layer=12, changed_matrices=7, KL=0.001658223, correct=False
+PASS layer=13, changed_matrices=7, KL=0.001512494, correct=False
+PASS layer=14, changed_matrices=7, KL=0.001524808, correct=False
+PASS layer=15, changed_matrices=7, KL=0.001519660, correct=False
+PASS layer=16, changed_matrices=7, KL=0.001339708, correct=True
+PASS layer=17, changed_matrices=7, KL=0.000957956, correct=False
+PASS layer=18, changed_matrices=7, KL=0.000799402, correct=False
+PASS layer=19, changed_matrices=7, KL=0.000664361, correct=False
+PASS layer=20, changed_matrices=7, KL=0.000611421, correct=False
+PASS layer=21, changed_matrices=7, KL=0.000635508, correct=False
+PASS layer=22, changed_matrices=7, KL=0.000477654, correct=False
+PASS layer=23, changed_matrices=7, KL=0.000510573, correct=False
+PASS layer=24, changed_matrices=7, KL=0.000427254, correct=False
+PASS layer=25, changed_matrices=7, KL=0.000556872, correct=False
+PASS layer=26, changed_matrices=7, KL=0.000435642, correct=False
+PASS layer=27, changed_matrices=7, KL=0.000426557, correct=False
+PASS layer=28, changed_matrices=7, KL=0.000687479, correct=False
+PASS layer=29, changed_matrices=7, KL=0.000678834, correct=False
+PASS layer=30, changed_matrices=7, KL=0.001103120, correct=False
+PASS layer=31, changed_matrices=7, KL=0.004683269, correct=True

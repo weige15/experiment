@@ -29,7 +29,7 @@ LAYER_OUT=results/layer_sensitivity_reproduction LAYER_GPU=7 \
   bash scripts/run_layer_sensitivity.sh full
 ```
 
-`LAYER_GPU` must refer to a device allocated to you. No automatic eviction or batching. Runtime is several hours on a shared RTX 3090; no measured full-runtime claim until the new campaign finishes. Each root is locked. Existing matching completed stages are revalidated, not rerun; partial stages resume only if input/source hashes match. Train-only choices must predate formal evaluation.
+`LAYER_GPU` must refer to a device allocated to you. No automatic eviction or batching. The actual formal scan took **9,842.32 s** and joint allocation **2,016.26 s**, including their attempt overhead, on one RTX 3090. These are execution timings, not W4-kernel performance measurements. Each root is locked. Existing matching completed stages are revalidated, not rerun; partial stages resume only if input/source hashes match. Train-only choices must predate formal evaluation.
 
 Success surfaces: smoke validator for all 24 × 32 rows; formal validator for all 96 × 32 rows; allocation validator for all 96 × 5 joint configurations; per-command `.exit` and final ledger `overall.exit` equal 0. These are necessary but not sufficient for completion: [requirement audit](layer_sensitivity_completion_audit.md) includes interpretation and manual verification.
 
@@ -56,7 +56,7 @@ CPU tests exercise integer codes, causal KL, strict parsing, all individual-laye
 bash scripts/run_layer_sensitivity.sh report
 ```
 
-Use `--root PATH` for validators or `LAYER_OUT=PATH` for the shell command. Report reconstruction reruns formal/allocation validation, archives previous derived analysis/report, then runs `python -m layer_sensitivity.analysis --bootstrap 2000`. It does not load a GPU model or regenerate raw answers. Primary values are full-vocabulary mean KL in nats/token, 32-layer ranks, Top-4/8 overlap, pair correlations/reversals, actual correctness, paired request-bootstrap CIs and descriptive controls. See the protocol for token-segment eligibility, oracle distinctions and escalation criteria.
+Use `--root PATH` for validators or `LAYER_OUT=PATH` for the shell command. Report reconstruction reruns formal/allocation validation, archives previous derived analysis/report/figures, then runs `python -m layer_sensitivity.analysis --bootstrap 2000`. It does not load a GPU model or regenerate raw answers. Primary values are full-vocabulary mean KL in nats/token, 32-layer ranks, Top-4/8 overlap, pair correlations/reversals, actual correctness, paired request-bootstrap CIs and descriptive controls. See the protocol for token-segment eligibility, oracle distinctions and escalation criteria.
 
 ## Common Failures
 
@@ -132,8 +132,11 @@ No publishing, destructive cleanup, lint framework or production server is requi
 
 ## Last Verified
 
-- Date: 2026-10-15 UTC (2026-10-16 local).
-- Verified: pinned real weights and data; fresh BF16 baseline; single-layer exact 7-matrix isolation/restoration/replay; single-request all-32-layer scan; strict gate validator; **61-test full suite**; Bash syntax; **24 × 32 smoke and raw validation**, including separate smoke command exit 0.
-- Verified next stage: train-only 24 × 32 selection scan and validation; fixed/random choices frozen before formal attempt.
-- Running: full command, currently formal 96-request × 32-layer scan.
-- Not yet verified: formal 96 × 32 scan, real joint allocations, real-data report reconstruction, and final objective completion. Update this section only from actual new exits.
+- Date: **2026-10-16 UTC**. No study inference remains running.
+- Pinned real model/data; fresh BF16 baseline; real seven-matrix isolation/restoration/replay; one-request all-32 scan: verified.
+- Smoke **24 × 32**, train selection **24 × 32**, formal **96 × 32**, joint allocations **96 × 5**: completed and raw-validated, exit 0. Fixed/random selection predates formal inference.
+- **63-test full suite**, compileall, Bash syntax and diff check: exit 0.
+- Original real smoke/full commands and final-code full validated resume: exit 0.
+- Two separate CPU-only report rebuilds: exit 0. **20 CSVs, report text and all four PNGs exactly reproduce**; source/input hashes match. PDF creation timestamps can differ.
+- All-request plots visually inspected, original reference tensors and scoring independently checked, review findings resolved without altering measured results. See [final audit](layer_sensitivity_completion_audit.md) and [review resolution](layer_sensitivity_review_resolution.md).
+- Conclusions remain bounded: measurable request-dependent profiles, GSM8K-only content-half stability, and **no demonstrated accuracy gain** from the request-KL heuristic. The statement of completion is about the executed study, not a positive utility result.

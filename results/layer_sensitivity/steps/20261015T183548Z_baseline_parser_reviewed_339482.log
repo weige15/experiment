@@ -1,0 +1,10 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.56s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:02,  1.50s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.46s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.02s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.19s/it]
+PASS BF16 request=gsm8k:test:371 tokens=789 correct=False parsed=8 truncated=False
+ The store sold 14 pairs of tennis shoes on Friday.
+The store sold double that number of shoes on Saturday, so 14 * 2 = 28 pairs of tennis shoes were sold on Saturday.
+The store sold one-half the amount that they did the day before on Sunday, so 28 * 1/2 = 14 pairs of tennis shoes were sold on Sunday.
+Six people returned their pairs because they didn't fit, so 14 - 6 = 8 pairs of tennis shoes were sold by the end of the sale.
+#### 8
+
+Q:

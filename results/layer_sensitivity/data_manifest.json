@@ -1,0 +1,60 @@
+{
+  "seed": 20261015,
+  "n_eval_per_dataset": 32,
+  "counts": {
+    "demo": 9,
+    "calibration": 24,
+    "smoke": 24,
+    "evaluation": 96
+  },
+  "sources": [
+    {
+      "dataset": "gsm8k",
+      "repo": "openai/gsm8k",
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "file": "main/train-00000-of-00001.parquet",
+      "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d"
+    },
+    {
+      "dataset": "gsm8k",
+      "repo": "openai/gsm8k",
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "file": "main/test-00000-of-00001.parquet",
+      "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+    },
+    {
+      "dataset": "arc",
+      "repo": "allenai/ai2_arc",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "file": "ARC-Challenge/train-00000-of-00001.parquet",
+      "sha256": "e488c1587ffdcfc8443f916c53488a95cd471c5790e0746c6bfe4cecf20962cb"
+    },
+    {
+      "dataset": "arc",
+      "repo": "allenai/ai2_arc",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "file": "ARC-Challenge/test-00000-of-00001.parquet",
+      "sha256": "62f03257e737aed263f55c6abf87c7bb0028a44a6bdd2a26eb1279eb42c1d1e9"
+    },
+    {
+      "dataset": "boolq",
+      "repo": "google/boolq",
+      "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+      "file": "data/train-00000-of-00001.parquet",
+      "sha256": "4f028e992c0bd4df30b9f056f4946b64f5c23028034ff0ed5ea467d8538cc623"
+    },
+    {
+      "dataset": "boolq",
+      "repo": "google/boolq",
+      "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+      "file": "data/validation-00000-of-00001.parquet",
+      "sha256": "52355d11524b4b874a9b9dcc278feb10f672d52c4f4eff9872e695ede59820f8"
+    }
+  ],
+  "exclusions": {
+    "gsm8k": [],
+    "arc": [],
+    "boolq": []
+  },
+  "requests_sha256": "e4c0c17977094e599914d9b6f73d7c88463cd106c5a6c75b1703292c82cb09d4"
+}

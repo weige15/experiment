@@ -1,0 +1,8 @@
+{
+  "sentinels": [
+    "arc:test:546",
+    "boolq:validation:169",
+    "gsm8k:test:371"
+  ],
+  "exact": true
+}

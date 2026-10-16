@@ -16,7 +16,7 @@ LAYER_GPU=7 bash scripts/run_layer_sensitivity.sh full
 bash scripts/run_layer_sensitivity.sh report
 ```
 
-Use `LAYER_OUT=results/layer_sensitivity_reproduction` for a fresh campaign. Host RAM ≥48 GiB recommended for the allocation weight bank. Each command records actual exits under `steps/`; success flags alone do not prove the scientific objective. Current execution status: [progress](layer_sensitivity_progress.md).
+Use `LAYER_OUT=results/layer_sensitivity_reproduction` for a fresh campaign. Host RAM ≥48 GiB recommended for the allocation weight bank. Each command records actual exits under `steps/`; success flags alone do not prove the scientific objective. The completed campaign has **96 × 32 formal rows**, **480 joint answers**, **63 passing tests**, and successful smoke/full/report commands. See [progress](layer_sensitivity_progress.md), [final audit](layer_sensitivity_completion_audit.md) and [report](../results/layer_sensitivity/report.md). The measured request-KL allocation did not demonstrate an accuracy gain.
 
 ## Important Files
 
@@ -77,9 +77,11 @@ Historical onboarding/runbook text is preserved as `archived_group_study_{onboar
 
 ## Documentation Freshness Checklist
 
-- [ ] README quickstart still works.
-- [ ] Run commands match the current code.
-- [ ] Test commands match the current code.
-- [ ] Important files list is still accurate.
-- [ ] Architecture map matches the current implementation.
-- [ ] Troubleshooting section includes recent known failures.
+- [x] Smoke/full/report quickstart commands executed successfully in the recorded environment.
+- [x] Run commands match the current code; a fresh root deliberately starts new inference.
+- [x] Test command executed: 63 passed, exit 0.
+- [x] Important files and architecture checked against current code.
+- [x] Raw evidence, scientific limitations and review corrections linked.
+- [x] Troubleshooting covers permission, memory, source guards, missing caches and invalid coverage.
+
+These checks do not claim an independently provisioned second machine was tested. The actual recorded environment and source/input hashes define this reproducibility evidence.

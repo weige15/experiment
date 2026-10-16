@@ -38,7 +38,14 @@ LAYER_OUT=results/layer_sensitivity_reproduction LAYER_GPU=7 \
   bash scripts/run_layer_sensitivity.sh full
 ```
 
-Command implementation is not execution proof. The current individual-layer campaign is **in progress**: BF16, single-layer isolation, one-request 32-layer gates and **24-request × 32-layer smoke** passed (exit 0); formal evaluation/allocation/report are not yet certified. Inspect the [execution journal](doc/layer_sensitivity_progress.md) and [audit](doc/layer_sensitivity_completion_audit.md) for actual command exits. Do not use historical completion claims for this goal.
+**Executed and verified (2026-10-16 UTC):** 24 × 32 smoke, 24 × 32 train-only selection, **96 × 32 formal measurements**, and **480 directly measured joint configurations**. **63 tests pass**; separate smoke/full/CPU-report commands exited **0**. Report reconstruction reproduced **20 CSVs, report text and four PNGs exactly**. See the [execution journal](doc/layer_sensitivity_progress.md), [requirement audit](doc/layer_sensitivity_completion_audit.md) and [review resolutions](doc/layer_sensitivity_review_resolution.md).
+
+## Main findings
+- Different-request layer-rank Spearman: **0.5737 [0.5421, 0.6032]**; Top-8 overlap: **0.5222 [0.5029, 0.5406]**. Profiles share global preferences but also vary measurably by request.
+- Within-request content-half Spearman: **0.8383 [0.8134, 0.8620]**, limited to **32 eligible GSM8K requests**, not short ARC/BoolQ answers.
+- Eight-layer-budget accuracy: fixed **70.83%**, request-KL oracle **66.67%**, random-set mean **68.40%**. Oracle minus fixed: **−4.17 pp [−11.46, +3.13]**—**no demonstrated accuracy benefit**. Neither oracle is a deployed router.
+
+Read the [actual report](results/layer_sensitivity/report.md) for all data, uncertainty, negative cases and limitations. R² refit ranges are descriptive, not validated heldout-performance confidence bounds.
 
 ## Outputs and code
 - `layer_sensitivity/{quantization,runner,gates}.py`: seven-matrix single-layer intervention and real-model scan.
@@ -47,7 +54,7 @@ Command implementation is not execution proof. The current individual-layer camp
 - `quantization_sensitivity/{data,model,metrics,quantization}.py`: reused pinned datasets/tokenizer/model, parsers, causal KL and weight-level RTN primitives. Historical grouped runner is not used by the new experiment.
 - `results/layer_sensitivity/runs/evaluation/{measurements.csv,measurements.parquet,sensitivity_vectors.csv}`: every request × 32 values, plus raw JSON/prompts/answers.
 - `results/layer_sensitivity/precision_allocation_check/`: every directly evaluated joint configuration.
-- `results/layer_sensitivity/{analysis/,figures/,report.md}`: derived statistics/CIs, all-request figures, failures and limitations (produced after complete inference).
+- `results/layer_sensitivity/{analysis/,figures/,report.md}`: verified real-data statistics/CIs, all-request figures, failures and limitations.
 - `results/layer_sensitivity/steps/`: append-only command, UTC start/end, GPU visibility, log and exit evidence.
 
 ## Documentation / troubleshooting
